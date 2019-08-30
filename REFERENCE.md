@@ -31,3 +31,9 @@ knex migrate:rollback
 .nullable()
 .primary()
 .unique()
+
+Create Seeds
+
+```javascript
+knex seed:make 01_addUsers
+```
