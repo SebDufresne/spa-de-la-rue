@@ -13,7 +13,7 @@ const Test_Query = gql`
 `;
 
 
-export default function TestGrapgql() {
+export default function TestGraphql() {
   const { loading, error, data } = useQuery(Test_Query);
   console.log('data: ', data)
   return (
