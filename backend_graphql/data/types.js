@@ -10,7 +10,7 @@ const typeDefs = gql`
     first_name: String
     last_name: String
     gender: String
-    contact_email: String
+    contact_email: String!
     contsct_phone: String
     contact_prefered: String
     description: String
