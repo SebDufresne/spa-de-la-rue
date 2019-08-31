@@ -1,15 +1,15 @@
-// Imports: Axios
-import axios from "axios";
+// Imports: database
+const db = require("../database");
 // GraphQL: Resolvers
-const RESOLVERS = {
+
+const resolvers = {
   Query: {
-    test_query: (parent, args) => {
-      return axios
-        .get(`www.apiurl.com/people`)
-        .then(response => response.data)
-        .catch(error => console.log(error));
+    users: async () => {
+      const users = await db.module.table("users");
+      // console.log("users: ", users);
+      return users;
     }
   }
 };
 // Exports
-export default RESOLVERS;
+export default resolvers;
