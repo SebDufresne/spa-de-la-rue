@@ -7,8 +7,19 @@ const typeDefs = gql`
   }
   type User {
     id: Int
-    firstName: String
-    lastName: String
+    first_name: String
+    last_name: String
+    gender: String
+    contact_email: String
+    contsct_phone: String
+    contact_prefered: String
+    description: String
+    picture: String
+    total_hours: String
+    password_hash: String
+    is_admin: Boolean
+    is_active: Boolean
+    is_disable: Boolean
   }
 `;
 // Exports

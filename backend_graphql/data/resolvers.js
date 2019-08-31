@@ -1,23 +1,12 @@
-// Imports: Axios
-import axios from "axios";
+// Imports: database
+const db = require("../database");
 // GraphQL: Resolvers
-
-const users =[
-  {
-    id: 1, 
-    firstName: 'Bob', 
-    lastName: 'poulet'
-  }, 
-  {
-    id: 2, 
-    firstName: 'Bobbbb', 
-    lastName: 'chicken'
-  }
-]
 
 const resolvers = {
   Query: {
-    users: ()=>{
+    users: async () => {
+      const users = await db.module.table("users");
+      // console.log("users: ", users);
       return users;
     }
   }
