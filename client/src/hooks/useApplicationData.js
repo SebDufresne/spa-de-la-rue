@@ -1,29 +1,14 @@
-import React, {useEffect, useReducer} from 'react';
+import {useEffect, useReducer} from 'react';
 import axios from 'axios';
-import { type } from 'os';
 
-const SET_USERS = 'SET_USERS';
-  
-const dataReducer = (state, action) =>{
-
-  const actions ={
-
-    SET_USERS: {
-      ...state,
-      users: action.users
-    }
-
-  }
-
-  if (!actions[action.type]) {
-    throw new Error('Type of action not found');
-  }
-  return actions[action.type];
-}
+import {
+  reducer,
+  SET_USERS
+} from 'reducers/application';
 
 const useApplicationData = () => {
 
-  const [state, dispatch] = useReducer(dataReducer, {users: []})
+  const [state, dispatch] = useReducer(reducer, {users: []})
 
   useEffect(() => {
     axios
