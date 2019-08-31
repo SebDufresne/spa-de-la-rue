@@ -16,11 +16,11 @@ exports.seed = function(knex) {
           contact_phone:'15555555555',
           contact_prefered:'email',
           description: faker.lorem,
-          picture: '',
+          picture: 'images/avatars/missing_avatar.svg',
           total_hours: 0,
           password_hash:'$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.',
+          status: 'active',
           is_admin: true,
-          is_active: true,
           is_disable: false,
         },
       ]);
