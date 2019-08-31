@@ -1,18 +1,18 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-/* GET users listing. */
+// /* GET users listing. */
 
-module.exports = function(knex) {
-  router.get('/', function(req, res) {
-    knex
-      .select('*')
-      .from('users')
-      .then(result => {
-        res.json(result);
-      })
-      .catch(error => console.log(error));
-  });  
+// module.exports = function(knex) {
+//   router.get('/', function(req, res) {
+//     knex
+//       .select('*')
+//       .from('users')
+//       .then(result => {
+//         res.json(result);
+//       })
+//       .catch(error => console.log(error));
+//   });  
 
-  return router;
-}
+//   return router;
+// }
