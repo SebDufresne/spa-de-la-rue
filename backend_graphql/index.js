@@ -1,5 +1,6 @@
 // Imports: Express
 import express from "express";
+import database from "./database";
 const APP = express();
 // Imports: GraphQL
 import SERVER from "./data/schema.js";
