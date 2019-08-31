@@ -8,6 +8,7 @@ A web platform simplifying the organization of non-profit events and improving t
 [Knex](http://knexjs.org/) (backend)
 [node-sass](https://github.com/sass/node-sass) (client)
 [React](https://reactjs.org/docs/getting-started.html) (client) (16.9.0)
+[Storybook](https://storybook.js.org/) (client) (5.1.11)
 
 ## npm packages
 
@@ -38,3 +39,9 @@ npm start
 ```
 
 [Landing Page](http://localhost:3000)
+
+### Storybook
+
+```javascript
+npm start
+```
