@@ -1,5 +1,7 @@
 # Le Spa de La Rue
 
+A web platform simplifying the organization of non-profit events and improving the coordination of a team of multiple volunteers.
+
 ## Dependencies
 
 [express](https://expressjs.com/) (backend)
@@ -19,7 +21,7 @@
 [faker](https://www.npmjs.com/package/faker) (backend)
 [nodemon](https://www.npmjs.com/package/nodemon) (backend)
 
-## Lauching Project (Development)
+## Launching Project (Development)
 
 ### Backend
 
@@ -35,4 +37,4 @@ npm run dev
 npm start
 ```
 
-[webpage](http://localhost:3000)
+[Landing Page](http://localhost:3000)

@@ -29,11 +29,7 @@
 <kind_of_branch>/<branch_name>
 
 doc/
-
 feature/
-
 hotfix/
-
 setup/
-
 test/
