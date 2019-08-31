@@ -37,3 +37,8 @@ Create Seeds
 ```javascript
 knex seed:make 01_addUsers
 ```
+
+npm i -D faker
+
+knex seed:run
+
