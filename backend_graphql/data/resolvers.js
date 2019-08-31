@@ -1,7 +1,7 @@
 // Imports: Axios
 import axios from "axios";
 // GraphQL: Resolvers
-const RESOLVERS = {
+const resolvers = {
   Query: {
     test_query: (parent, args) => {
       return axios
@@ -12,4 +12,4 @@ const RESOLVERS = {
   }
 };
 // Exports
-export default RESOLVERS;
+export default resolvers;
