@@ -1,25 +1,29 @@
-import React from 'react'
-import {Query} from 'react-apollo'
-import {gql} from 'apollo-boost'
+import React from "react";
+import { Query } from "react-apollo";
+import { gql } from "apollo-boost";
 
 const Test_Query = gql`
   {
-    user(id: 1) {
-      id, 
-      first_name, 
+    users {
+      id
+      first_name
       last_name
     }
   }
-`
+`;
 
 export default function TestGrapgql() {
   return (
-    <Query query={Test_Query}>
-      {({data: {user}, loading})=>{
-        return <p>
-          {user.first_name}
-        </p>
-      }}
-    </Query>
-  )
+    <React.Fragment>
+      <h1 className="container">Test</h1>
+      <Query query={Test_Query}>
+        {({ loading, error, data }) => {
+          if (loading) return <h4>Loading...</h4>;
+          if (error) console.log(error);
+          console.log("data: ", data);
+          return <h1>test</h1>;
+        }}
+      </Query>
+    </React.Fragment>
+  );
 }

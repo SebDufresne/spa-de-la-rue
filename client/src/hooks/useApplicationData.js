@@ -1,5 +1,7 @@
 import {useEffect, useReducer} from 'react';
 import axios from 'axios';
+import { Query } from "react-apollo";
+import { gql } from "apollo-boost";
 
 import {
   reducer,
