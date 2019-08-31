@@ -9,6 +9,7 @@ const Test_Query = gql`
       id
       first_name
       last_name
+      contact_email
     }
   }
 `;
@@ -19,10 +20,10 @@ export default function Application() {
   if (loading) return "Loading...";
 
   if (error) return `Error! ${error.message}`;
-  
+
   const userList = data.users.map(user => (
     <li key={user.id}>
-      {user.first_name} {user.last_name} {user.email}
+      {user.first_name} {user.last_name} {user.contact_email}
     </li>
   ));
 
