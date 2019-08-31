@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Application from 'components/Application';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Appointment', () => {
+  it('renders without crashing', async () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Application />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 });

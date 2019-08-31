@@ -19,7 +19,6 @@ export default function Application() {
     
     </ul>
 
-
     </div>
   );
 };
