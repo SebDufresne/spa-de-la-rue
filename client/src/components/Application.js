@@ -1,6 +1,5 @@
 import React from "react";
 import "components/Application.scss";
-// import useApplicationData from "hooks/useApplicationData";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
@@ -17,22 +16,22 @@ const Test_Query = gql`
 export default function Application() {
   // const { state } = useApplicationData();
   const { loading, error, data } = useQuery(Test_Query);
-  const userList = [];
   if (loading) return "Loading...";
+
   if (error) return `Error! ${error.message}`;
+  
+  const userList = data.users.map(user => (
+    <li key={user.id}>
+      {user.first_name} {user.last_name} {user.email}
+    </li>
+  ));
+
+
   return (
     <div className="App">
       <h1>List of users</h1>
 
-      <ul>
-        {
-          data.users.map(user => (
-            <li key={user.id}>
-              {user.first_name} {user.last_name} {user.email}
-            </li>
-          ))
-        }
-      </ul>
+      <ul>{userList}</ul>
     </div>
   );
 }

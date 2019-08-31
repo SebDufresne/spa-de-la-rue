@@ -1,18 +1,18 @@
-export const SET_USERS = 'SET_USERS';
+// export const SET_USERS = 'SET_USERS';
   
-export const reducer = (state, action) =>{
+// export const reducer = (state, action) =>{
 
-  const actions ={
+//   const actions ={
 
-    SET_USERS: {
-      ...state,
-      users: action.users
-    }
+//     SET_USERS: {
+//       ...state,
+//       users: action.users
+//     }
 
-  }
+//   }
 
-  if (!actions[action.type]) {
-    throw new Error('Type of action not found');
-  }
-  return actions[action.type];
-}
+//   if (!actions[action.type]) {
+//     throw new Error('Type of action not found');
+//   }
+//   return actions[action.type];
+// }

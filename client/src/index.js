@@ -4,7 +4,6 @@ import "index.scss";
 import Application from "components/Application";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
-import TestGraphql from "components/TestGraphql";
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
