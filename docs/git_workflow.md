@@ -33,3 +33,5 @@ feature/
 hotfix/
 setup/
 test/
+
+example: doc/added-git-documentation
