@@ -2,24 +2,27 @@
 
 A web platform simplifying the organization of non-profit events and improving the coordination of a team of multiple volunteers.
 
-## Dependencies
+## Dependencies (Client)
 
-[express](https://expressjs.com/) (backend)
-[Knex](http://knexjs.org/) (backend)
+[axios](https://www.npmjs.com/package/axios) (client)
 [node-sass](https://github.com/sass/node-sass) (client)
 [React](https://reactjs.org/docs/getting-started.html) (client) (16.9.0)
 
-## npm packages
+## Dependencies (Backend)
 
-[axios](https://www.npmjs.com/package/axios) (client)
+[express](https://expressjs.com/) (backend)
 [ejs](https://www.npmjs.com/package/ejs) (backend)
+[Knex](http://knexjs.org/) (backend)
 [pg](https://www.npmjs.com/package/pg) (backend)
 
-## npm packages (Development)
+## Dependencies (Development)
 
 [dotenv](https://www.npmjs.com/package/dotenv) (backend)
+[eslint](https://www.npmjs.com/package/eslint) (client)
 [faker](https://www.npmjs.com/package/faker) (backend)
+[jest](https://jestjs.io/) (client)
 [nodemon](https://www.npmjs.com/package/nodemon) (backend)
+[Storybook](https://storybook.js.org/) (client) (5.1.11)
 
 ## Launching Project (Development)
 
@@ -38,3 +41,15 @@ npm start
 ```
 
 [Landing Page](http://localhost:3000)
+
+### Storybook
+
+```javascript
+npm start
+```
+
+### Jest
+
+```javascript
+npm test
+```
