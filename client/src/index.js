@@ -17,7 +17,6 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Application />
-    <TestGraphql />
   </ApolloProvider>,
   document.getElementById("root")
 );
