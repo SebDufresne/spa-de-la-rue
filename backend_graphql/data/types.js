@@ -1,15 +1,26 @@
 // Imports: GraphQL
 import { gql } from "apollo-server-express";
 // GraphQL: TypeDefs
-const TYPEDEFS = gql`
+const typeDefs = gql`
   type Query {
-    test_query: Test
+    users: [User]
   }
-  type Test {
-    test_field_1: String
-    test_field_2: Int
-    test_field_3: Boolean
+  type User {
+    id: Int
+    first_name: String
+    last_name: String
+    gender: String
+    contact_email: String!
+    contsct_phone: String
+    contact_prefered: String
+    description: String
+    picture: String
+    total_hours: String
+    password_hash: String
+    is_admin: Boolean
+    is_active: Boolean
+    is_disable: Boolean
   }
 `;
 // Exports
-export default TYPEDEFS;
+export default typeDefs;
