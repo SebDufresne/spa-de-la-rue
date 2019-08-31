@@ -42,3 +42,6 @@ npm i -D faker
 
 knex seed:run
 
+### Test Backend
+
+http://localhost:3001/api/users

@@ -8,3 +8,7 @@
 
 [dotenv](https://www.npmjs.com/package/dotenv)
 [nodemon](https://www.npmjs.com/package/nodemon)
+
+## Run procject (dev mode)
+
+npm run dev
