@@ -19,7 +19,6 @@ const useApplicationData = () => {
 
   const { data, error, loading } = useQuery(Test_Query);
 
-  
   useEffect(() => {
     if (!loading && !error) {
       dispatch({ type: SET_USERS, users: data.users });
