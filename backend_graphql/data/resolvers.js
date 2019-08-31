@@ -1,13 +1,24 @@
 // Imports: Axios
 import axios from "axios";
 // GraphQL: Resolvers
+
+const users =[
+  {
+    id: 1, 
+    firstName: 'Bob', 
+    lastName: 'poulet'
+  }, 
+  {
+    id: 2, 
+    firstName: 'Bobbbb', 
+    lastName: 'chicken'
+  }
+]
+
 const resolvers = {
   Query: {
-    test_query: (parent, args) => {
-      return axios
-        .get(`www.apiurl.com/people`)
-        .then(response => response.data)
-        .catch(error => console.log(error));
+    users: ()=>{
+      return users;
     }
   }
 };

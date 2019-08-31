@@ -3,12 +3,12 @@ import { gql } from "apollo-server-express";
 // GraphQL: TypeDefs
 const typeDefs = gql`
   type Query {
-    test_query: User
+    users: [User]
   }
   type User {
     id: Int
-    test_field_1: String
-    test_field_3: Boolean
+    firstName: String
+    lastName: String
   }
 `;
 // Exports
