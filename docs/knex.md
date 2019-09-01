@@ -12,6 +12,11 @@
 .primary()
 .unique()
 
+### Foreign key
+
+table.integer('address_id');
+table.foreign('address_id').references('id').inTable('addresses');
+
 ## Quick Commands
 
 ### Migrations
