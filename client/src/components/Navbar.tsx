@@ -4,7 +4,7 @@ import "components/Navbar.scss";
 export default function Navbar() {
   return (
     <React.Fragment>
-      <nav className="navbar navbar-expand-lg navbar-expand-md fixed-top navbar-light bg-light nav justify-content-between">
+      <nav className="navbar navbar-expand fixed-top navbar-light bg-light nav">
         <a className="Nav-brand" href="/">
           Logo
         </a>
@@ -18,6 +18,12 @@ export default function Navbar() {
           </a>
           <a className="nav-item nav-link" href="/">
             News
+          </a>
+          <a className="nav-item nav-link" href="/">
+            Press
+          </a>
+          <a className="nav-item nav-link" href="/">
+            Support Us
           </a>
         </li>
       </nav>
