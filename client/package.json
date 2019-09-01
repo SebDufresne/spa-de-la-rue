@@ -33,6 +33,7 @@
     "test:coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 8080 -s public --ci",
+    "build-storybook": "build-storybook -s public",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
   },
   "eslintConfig": {
