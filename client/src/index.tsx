@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "index.scss";
 import Application from "components/Application";
+import Navbar from "components/Navbar";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
@@ -16,6 +17,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
+    <Navbar />
     <Application />
   </ApolloProvider>,
   document.getElementById("root")
