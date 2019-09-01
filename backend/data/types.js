@@ -4,13 +4,14 @@ import { gql } from "apollo-server-express";
 const typeDefs = gql`
   type Query {
     users: [User]
+    user(id: ID): User
   }
   type User {
     id: ID
     first_name: String!
     last_name: String!
     gender: String!
-    contact_email: String!
+    contact_email: String
     contact_phone: String
     contact_prefered: String
     description: String
