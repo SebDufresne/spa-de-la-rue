@@ -4,28 +4,34 @@ import "components/Navbar.scss";
 export default function Navbar() {
   return (
     <React.Fragment>
-      <nav className="navbar navbar-expand fixed-top navbar-light bg-light nav">
+      <nav className="navbar navbar-expand-lg navbar-expand-md fixed-top navbar-light bg-light nav justify-content-between">
         <a className="Nav-brand" href="/">
           Logo
         </a>
-
-        <li
-          className="collapse navbar-collapse d-flex justify-content-end"
-          id="collapsibleNavbar"
-        >
-          <a className="nav-item nav-link" href="/">
-            About us
-          </a>
-          <a className="nav-item nav-link" href="/">
-            News
-          </a>
-          <a className="nav-item nav-link" href="/">
-            Press
-          </a>
+        <div className="d-flex">
+          <li className="collapse navbar-collapse " id="collapsibleNavbar">
+            <a className="nav-item nav-link" href="/">
+              About us
+            </a>
+            <a className="nav-item nav-link" href="/">
+              News
+            </a>
+            <a className="nav-item nav-link" href="/">
+              Press
+            </a>
+          </li>
           <a className="nav-item nav-link" href="/">
             Support Us
           </a>
-        </li>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span className="navbar-toggler-icon navbar-inverse"></span>
+          </button>
+        </div>
       </nav>
     </React.Fragment>
   );
