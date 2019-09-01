@@ -11,3 +11,7 @@
 [Jest] (https://jestjs.io/docs/en/getting-started#using-typescript)
 
 [Storybook Configuration] (https://storybook.js.org/docs/configurations/typescript-config/)
+
+```
+./node_modules/.bin/tsc --init
+```
