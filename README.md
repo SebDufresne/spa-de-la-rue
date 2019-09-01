@@ -17,6 +17,7 @@ A web platform simplifying the organization of non-profit events and improving t
 
 [eslint](https://www.npmjs.com/package/eslint) [^6.3.0]
 [jest](https://jestjs.io/) [included]
+[TypeScrypt](https://www.typescriptlang.org/) [^3.6.2]
 [Storybook](https://storybook.js.org/) [5.1.11]
 
 ## Backend
