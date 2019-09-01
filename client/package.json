@@ -9,7 +9,6 @@
     "@types/node": "^12.7.3",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
-    "@types/storybook__react": "^4.0.2",
     "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-link-http": "^1.5.15",
@@ -51,9 +50,10 @@
     "@babel/core": "^7.5.5",
     "@storybook/addon-info": "^5.1.11",
     "@storybook/react": "^5.1.11",
+    "@types/storybook__react": "^4.0.2",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.3.0",
-    "storybook-addon-react-docgen": "^1.2.6"
+    "storybook-addon-react-docgen": "^1.2.6",
+    "tslint-react": "^4.0.0"
   },
   "jest": {
     "watchPathIgnorePatterns": [
