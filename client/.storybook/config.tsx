@@ -5,6 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 
 function loadStories() {
   require('../stories/index.tsx');
+  require('../stories/button.tsx');
   // You can require as many stories as you need.
 }
 
