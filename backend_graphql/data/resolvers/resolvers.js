@@ -1,5 +1,5 @@
 // Imports: database
-const db = require("../database");
+const db = require("../../database");
 // GraphQL: Resolvers
 
 const resolvers = {
