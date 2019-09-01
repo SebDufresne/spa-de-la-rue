@@ -22,11 +22,10 @@ export default function Application() {
   if (error) return `Error! ${error.message}`;
 
   const userList = data.users.map(user => (
-    <li key={user.id}>
+    <li key={user.id} className="list-group-item text-danger">
       {user.first_name} {user.last_name} {user.contact_email}
     </li>
   ));
-
 
   return (
     <div className="App">
