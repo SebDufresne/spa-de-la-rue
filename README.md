@@ -8,6 +8,7 @@ A web platform simplifying the organization of non-profit events and improving t
 
 ### Dependencies
 
+[awesome-typescript-loader](https://www.npmjs.com/package/awesome-typescript-loader)[^5.2.1]
 [axios](https://www.npmjs.com/package/axios) [^0.19.0]
 [bootstrap](https://www.npmjs.com/package/bootstrap) [^4.3.1]
 [node-sass](https://github.com/sass/node-sass) [^4.12.0]
