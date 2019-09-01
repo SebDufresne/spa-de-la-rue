@@ -26,9 +26,10 @@
     "typescript": "^3.6.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts-ts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 8080 -s public --ci"
   },
