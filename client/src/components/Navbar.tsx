@@ -10,17 +10,17 @@ export default function Navbar() {
         </a>
         <div className="d-flex">
           <li className="collapse navbar-collapse " id="collapsibleNavbar">
-            <a className="nav-item nav-link" href="/">
+            <a className="nav-link" href="/">
               About us
             </a>
-            <a className="nav-item nav-link" href="/">
+            <a className="nav-link" href="/">
               News
             </a>
-            <a className="nav-item nav-link" href="/">
+            <a className="nav-link" href="/">
               Press
             </a>
           </li>
-          <a className="nav-item nav-link" href="/">
+          <a className="nav-link" href="/">
             Support Us
           </a>
           <button
