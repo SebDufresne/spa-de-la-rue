@@ -1,3 +1,11 @@
+@import "~normalize.css/normalize.css";
+
+@import "styles/variables.scss";
+
+@import "styles/reset.scss";
+
+@import "styles/mixins.scss";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,3 +19,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
