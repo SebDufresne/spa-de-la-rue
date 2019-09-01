@@ -52,7 +52,9 @@
     "@storybook/react": "^5.1.11",
     "@types/storybook__react": "^4.0.2",
     "babel-loader": "^8.0.6",
+    "eslint": "^6.3.0",
     "storybook-addon-react-docgen": "^1.2.6",
+    "tslint": "^5.19.0",
     "tslint-react": "^4.0.0"
   },
   "jest": {
