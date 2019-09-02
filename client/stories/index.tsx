@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { MemoryRouter } from "react-router";
 import Logo from "../src/components/navbar/Logo";
 import Category from "../src/components/navbar/Category";
+import CreateVolunteer from "../src/components/form/volunteer/CreateVolunteer";
 import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
@@ -19,3 +20,9 @@ storiesOf("Navbar", module)
   ))
   .add("Logo component", () => <Logo />)
   .add("category(can hover on)", () => <Category {...categoryInfoEle} />);
+
+storiesOf("Form", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("volunteer form", () => <CreateVolunteer />);
