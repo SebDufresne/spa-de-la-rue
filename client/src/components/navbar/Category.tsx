@@ -1,30 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-interface categoryInfo {
-  title: String;
-  path: String;
+interface dropdownInfo {
+  title: string;
+  path: string;
 }
 
 interface propsInfo {
-  info: categoryInfo[];
+  [key: string]: dropdownInfo[];
 }
 
 export default function Category(props: propsInfo) {
+  const key = Object.keys(props)[0];
+
   return (
     <li className="dropdown">
       <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-        {props.info[0].title}
+        {key}
       </a>
       <ul className="dropdown-menu">
-        <li>
-          <a href="#">Blogs</a>
-        </li>
-        <li>
-          <a href="#">schedule</a>
-        </li>
-        <li>
-          <a href="#">Events</a>
-        </li>
+        {props[key].map(dropdownMenu => {
+          return (
+            <li>
+              <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>{" "}
+            </li>
+          );
+        })}
       </ul>
     </li>
   );
