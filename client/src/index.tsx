@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "index.scss";
 import Application from "components/Application";
-import Navbar from "components/Navbar";
+import Navbar from "components/Navbar.js";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
