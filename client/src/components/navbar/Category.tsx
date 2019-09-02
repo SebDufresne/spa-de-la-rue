@@ -1,10 +1,19 @@
 import React from "react";
 
-export default function Category() {
+interface categoryInfo {
+  title: String;
+  path: String;
+}
+
+interface propsInfo {
+  info: categoryInfo[];
+}
+
+export default function Category(props: propsInfo) {
   return (
     <li className="dropdown">
       <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-        News
+        {props.info[0].title}
       </a>
       <ul className="dropdown-menu">
         <li>

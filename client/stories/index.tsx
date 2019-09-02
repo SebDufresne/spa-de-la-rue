@@ -16,9 +16,11 @@ storiesOf("Button", module)
     </Button>
   ));
 
+const categoryInfoArr = [{title: 'Testing', path: "/"}];
+
 storiesOf("Navbar", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("Logo component", () => <Logo />)
-  .add("category component", () => <Category />);
+  .add("category component", () => <Category info={categoryInfoArr} />);
