@@ -1,14 +1,13 @@
 import React from "react";
 import "components/Navbar.scss";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AboutUs from "./AboutUs";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-      <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm fixed-top navbar-light bg-light justify-content-between nav">
-        <a className="navbar-brand" href="#">
-          Logo
-        </a>
+      <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">
+        <div className="navbar-brand">
+        <Link to="/">Logo</Link>
+        </div>
         <div className="d-flex">
           <ul className="collapse navbar-collapse" id="collapsibleNavbar">
             <li className="nav-link">
@@ -63,7 +62,6 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
         </div>
-        <Route path="/about/" component={AboutUs} />
       </nav>
       
   );
