@@ -11,18 +11,41 @@ export default function Navbar() {
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
           <li className="nav-item">
             <a className="nav-link" href="#">
-              About us
+              About Us
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
+          <li className="dropdown">
+            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
               News
             </a>
+            <ul className="dropdown-menu">
+              <li>
+                <a href="#">Blogs</a>
+              </li>
+              <li>
+                <a href="#">schedule</a>
+              </li>
+              <li>
+                <a href="#">Events</a>
+              </li>
+            </ul>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
+
+          <li className="dropdown">
+            <a className="dropdown-toggle" data-toggle="dropdown" href="#">
               Press
             </a>
+            <ul className="dropdown-menu">
+              <li>
+                <a href="#">Pictures</a>
+              </li>
+              <li>
+                <a href="#">Videos</a>
+              </li>
+              <li>
+                <a href="#">Meet Us</a>
+              </li>
+            </ul>
           </li>
         </ul>
         <li className="nav-item">
@@ -36,9 +59,6 @@ export default function Navbar() {
           type="button"
           data-toggle="collapse"
           data-target="#collapsibleNavbar"
-          aria-controls="collapsibleNavbar"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
