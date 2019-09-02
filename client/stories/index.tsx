@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { MemoryRouter } from "react-router";
 import Logo from "../src/components/navbar/Logo";
 import Category from "../src/components/navbar/Category";
-import CreateVolunteer from "../src/components/form/volunteer/CreateVolunteer";
+import SmallForm from "../src/components/form/SmallForm";
 import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
@@ -25,4 +25,4 @@ storiesOf("Form", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
-  .add("volunteer form", () => <CreateVolunteer />);
+  .add("volunteer form", () => <SmallForm type="email" name="email" />);
