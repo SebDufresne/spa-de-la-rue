@@ -24,7 +24,6 @@ ReactDOM.render(
         <Route exact path="/" component={Application} />
         <Route path = "/about/" component={AboutUs} />
       </Switch>
-      <Application />
     </Router>
   </ApolloProvider>,
   document.getElementById("root")
