@@ -10,9 +10,19 @@ const resolvers = {
     users: () => {
       return users;
     },
-    user: (root, args, context) => {
-      // console.log(Number(args.id));
-      return db.knex("users").where("id", args.id);
+    user: (root, { id }, context) => {
+      console.log(id);
+      return db.knex("users").where("id", id);
+    }
+  },
+  Mutation: {
+    addUser: (root, args) => {
+      db.knex("users").insert({
+        first_name: args.first_name,
+        last_name: args.last_name, 
+        gender: args.gender, 
+        contact_email: args.contact_email
+      });
     }
   }
 };
