@@ -22,7 +22,7 @@ export default function Category(props: propsInfo) {
         {props[key].map(dropdownMenu => {
           return (
             <li>
-              <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>{" "}
+              <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
             </li>
           );
         })}

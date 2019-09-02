@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { MemoryRouter } from "react-router";
 import Logo from "../src/components/navbar/Logo";
 import Category from "../src/components/navbar/Category";
+import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
   storybookCategory: [
@@ -17,5 +18,4 @@ storiesOf("Navbar", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("Logo component", () => <Logo />)
-  .add("category without hovering", () => <Category {...categoryInfoEle} />)
-  .add("category with hover", ()=><Category {...categoryInfoEle} />)
+  .add("category(can hover on)", () => <Category {...categoryInfoEle} />);
