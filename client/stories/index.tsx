@@ -6,6 +6,7 @@ import Logo from "../src/components/navbar/Logo";
 import Category from "../src/components/navbar/Category";
 import SmallInput from "../src/components/form/SmallInput";
 import LongInput from "../src/components/form/LongInput";
+import ChooseBox from "../src/components/form/ChooseBox";
 import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
@@ -35,5 +36,12 @@ storiesOf("Form", module)
       name="address"
       placeholder="Address"
       label="Your address"
+    />
+  ))
+  .add("choose box", () => (
+    <ChooseBox
+      label="prefered contact"
+      default="Choose..."
+      options={["By phone", "By eamil"]}
     />
   ));

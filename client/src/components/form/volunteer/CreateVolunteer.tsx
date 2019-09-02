@@ -1,6 +1,7 @@
 import React from "react";
 import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
+import ChooseBox from "../ChooseBox";
 
 export default function CreateVolunteer() {
   return (
@@ -48,14 +49,11 @@ export default function CreateVolunteer() {
           placeholder="Phone number"
           label="Phone number"
         />
-        <div className="form-group col-md-4">
-          <label>Gender</label>
-          <select id="inputState" className="form-control">
-            <option selected>Choose...</option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
+        <ChooseBox
+          label="Gender"
+          default="Choose..."
+          options={["Male", "Female", "Rather not say"]}
+        />
       </div>
     </form>
   );
