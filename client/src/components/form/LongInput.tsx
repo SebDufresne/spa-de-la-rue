@@ -7,9 +7,9 @@ interface formInfo{
   label: string 
 }
 
-export default function HalfForm(props: formInfo) {
+export default function LongInput(props: formInfo) {
   return (
-    <div className="form-group col-md-4">
+    <div className="form-group col-md-8">
       <label>{props.label}</label>
       <input
         type={props.type}

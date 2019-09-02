@@ -1,18 +1,18 @@
 import React from "react";
-import SmallForm from "../SmallForm";
-import LongForm from "../LongForm";
+import SmallInput from "../SmallInput";
+import LongInput from "../LongInput";
 
 export default function CreateVolunteer() {
   return (
     <form>
       <div className="form-row">
-        <SmallForm
+        <SmallInput
           name="firstName"
           type="name"
           placeholder="First name"
           label="First name"
         />
-        <SmallForm
+        <SmallInput
           name="lastName"
           type="name"
           placeholder="Last name"
@@ -20,13 +20,13 @@ export default function CreateVolunteer() {
         />
       </div>
       <div className="form-row">
-        <SmallForm
+        <SmallInput
           name="password"
           type="password"
           placeholder="Password"
           label="Password"
         />
-        <SmallForm
+        <SmallInput
           name="passwordConformation"
           type="password"
           placeholder="Conform your password"
