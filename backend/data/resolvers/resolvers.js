@@ -1,8 +1,8 @@
 // Imports: database
 const db = require("../../database");
 // GraphQL: Resolvers
-const users = db.module.table("users");
-console.log("query: ", db.module("users").where('id', '1'));
+const users = db.knex("users");
+console.log("query: ", db.knex("users"));
 
 const resolvers = {
   Query: {
@@ -10,11 +10,19 @@ const resolvers = {
     users: () => {
       return users;
     },
-    user: (root, args, context) => {
-      console.log(Number(args.id));
-      return db.module
-        ("users")
-        .where('id', args.id);
+    user: (root, { id }, context) => {
+      console.log(id);
+      return db.knex("users").where("id", id);
+    }
+  },
+  Mutation: {
+    addUser: (root, args) => {
+      db.knex("users").insert({
+        first_name: args.first_name,
+        last_name: args.last_name, 
+        gender: args.gender, 
+        contact_email: args.contact_email
+      });
     }
   }
 };
