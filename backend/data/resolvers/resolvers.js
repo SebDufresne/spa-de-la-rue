@@ -17,11 +17,22 @@ const resolvers = {
   },
   Mutation: {
     addUser: (root, args) => {
-      db.knex("users").insert({
+      return db.knex("users").insert([{
         first_name: args.first_name,
         last_name: args.last_name,
-        contact_email: args.contact_email
-      });
+        gender: args.gender,
+        contact_email: args.contact_email,
+        contact_phone: args.contact_phone,
+        contact_prefered: args.contact_prefered,
+        description: args.description,
+        picture: args.picture,
+        total_hours: args.total_hours,
+        password_hash: args.password_hash,
+        status: args.status,
+        is_admin: args.is_admin,
+        is_disable: args.is_disable,
+      }]).returning('id')
+      .then(([id]) => id);
     }
   }
 };
