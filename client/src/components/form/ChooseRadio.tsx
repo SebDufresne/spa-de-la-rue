@@ -7,9 +7,9 @@ interface chooseRadioInfo {
 
 export default function ChooseRadio(props: chooseRadioInfo) {
   return (
-    <div className="form-row">
-      <legend className="col-form-label col-sm-2 pt-0">{props.legend}</legend>
-      <div className="col-sm-10">
+    <React.Fragment>
+      <legend className="col-form-label col-sm-1 pt-0">{props.legend}</legend>
+      <div className="col-sm-3">
         {props.options.map(option => {
           return (
             <div className="form-check">
@@ -25,6 +25,6 @@ export default function ChooseRadio(props: chooseRadioInfo) {
           );
         })}
       </div>
-    </div>
+    </React.Fragment>
   );
 }

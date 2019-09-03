@@ -56,11 +56,12 @@ export default function CreateVolunteer() {
           options={["Male", "Female", "Rather not say"]}
         />
       </div>
-
-      <ChooseRadio
-        legend="Gender"
-        options={["Male", "Female", "Rather not say"]}
-      />
+      <div className="form-row">
+        <ChooseRadio
+          legend="Gender"
+          options={["Male", "Female", "Rather not say"]}
+        />
+      </div>
     </form>
   );
 }
