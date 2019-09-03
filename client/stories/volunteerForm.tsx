@@ -55,4 +55,4 @@ storiesOf("Form", module)
     />
   ))
   .add("upload image", () => <ImgUploader />)
-  .add("Description", () => <TextareaInput label="Description" />);
+  .add("Description", () => <TextareaInput label="Description" rows={5} />);
