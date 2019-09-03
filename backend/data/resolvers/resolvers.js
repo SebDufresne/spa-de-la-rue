@@ -19,6 +19,9 @@ const resolvers = {
         .then(userData => {
           return userData[0]
         });
+    }, 
+    sponsors: ()=>{
+      return db.knex("sponsors");
     }
   },
   Mutation: {
