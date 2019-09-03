@@ -66,7 +66,7 @@ export default function CreateVolunteer() {
           />
           <ImgUploader />
         </div>
-        <TextareaInput label="Description" />
+        <TextareaInput label="Description" rows={5} />
       </form>
     </div>
   );

@@ -4,9 +4,10 @@ import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 function loadStories() {
-  require('../stories/index.tsx');
+  require('../stories/volunteerForm');
   require('../stories/button.tsx');
   require('../stories/sponsor.tsx');
+  require('../stories/profile');
   // You can require as many stories as you need.
 }
 

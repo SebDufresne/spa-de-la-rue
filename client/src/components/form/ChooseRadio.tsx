@@ -3,6 +3,7 @@ import React from "react";
 interface chooseRadioInfo {
   legend: string;
   options: string[];
+  value?: string;
 }
 
 export default function ChooseRadio(props: chooseRadioInfo) {
@@ -13,13 +14,24 @@ export default function ChooseRadio(props: chooseRadioInfo) {
         {props.options.map(option => {
           return (
             <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id={option}
-                value={option}
-              />
+              {props.value && props.value === option ? (
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id={option}
+                  value={option}
+                  checked
+                />
+              ) : (
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id={option}
+                  value={option}
+                />
+              )}
               <label>{option}</label>
             </div>
           );
