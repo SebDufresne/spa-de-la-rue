@@ -9,6 +9,7 @@ import LongInput from "../src/components/form/LongInput";
 import ChooseBox from "../src/components/form/ChooseBox";
 import ChooseRadio from "../src/components/form/ChooseRadio";
 import ImgUploader from "../src/components/form/ImgUploader";
+import TextareaInput from "../src/components/form/TextareaInput";
 import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
@@ -53,4 +54,5 @@ storiesOf("Form", module)
       options={["Male", "Female", "Rather not say"]}
     />
   ))
-  .add("upload image", () => (<ImgUploader />));
+  .add("upload image", () => <ImgUploader />)
+  .add("Description", () => <TextareaInput label="Description" />);

@@ -4,6 +4,7 @@ import LongInput from "../LongInput";
 import ChooseBox from "../ChooseBox";
 import ChooseRadio from "../ChooseRadio";
 import ImgUploader from "../ImgUploader";
+import TextareaInput from "../TextareaInput";
 
 export default function CreateVolunteer() {
   return (
@@ -65,6 +66,7 @@ export default function CreateVolunteer() {
           />
           <ImgUploader />
         </div>
+        <TextareaInput label="Description" />
       </form>
     </div>
   );
