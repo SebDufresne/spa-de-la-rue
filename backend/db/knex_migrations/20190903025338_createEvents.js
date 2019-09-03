@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('events', table => {
     table.increments('id').primary();
-    table.integer('user_id');
+    table.integer('administrator_id');
     table.integer('partner_id');
     table.integer('address_id');
     table.string('name').notNullable();
@@ -18,7 +18,7 @@ exports.up = function(knex) {
     table.float('google_coords_Y').notNullable();
     table.string('color').notNullable();
   
-    table.foreign('user_id').references('id').inTable('users');
+    table.foreign('administrator_id').references('id').inTable('users');
     table.foreign('partner_id').references('id').inTable('partners');
     table.foreign('address_id').references('id').inTable('addresses');
   });
