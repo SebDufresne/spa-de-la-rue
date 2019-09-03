@@ -14,24 +14,32 @@ interface propsType {
 }
 
 export default function SponsorList({props}: propsType) {
-
-  const sponsorList = props.map(sponsor => {
-    const { name, picture_url, description, sponsor_url } = sponsor;
-
+  if (props) {
+    const sponsorList = props.map(sponsor => {
+  
+      const { name, picture_url, description, sponsor_url } = sponsor;
+  
+        return (
+        <Sponsor
+          name = {name}
+          picture_url =  {picture_url}
+          description =  {description}
+          sponsor_url =  {sponsor_url}
+        />
+        )
+      });
+  
     return (
-    <Sponsor
-      name = {name}
-      picture_url =  {picture_url}
-      description =  {description}
-      sponsor_url =  {sponsor_url}
-    />
-    )
-  });
-
+      <section>
+        <h4>Sponsors</h4>
+        <ul>{sponsorList}</ul>
+      </section>
+    );
+  }
   return (
-    <section className="interviewers">
-      <h4 className="interviewers__header text--light">Sponsors</h4>
-      <ul className="interviewers__list">{sponsorList}</ul>
+    <section>
+      <h4>Sponsors</h4>
+      <p>We don't have any sponsors at the moment</p>
     </section>
   );
 }
