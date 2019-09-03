@@ -8,7 +8,7 @@ exports.up = function(knex) {
     table.string('contact_phone');
     table.enu('contact_prefered', ['email', 'phone']).notNullable().defaultTo('email');
     table.text('description');
-    table.string('picture').notNullable().defaultTo('images/assets/missing_avatar.svg');
+    table.string('picture_url').notNullable().defaultTo('images/assets/missing_avatar.svg');
     table.integer('total_hours').notNullable().defaultTo(0);
     table.string('password_hash');
     table.enu('status',['new','active','inactive']).notNullable().defaultTo('new');

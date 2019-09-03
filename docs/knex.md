@@ -26,7 +26,7 @@ table.foreign('address_id').references('id').inTable('addresses');
 Create a migration:
 
 ```javascript
-knex migrate:make createVolunteers
+knex migrate:make createUsers
 ```
 
 Run a migration:
