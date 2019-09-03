@@ -3,15 +3,16 @@ import "components/Application.scss";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-interface UserList {
+interface User {
   id: number;
   first_name: string;
   last_name: string;
   contact_email: string;
+  gender: string;
 }
 
 interface UserListData {
-  userList: UserList[];
+  users: User[];
 }
 
 interface UserListVars {
@@ -19,36 +20,40 @@ interface UserListVars {
 }
 
 const GET_USER_LIST = gql`
-  query getUserList($first_name: String!) {
-    userList(first_name: $first_name) {
+  query getUserList {
+    users {
       id
       first_name
       last_name
       contact_email
+      gender
     }
   }
 `;
 
 export default function Application() {
-  const { loading, data } = useQuery<UserListData, UserListVars>(
-    GET_USER_LIST,
-    { variables: { first_name: 'FirstName'} }
+  const { loading, error, data } = useQuery<UserListData>(
+    GET_USER_LIST
   );
+
+  if (loading) {
+    return <p>Loading...</p>
+  }
+  
+  if (error) {
+    return <p>{error.message}</p>
+  }
 
   return (
     <div className="App">
-    {loading ? (
-      <p>Loading...</p>
-    ) : (
       <ul>
         <h1>test</h1>
-        {data && data.userList.map(user => (
+        {data && data.users.map(user => (
           <li key={user.id} className="list-group-item text-danger">
-            {user.first_name} {user.last_name} {user.contact_email}
+            {user.first_name} {user.last_name} {user.contact_email}{user.gender}
           </li>
         ))}
       </ul>
-    )}
     </div>
   );
 }

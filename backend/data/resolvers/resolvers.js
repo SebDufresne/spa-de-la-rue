@@ -19,8 +19,7 @@ const resolvers = {
     addUser: (root, args) => {
       db.knex("users").insert({
         first_name: args.first_name,
-        last_name: args.last_name, 
-        gender: args.gender, 
+        last_name: args.last_name,
         contact_email: args.contact_email
       });
     }
