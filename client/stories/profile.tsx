@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import SmallInput from "../src/components/form/SmallInput";
 import TextareaInput from "../src/components/form/TextareaInput";
 import ChooseRadio from "../src/components/form/ChooseRadio";
+import ChooseBox from "../src/components/form/ChooseBox";
 
 storiesOf("Profile", module)
   .add("display input", () => (
@@ -23,5 +24,12 @@ storiesOf("Profile", module)
       legend="Gender"
       options={["Male", "Female", "Rather not say"]}
       value="Male"
+    />
+  )).add("choose box", () => (
+    <ChooseBox
+      label="prefered contact"
+      default="Choose..."
+      options={["By phone", "By email"]}
+      value="By email"
     />
   ));
