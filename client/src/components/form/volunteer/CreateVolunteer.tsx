@@ -1,15 +1,35 @@
 import React from "react";
 import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
-import ChooseBox from "../ChooseBox";
 import ChooseRadio from "../ChooseRadio";
-import ImgUploader from "../ImgUploader";
 import TextareaInput from "../TextareaInput";
+import { useMutation } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+
+const ADD_USER = gql`
+  mutation AddUser{
+    addUser{
+      first_name
+      last_name
+      gender
+      contact_email
+      contact_phone
+      password_hash
+      description
+    }
+  }
+`;
 
 export default function CreateVolunteer() {
+  const [addUser, { data }] = useMutation(ADD_USER);
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    addUser({ variables: {} });
+  };
   return (
     <div className="container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-row">
           <SmallInput
             name="firstName"
@@ -53,20 +73,13 @@ export default function CreateVolunteer() {
             placeholder="Phone number"
             label="Phone number"
           />
-          <ChooseBox
-            label="Gender"
-            default="Choose..."
-            options={["Male", "Female", "Rather not say"]}
-          />
         </div>
         <div className="form-row">
-          <ChooseRadio
-            legend="Gender"
-            options={["Male", "Female", "Rather not say"]}
-          />
-          <ImgUploader />
+          <ChooseRadio legend="Gender" options={["M", "F", "O"]} />
         </div>
         <TextareaInput label="Description" rows={5} />
+
+        <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
     </div>
   );

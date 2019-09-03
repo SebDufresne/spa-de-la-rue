@@ -9,7 +9,7 @@ interface textareaInfo {
 export default function TextareaInput(props: textareaInfo) {
   return (
     <React.Fragment>
-      <div className="form-group col-md-12">
+      <div className="form-group">
         <label>{props.label}</label>
         {props.value ? (
           <textarea
