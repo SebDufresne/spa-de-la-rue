@@ -9,7 +9,7 @@ interface formInfo{
 
 export default function LongInput(props: formInfo) {
   return (
-    <div className="form-group col-md-8">
+    <div className="form-group col-md-12">
       <label>{props.label}</label>
       <input
         type={props.type}

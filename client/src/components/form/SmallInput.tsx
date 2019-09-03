@@ -9,7 +9,7 @@ interface formInfo{
 
 export default function SmallInput(props: formInfo) {
   return (
-    <div className="form-group col-md-4">
+    <div className="form-group col-md-6">
       <label>{props.label}</label>
       <input
         type={props.type}

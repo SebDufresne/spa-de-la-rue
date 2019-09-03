@@ -8,7 +8,7 @@ interface chooseBoxInfo {
 
 export default function ChooseBox(props: chooseBoxInfo) {
   return (
-    <div className="form-group col-md-4">
+    <div className="form-group col-md-6">
       <label>{props.label}</label>
       <select name={props.label} className="form-control">
         <option selected>{props.default}</option>
