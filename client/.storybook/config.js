@@ -7,6 +7,7 @@ function loadStories() {
   require('../stories/volunteerForm');
   require('../stories/button.tsx');
   require('../stories/sponsor.tsx');
+  require('../stories/profile');
   // You can require as many stories as you need.
 }
 
