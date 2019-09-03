@@ -2,6 +2,7 @@ import React from "react";
 import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
 import ChooseRadio from "../ChooseRadio";
+import ChooseBox from "../ChooseBox";
 import TextareaInput from "../TextareaInput";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -14,8 +15,9 @@ const ADD_USER = gql`
       gender
       contact_email
       contact_phone
-      password_hash
+      contact_prefered
       description
+      password_hash
     }
   }
 `;
@@ -73,6 +75,7 @@ export default function CreateVolunteer() {
             placeholder="Phone number"
             label="Phone number"
           />
+          <ChooseBox label="gender" default="Choose..." options={["M", "F", "O"]} />
         </div>
         <div className="form-row">
           <ChooseRadio legend="Gender" options={["M", "F", "O"]} />
