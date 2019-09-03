@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import "bootstrap/dist/css/bootstrap.css";
 import SmallInput from "../src/components/form/SmallInput";
 import TextareaInput from "../src/components/form/TextareaInput";
+import ChooseRadio from "../src/components/form/ChooseRadio";
 
 storiesOf("Profile", module)
   .add("display input", () => (
@@ -16,4 +17,11 @@ storiesOf("Profile", module)
   ))
   .add("Text area value", () => (
     <TextareaInput label="description" rows={2} value="I'm potato" />
+  ))
+  .add("choose radio", () => (
+    <ChooseRadio
+      legend="Gender"
+      options={["Male", "Female", "Rather not say"]}
+      value="Male"
+    />
   ));
