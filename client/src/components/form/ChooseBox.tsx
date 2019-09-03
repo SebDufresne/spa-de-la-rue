@@ -1,16 +1,16 @@
 import React from "react";
 
-interface chooseInfo {
+interface chooseBoxInfo {
   label: string;
   default: string;
   options: string[];
 }
 
-export default function ChooseBox(props: chooseInfo) {
+export default function ChooseBox(props: chooseBoxInfo) {
   return (
     <div className="form-group col-md-4">
       <label>{props.label}</label>
-      <select id="inputState" className="form-control">
+      <select name={props.label} className="form-control">
         <option selected>{props.default}</option>
         {props.options.map(option => {
           return <option>{option}</option>;

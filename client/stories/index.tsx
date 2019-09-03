@@ -7,6 +7,7 @@ import Category from "../src/components/navbar/Category";
 import SmallInput from "../src/components/form/SmallInput";
 import LongInput from "../src/components/form/LongInput";
 import ChooseBox from "../src/components/form/ChooseBox";
+import ChooseRadio from "../src/components/form/ChooseRadio";
 import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
@@ -43,5 +44,11 @@ storiesOf("Form", module)
       label="prefered contact"
       default="Choose..."
       options={["By phone", "By eamil"]}
+    />
+  ))
+  .add("choose radio", () => (
+    <ChooseRadio
+      legend="Gender"
+      options={["Male", "Female", "Rather not say"]}
     />
   ));

@@ -2,6 +2,7 @@ import React from "react";
 import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
 import ChooseBox from "../ChooseBox";
+import ChooseRadio from "../ChooseRadio";
 
 export default function CreateVolunteer() {
   return (
@@ -55,6 +56,11 @@ export default function CreateVolunteer() {
           options={["Male", "Female", "Rather not say"]}
         />
       </div>
+
+      <ChooseRadio
+        legend="Gender"
+        options={["Male", "Female", "Rather not say"]}
+      />
     </form>
   );
 }
