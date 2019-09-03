@@ -2,6 +2,8 @@
 
 [Knex](http://knexjs.org/)
 
+[cheatsheet](https://devhints.io/knex)
+
 ## [Data Types](http://knexjs.org/#Schema-Building)
 
 ## Useful Flags
