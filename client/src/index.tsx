@@ -4,6 +4,7 @@ import "index.scss";
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
+import SponsorList from "components//SponsorList";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route exact path="/" component={Application} />
         <Route path = "/about/" component={AboutUs} />
         <Route path = "/volunteer/new/" component={CreateVolunteer} />
+        <Route path = "/sponsors" component={SponsorList} />
       </Switch>
     </Router>
   </ApolloProvider>,
