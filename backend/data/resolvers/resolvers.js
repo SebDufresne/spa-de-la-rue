@@ -2,7 +2,12 @@
 const db = require("../../database");
 // GraphQL: Resolvers
 const users = db.knex("users");
-console.log("query: ", db.knex("users"));
+
+const getUser = (args) => {
+  db.knex("users")
+    .where({id: args.id})
+    .then(userData => userData);
+}
 
 const resolvers = {
   Query: {
@@ -10,9 +15,10 @@ const resolvers = {
     users: () => {
       return users;
     },
-    user: (root, { id }, context) => {
-      console.log(id);
-      return db.knex("users").where("id", id);
+    user: (root, args, context) => {
+      return db.knex("users")
+        .where({id: args.id})
+        .then(userData => userData);
     }
   },
   Mutation: {
