@@ -3,6 +3,7 @@ import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
 import ChooseBox from "../ChooseBox";
 import ChooseRadio from "../ChooseRadio";
+import ImgUploader from "../ImgUploader";
 
 export default function CreateVolunteer() {
   return (
@@ -62,6 +63,7 @@ export default function CreateVolunteer() {
             legend="Gender"
             options={["Male", "Female", "Rather not say"]}
           />
+          <ImgUploader />
         </div>
       </form>
     </div>
