@@ -2,6 +2,7 @@ import React from "react";
 
 interface textareaInfo{
   label: string
+  rows: number
 }
 
 export default function TextareaInput(props: textareaInfo) {
@@ -12,7 +13,7 @@ export default function TextareaInput(props: textareaInfo) {
         <textarea
           className="form-control"
           id="exampleFormControlTextarea1"
-          rows={3}
+          rows={props.rows}
         ></textarea>
       </div>
     </React.Fragment>
