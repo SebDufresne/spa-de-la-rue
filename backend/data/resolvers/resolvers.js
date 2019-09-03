@@ -44,6 +44,17 @@ const resolvers = {
       .then(id => {
         return {id: id[0]}
       });
+    }, 
+    addSponsor: (root, args) =>{
+      return db.knex("sponsors").insert({
+        name: args.name, 
+        description: args.description, 
+        picture_url: args.picture_url, 
+        sponsor_url: args.sponsor_url
+      }).returning('id')
+      .then(id=>{
+        return {id: id[0]}
+      });
     }
   }
 };
