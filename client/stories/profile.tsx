@@ -5,6 +5,7 @@ import SmallInput from "../src/components/form/SmallInput";
 import TextareaInput from "../src/components/form/TextareaInput";
 import ChooseRadio from "../src/components/form/ChooseRadio";
 import ChooseBox from "../src/components/form/ChooseBox";
+import VolunteerProfile from "../src/components/profile/VolunteerProfile";
 
 storiesOf("Profile", module)
   .add("display input", () => (
@@ -25,11 +26,21 @@ storiesOf("Profile", module)
       options={["Male", "Female", "Rather not say"]}
       value="Male"
     />
-  )).add("choose box", () => (
+  ))
+  .add("choose box", () => (
     <ChooseBox
       label="prefered contact"
       default="Choose..."
       options={["By phone", "By email"]}
       value="By email"
+    />
+  ))
+  .add("total profile", () => (
+    <VolunteerProfile
+      first_name="bob"
+      last_name="chicken"
+      gender="M"
+      email="bob@me"
+      phone="15555555555"
     />
   ));
