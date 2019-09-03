@@ -15,7 +15,7 @@ const typeDefs = gql`
       contact_phone: String
       contact_prefered: String
       description: String
-      picture: String
+      picture_url: String
       total_hours: Int
       password_hash: String
       status: String
@@ -33,7 +33,7 @@ const typeDefs = gql`
     contact_phone: String
     contact_prefered: String
     description: String
-    picture: String
+    picture_url: String
     total_hours: Int
     password_hash: String
     status: String
