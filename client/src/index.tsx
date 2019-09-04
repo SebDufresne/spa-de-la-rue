@@ -5,6 +5,7 @@ import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
 import VolunteerList from "components/volunteers/VolunteerList";
+import PartnerList from "components/partners/PartnerList";
 import SponsorList from "components/SponsorList";
 import SponsorCreation from "components/form/SponsorCreation";
 import * as serviceWorker from "serviceWorker";
@@ -27,10 +28,11 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Application} />
         <Route path = "/about/" component={AboutUs} />
-        <Route path = "/volunteers" component={VolunteerList} />
-        <Route path = "/volunteer/new/" component={CreateVolunteer} />
+        <Route path = "/partners" component={PartnerList} />
         <Route path = "/sponsors" component={SponsorList} />
         <Route path = "/sponsor/new" component={SponsorCreation} />
+        <Route path = "/volunteers" component={VolunteerList} />
+        <Route path = "/volunteer/new/" component={CreateVolunteer} />
       </Switch>
     </Router>
   </ApolloProvider>,
