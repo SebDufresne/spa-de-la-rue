@@ -19,6 +19,9 @@ const resolvers = {
         .then(userData => {
           return userData[0]
         });
+    }, 
+    sponsors: ()=>{
+      return db.knex("sponsors");
     }
   },
   Mutation: {
@@ -39,6 +42,17 @@ const resolvers = {
         is_disable: args.is_disable,
       }).returning('id')
       .then(id => {
+        return {id: id[0]}
+      });
+    }, 
+    addSponsor: (root, args) =>{
+      return db.knex("sponsors").insert({
+        name: args.name, 
+        description: args.description, 
+        picture_url: args.picture_url, 
+        sponsor_url: args.sponsor_url
+      }).returning('id')
+      .then(id=>{
         return {id: id[0]}
       });
     }

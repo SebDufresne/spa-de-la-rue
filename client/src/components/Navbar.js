@@ -50,8 +50,8 @@ export default function Navbar() {
       <Logo />
       <div className="d-flex">
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
-          {menuItems.slice(0,-1).map(categoryData => {
-            return <Category {...categoryData} />;
+          {menuItems.slice(0,-1).map((categoryData, index) => {
+            return <Category key={index} {...categoryData} />;
           })}
         </ul>
        <Category {...menuItems[menuItems.length-1]} />
