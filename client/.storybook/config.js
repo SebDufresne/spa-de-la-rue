@@ -10,6 +10,7 @@ function loadStories() {
   require('../stories/profile');
   require('../stories/schedule');
   require('../stories/volunteer');
+  require('../stories/partner');
   
   // You can require as many stories as you need.
 }
