@@ -20,11 +20,13 @@ const categoryInfoEle = {
   ]
 };
 
+const logo_url = "/images/assets/logo_fr.png";
+
 storiesOf("Navbar", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
-  .add("Logo component", () => <Logo />)
+  .add("Logo component", () => <Logo logo_url = {logo_url} />)
   .add("category(can hover on)", () => <Category {...categoryInfoEle} />);
 
 storiesOf("Form", module)

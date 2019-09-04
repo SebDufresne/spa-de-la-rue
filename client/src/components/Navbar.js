@@ -3,6 +3,8 @@ import "components/Navbar.scss";
 import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
 
+const logo_url = "/images/assets/logo_fr.png";
+
 const menuItems = [
   {
     "About Us": [
@@ -47,7 +49,7 @@ const menuItems = [
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">
-      <Logo />
+      <Logo logo_url = {logo_url} />
       <div className="d-flex">
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
           {menuItems.slice(0,-1).map((categoryData, index) => {
