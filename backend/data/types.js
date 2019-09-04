@@ -5,6 +5,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(id: ID!): User
+    sponsors: [Sponsor]
   }
   type Mutation {
     addUser(
@@ -21,7 +22,14 @@ const typeDefs = gql`
       status: String
       is_admin: Boolean
       is_disable: Boolean
-    ): User
+    ): User 
+    addSponsor(
+      name: String
+      picture_url: String
+      description: String
+      sponsor_url: String
+      is_active: Boolean
+    ): Sponsor
   }
 
   type User {
@@ -40,6 +48,15 @@ const typeDefs = gql`
     is_admin: Boolean
     is_disable: Boolean
   }
+  type Sponsor {
+    id: ID
+    name: String
+    picture_url: String
+    description: String
+    sponsor_url: String
+    is_active: Boolean
+  }
+
 `;
 
 // Exports
