@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface volunteerDetails {
-  picture_url: string,
   first_name: string,
-  last_name: string
+  last_name: string,
+  picture_url: string,
 }
 
 export default function Volunteer(props: volunteerDetails) {
-  const { picture_url, first_name, last_name } = props;
+  const { first_name, last_name, picture_url } = props;
 
   const full_name = `${first_name} ${last_name}`
 

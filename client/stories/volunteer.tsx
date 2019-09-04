@@ -2,21 +2,19 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Volunteer from "../src/components/volunteers/Volunteer";
-// import VolunteerList from "../src/components/SponsorList";
+import VolunteerList from "../src/components/volunteers/VolunteerList";
 
 
-const sponsorListData = [
+const volunteerListData = [
   {
-    name: 'Zayat Aroma',
-    picture_url: 'images/sponsors/zayat_aroma.jpg',
-    description:'A great Sponsor',
-    sponsor_url: 'https://www.zayataroma.com/'
+    first_name: 'Sebastien',
+    last_name: 'Dufresne',
+    picture_url: 'images/volunteers/seb.png',
   },
   {
-    name: 'Zayat Aroma',
-    picture_url: 'images/sponsors/zayat_aroma.jpg',
-    description:'A great Sponsor',
-    sponsor_url: 'https://www.zayataroma.com/'
+    first_name: 'Sebastien',
+    last_name: 'Dufresne',
+    picture_url: 'images/volunteers/seb.png',
   }
 ];
 
@@ -35,4 +33,8 @@ storiesOf('Volunteer', module)
       last_name = {last_name}
       picture_url =  {picture_url}
     />
+  ))
+  .add('List of Sponsor', () => (
+    <VolunteerList props={volunteerListData} />
   ));
+  
