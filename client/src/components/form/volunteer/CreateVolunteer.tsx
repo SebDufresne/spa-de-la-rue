@@ -4,8 +4,10 @@ import LongInput from "../LongInput";
 import ChooseRadio from "../ChooseRadio";
 import ChooseBox from "../ChooseBox";
 import TextareaInput from "../TextareaInput";
+import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import { directive } from "@babel/types";
 
 const ADD_USER = gql`
   mutation AddUser(
@@ -50,7 +52,7 @@ export default function CreateVolunteer() {
   const [gender, setGender] = useState("");
   const [description, setDescription] = useState("");
 
-  const [addUser, { data }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -67,6 +69,15 @@ export default function CreateVolunteer() {
       }
     });
   };
+
+  const { loadingAuth, user } = useAuth0();
+
+  if (loadingAuth || !user) {
+    return <div>Loading..</div>;
+  }
+
+  console.log('user: ', user);
+
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
