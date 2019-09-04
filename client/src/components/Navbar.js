@@ -2,6 +2,7 @@ import React from "react";
 import "components/Navbar.scss";
 import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
+import { useAuth0 } from "../react-auth0-wrapper";
 
 const menuItems = [
   {
@@ -13,7 +14,7 @@ const menuItems = [
     ]
   },
   {
-    "News": [
+    News: [
       { title: "Schedule", path: "/" },
       { title: "Blogs", path: "/" },
       { title: "Events", path: "/" }
@@ -28,7 +29,7 @@ const menuItems = [
     ]
   },
   {
-    "Press": [
+    Press: [
       { title: "Pictures", path: "/" },
       { title: "Videos", path: "/" },
       { title: "Meet Us", path: "/" }
@@ -50,18 +51,18 @@ export default function Navbar() {
       <Logo />
       <div className="d-flex">
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
-          {menuItems.slice(0,-1).map((categoryData, index) => {
+          {menuItems.slice(0, -1).map((categoryData, index) => {
             return <Category key={index} {...categoryData} />;
           })}
         </ul>
-       <Category {...menuItems[menuItems.length-1]} />
+        <Category {...menuItems[menuItems.length - 1]} />
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar"
-          >
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavbar"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
       </div>
