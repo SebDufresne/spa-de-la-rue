@@ -60,10 +60,10 @@ export default function Navbar() {
         <Category {...menuItems[menuItems.length - 1]} />
 
         {!isAuthenticated && (
-          <button onClick={() => loginWithRedirect({})}>Log in</button>
+          <button className="btn btn-info" onClick={() => loginWithRedirect()}>Log in</button>
         )}
 
-        {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+        {isAuthenticated && <button className="btn btn-warning" onClick={() => logout()}>Log out</button>}
 
         <button
           className="navbar-toggler"
