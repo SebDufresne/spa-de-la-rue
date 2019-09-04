@@ -5,7 +5,7 @@ import Auth0Client from "@auth0/auth0-spa-js/dist/typings/Auth0Client";
 interface Auth0Context {
   isAuthenticated: boolean;
   user: any;
-  loading: boolean;
+  loadingAuth: boolean;
   popupOpen: boolean;
   loginWithPopup(options: PopupLoginOptions): Promise<void>;
   handleRedirectCallback(): Promise<RedirectLoginResult>;
@@ -33,7 +33,7 @@ export const Auth0Provider = ({
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState();
   const [auth0Client, setAuth0] = useState<Auth0Client>();
-  const [loading, setLoading] = useState(true);
+  const [loadingAuth, setLoading] = useState(true);
   const [popupOpen, setPopupOpen] = useState(false);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export const Auth0Provider = ({
       value={{
         isAuthenticated,
         user,
-        loading,
+        loadingAuth,
         popupOpen,
         loginWithPopup,
         handleRedirectCallback,
