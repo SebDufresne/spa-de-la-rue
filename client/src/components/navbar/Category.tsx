@@ -19,9 +19,9 @@ export default function Category(props: propsInfo) {
         {key}
       </a>
       <ul className="dropdown-menu">
-        {props[key].map(dropdownMenu => {
+        {props[key].map((dropdownMenu, index) => {
           return (
-            <li>
+            <li key={index}>
               <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
             </li>
           );

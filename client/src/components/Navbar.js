@@ -32,9 +32,9 @@ export default function Navbar() {
       <Logo />
       <div className="d-flex">
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
-          {mockCategoryData.slice(0,-1).map(categoryData => {
+          {mockCategoryData.slice(0,-1).map((categoryData, index) => {
             // return console.log(...catagoryData);
-            return <Category {...categoryData} />;
+            return <Category key={index} {...categoryData} />;
           })}
         </ul>
        <Category {...mockCategoryData[mockCategoryData.length-1]} />
