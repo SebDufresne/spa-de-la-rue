@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Partner from "../src/components/partners/Partner";
-// import PartnerList from "../src/components/SponsorList";
+import PartnerList from "../src/components/partners/PartnerList";
 
 const partnerListData = [
   {
@@ -12,7 +12,7 @@ const partnerListData = [
   },
   {
     name: 'Appartements Supervisés Augustine-Gonzalez',
-    picture_url: 'images/sponsors/appartements_augustine_gonzalez.jpg',
+    picture_url: 'images/partners/appartements_augustine_gonzalez.jpg',
     description:"L'organisme offre sécurité, confort, soutien éducatif et accompagnement personnalisé aux jeunes mamans. On essaie de les avoir le plus tôt possible. Le contexte de fonctionnement et les programmes en place font toutefois qu'elle ne peut accueillir de future maman avant la 20e semaine de grossesse.",
   }
 ];
@@ -32,4 +32,7 @@ storiesOf('Partner', module)
       picture_url =  {picture_url}
       description =  {description}
     />
-  ));
+  ))
+  .add('List of Partners', () => (
+    <PartnerList  props={partnerListData} />
+    ));
