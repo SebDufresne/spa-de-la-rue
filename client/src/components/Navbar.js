@@ -24,7 +24,7 @@ const menuItems = [
   {
     "Our Team": [
       { title: "Administrators", path: "/" },
-      { title: "Volunteers", path: "/" },
+      { title: "Volunteers", path: "/volunteers" },
       { title: "Partners", path: "/" },
       { title: "Sponsors", path: "/sponsors" }
     ]

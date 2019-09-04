@@ -36,8 +36,8 @@ export default function VolunteerList({props}: propsType) {
   }
   return (
     <section>
-      <h4>Sponsors</h4>
-      <p>We don't have any sponsors at the moment</p>
+      <h4>Volunteers</h4>
+      <p>We don't have any volunteers at the moment</p>
     </section>
   );
 }
