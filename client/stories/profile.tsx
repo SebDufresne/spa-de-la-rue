@@ -6,6 +6,7 @@ import TextareaInput from "../src/components/form/TextareaInput";
 import ChooseRadio from "../src/components/form/ChooseRadio";
 import ChooseBox from "../src/components/form/ChooseBox";
 import VolunteerProfile from "../src/components/profile/VolunteerProfile";
+import { action } from "@storybook/addon-actions";
 
 storiesOf("Profile", module)
   .add("display input", () => (
@@ -25,6 +26,7 @@ storiesOf("Profile", module)
       legend="Gender"
       options={["Male", "Female", "Rather not say"]}
       value="Male"
+      getValue={action("choosed box")}
     />
   ))
   .add("choose box", () => (
@@ -33,6 +35,7 @@ storiesOf("Profile", module)
       default="Choose..."
       options={["By phone", "By email"]}
       value="By email"
+      getValue={action("choosed box")}
     />
   ))
   .add("total profile", () => (

@@ -10,6 +10,7 @@ import ChooseBox from "../src/components/form/ChooseBox";
 import ChooseRadio from "../src/components/form/ChooseRadio";
 import ImgUploader from "../src/components/form/ImgUploader";
 import TextareaInput from "../src/components/form/TextareaInput";
+import { action } from '@storybook/addon-actions';
 import "../src/components/Navbar.scss";
 
 const categoryInfoEle = {
@@ -46,12 +47,14 @@ storiesOf("Form", module)
       label="prefered contact"
       default="Choose..."
       options={["By phone", "By eamil"]}
+      getValue={action("choosed box")}
     />
   ))
   .add("choose radio", () => (
     <ChooseRadio
       legend="Gender"
       options={["Male", "Female", "Rather not say"]}
+      getValue={action("choosed radio")}
     />
   ))
   .add("upload image", () => <ImgUploader />)
