@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
 import ChooseRadio from "../ChooseRadio";
@@ -7,7 +7,6 @@ import TextareaInput from "../TextareaInput";
 import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { directive } from "@babel/types";
 
 const ADD_USER = gql`
   mutation AddUser(
@@ -43,19 +42,23 @@ const ADD_USER = gql`
 `;
 
 export default function CreateVolunteer() {
+  const { loadingAuth, user } = useAuth0();
+
   const [first_name, setFirst_name] = useState("");
   const [last_name, setLast_name] = useState("");
   const [contact_email, setContact_email] = useState("");
-  const [contact_phone, setContact_phone] = useState("");
-  const [contact_prefered, setContact_prefered] = useState("");
-  const [password_hash, setPassword_hash] = useState("");
-  const [gender, setGender] = useState("");
-  const [description, setDescription] = useState("");
+  const [contact_phone, setContact_phone] = useState();
+  const [contact_prefered, setContact_prefered] = useState();
+  const [password_hash, setPassword_hash] = useState();
+  const [password_confirm, setPassword_confirm] = useState();
+  const [gender, setGender] = useState();
+  const [description, setDescription] = useState();
 
   const [addUser] = useMutation(ADD_USER);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+
     addUser({
       variables: {
         first_name,
@@ -70,14 +73,14 @@ export default function CreateVolunteer() {
     });
   };
 
-  const { loadingAuth, user } = useAuth0();
-
   if (loadingAuth || !user) {
-    return <div>Loading..</div>;
+    return (
+      <div className="container">
+        <div>Waiting for the authentication...</div>
+      </div>
+    );
   }
-
-  console.log('user: ', user);
-
+  console.log("user: ", user);
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
@@ -87,6 +90,7 @@ export default function CreateVolunteer() {
             type="name"
             placeholder="First name"
             label="First name"
+            value={user.given_name}
             getValue={(e: any) => setFirst_name(e.target.value)}
           />
           <SmallInput
@@ -94,6 +98,7 @@ export default function CreateVolunteer() {
             type="name"
             placeholder="Last name"
             label="Last name"
+            value={user.family_name}
             getValue={(e: any) => setLast_name(e.target.value)}
           />
         </div>
@@ -103,6 +108,7 @@ export default function CreateVolunteer() {
             type="email"
             placeholder="Email"
             label="Email"
+            value={user.email}
             getValue={(e: any) => setContact_email(e.target.value)}
           />
         </div>
@@ -112,13 +118,16 @@ export default function CreateVolunteer() {
             type="password"
             placeholder="Password"
             label="Password"
-            getValue={(e: any) => setPassword_hash(e.target.value)}
+            getValue={(e: any) => {
+              setPassword_hash(e.target.value);
+            }}
           />
           <SmallInput
             name="passwordConformation"
             type="password"
             placeholder="Conform your password"
             label="Confirm your password"
+            getValue={(e: any) => setPassword_confirm(e.target.value)}
           />
         </div>
         <div className="form-row">
@@ -141,6 +150,9 @@ export default function CreateVolunteer() {
             legend="Gender"
             options={["M", "F", "O"]}
             getValue={(e: any) => {
+              setFirst_name(user.given_name);
+              setLast_name(user.family_name);
+              setContact_email(user.email);
               setGender(e.target.value);
             }}
           />

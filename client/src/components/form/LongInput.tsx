@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface formInfo {
   type: string;
@@ -10,6 +10,7 @@ interface formInfo {
 }
 
 export default function SmallInput(props: formInfo) {
+  const [value, setValue] = useState(props.value);
   return (
     <div className="form-group col-md-12">
       <label>{props.label}</label>
@@ -19,17 +20,23 @@ export default function SmallInput(props: formInfo) {
             type={props.type}
             className="form-control"
             name={props.name}
-            value={props.value}
+            value={value}
             placeholder={props.placeholder}
-            onChange={e => props.getValue(e)}
+            onChange={e => {
+              setValue(e.target.value);
+              props.getValue(e);
+            }}
           />
         ) : (
           <input
             type={props.type}
             className="form-control"
             name={props.name}
-            value={props.value}
-            onChange={e => props.getValue(e)}
+            value={value}
+            onChange={e => {
+              setValue(e.target.value);
+              props.getValue(e);
+            }}
           />
         )
       ) : (
@@ -38,7 +45,9 @@ export default function SmallInput(props: formInfo) {
           className="form-control"
           name={props.name}
           placeholder={props.placeholder}
-          onChange={e => props.getValue(e)}
+          onChange={e => {
+            props.getValue(e);
+          }}
         />
       )}
     </div>
