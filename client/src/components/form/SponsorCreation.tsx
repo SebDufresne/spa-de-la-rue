@@ -4,9 +4,21 @@ import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const ADD_SPONSOR = gql`
-  mutation AddSponsor($name: String, $description: String, $picture_url: String, $sponsor_url: String){
-    addSponsor(name: $name, description: $description, picture_url: $picture_url, sponsor_url: $sponsor_url){
-      name description picture_url sponsor_url
+  mutation AddSponsor(
+    $name: String, 
+    $description: String, 
+    $picture_url: String, 
+    $sponsor_url: String){
+    addSponsor(
+      name: $name, 
+      description: $description, 
+      picture_url: $picture_url, 
+      sponsor_url: $sponsor_url)
+      {
+        name 
+        description 
+        picture_url 
+        sponsor_url
     }
   }
 `;

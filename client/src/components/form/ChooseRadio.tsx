@@ -11,9 +11,9 @@ export default function ChooseRadio(props: chooseRadioInfo) {
     <React.Fragment>
       <legend className="col-form-label col-sm-2 pt-0">{props.legend}</legend>
       <div className="col-sm-4">
-        {props.options.map(option => {
+        {props.options.map((option, index) => {
           return (
-            <div className="form-check">
+            <div className="form-check" key={index}>
               {props.value && props.value === option ? (
                 <input
                   className="form-check-input"

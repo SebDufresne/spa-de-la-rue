@@ -8,8 +8,26 @@ import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const ADD_USER = gql`
-  mutation AddUser{
-    addUser{
+  mutation AddUser(
+    $first_name: String
+    $last_name: String
+    $gender: String
+    $contact_email: String
+    $contact_phone: String
+    $contact_prefered: String
+    $description: String
+    $password_hash: String
+  ){
+    addUser(
+      first_name: $first_name
+      last_name: $last_name
+      gender: $gender
+      contact_email: $contact_email
+      contact_phone: $contact_phone
+      contact_prefered: $contact_prefered
+      description: $description
+      password_hash: $password_hash
+    ){
       first_name
       last_name
       gender
@@ -75,7 +93,7 @@ export default function CreateVolunteer() {
             placeholder="Phone number"
             label="Phone number"
           />
-          <ChooseBox label="gender" default="Choose..." options={["M", "F", "O"]} />
+          <ChooseBox label="Prefered contact" default="Choose..." options={["phone", "email"]} />
         </div>
         <div className="form-row">
           <ChooseRadio legend="Gender" options={["M", "F", "O"]} />

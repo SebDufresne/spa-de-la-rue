@@ -27,13 +27,14 @@ export default function SmallInput(props: formInfo) {
         className="form-control"
         name={props.name}
         value={props.value}
+        onChange={e => props.getValue(e)}
       />) : (
           <input
             type={props.type}
             className="form-control"
             name={props.name}
             placeholder={props.placeholder}
-            onChange={(event: any) => { props.getValue(event) }}
+            onChange={e => props.getValue(e)}
           />
         )}
     </div>

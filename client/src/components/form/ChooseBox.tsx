@@ -15,12 +15,12 @@ export default function ChooseBox(props: chooseBoxInfo) {
         {props.value ? (
           <option disabled>{props.default}</option>
         ) : (
-          <option selected>{props.default}</option>
-        )}
-        {props.options.map(option => {
+            <option defaultValue={props.default}>{props.default}</option>
+          )}
+        {props.options.map((option, index) => {
           if (props.value && option === props.value)
-            return <option selected>{option}</option>;
-          else return <option>{option}</option>;
+            return <option key={index} defaultValue={props.value}>{option}</option>;
+          else return <option key={index}>{option}</option>;
         })}
       </select>
     </div>
