@@ -1,31 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import SmallInput from "./SmallInput";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const ADD_SPONSOR = gql`
   mutation AddSponsor(
-    $name: String, 
-    $description: String, 
-    $picture_url: String, 
-    $sponsor_url: String){
+    $name: String
+    $description: String
+    $picture_url: String
+    $sponsor_url: String
+  ) {
     addSponsor(
-      name: $name, 
-      description: $description, 
-      picture_url: $picture_url, 
-      sponsor_url: $sponsor_url)
-      {
-        name 
-        description 
-        picture_url 
-        sponsor_url
+      name: $name
+      description: $description
+      picture_url: $picture_url
+      sponsor_url: $sponsor_url
+    ) {
+      name
+      description
+      picture_url
+      sponsor_url
     }
   }
 `;
 
-
 export default function SponsorCreation() {
-
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [picture_url, setPicture_url] = useState("");
@@ -36,7 +35,7 @@ export default function SponsorCreation() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     addSponsor({ variables: { name, description, picture_url, sponsor_url } });
-  }
+  };
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
@@ -46,14 +45,18 @@ export default function SponsorCreation() {
             type="text"
             placeholder="name"
             label="name"
-            getValue={(e: any) => { setName(e.target.value) }}
+            getValue={(e: any) => {
+              setName(e.target.value);
+            }}
           />
           <SmallInput
             name="description"
             type="text"
             placeholder="description"
             label="description"
-            getValue={(e: any) => { setDescription(e.target.value) }}
+            getValue={(e: any) => {
+              setDescription(e.target.value);
+            }}
           />
         </div>
         <div className="form-row">
@@ -62,18 +65,22 @@ export default function SponsorCreation() {
             type="text"
             placeholder="pic"
             label="pic url"
-            getValue={(e: any) => { setPicture_url(e.target.value) }}
+            getValue={(e: any) => {
+              setPicture_url(e.target.value);
+            }}
           />
           <SmallInput
             name="sponsor"
             type="text"
             placeholder="sponsor"
             label="sponsor url"
-            getValue={(e: any) => { setSponsor_url(e.target.value) }}
+            getValue={(e: any) => {
+              setSponsor_url(e.target.value);
+            }}
           />
         </div>
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
     </div>
-  )
+  );
 }

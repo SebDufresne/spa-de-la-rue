@@ -13,30 +13,34 @@ export default function SmallInput(props: formInfo) {
   return (
     <div className="form-group col-md-12">
       <label>{props.label}</label>
-      {props.value ? props.getValue ? (
-        <input
-          type={props.type}
-          className="form-control"
-          name={props.name}
-          value={props.value}
-          placeholder={props.placeholder}
-          onChange={e => props.getValue(e)}
-        />
-      ) : (<input
-        type={props.type}
-        className="form-control"
-        name={props.name}
-        value={props.value}
-        onChange={e => props.getValue(e)}
-      />) : (
+      {props.value ? (
+        props.getValue ? (
           <input
             type={props.type}
             className="form-control"
             name={props.name}
+            value={props.value}
             placeholder={props.placeholder}
             onChange={e => props.getValue(e)}
           />
-        )}
+        ) : (
+          <input
+            type={props.type}
+            className="form-control"
+            name={props.name}
+            value={props.value}
+            onChange={e => props.getValue(e)}
+          />
+        )
+      ) : (
+        <input
+          type={props.type}
+          className="form-control"
+          name={props.name}
+          placeholder={props.placeholder}
+          onChange={e => props.getValue(e)}
+        />
+      )}
     </div>
   );
 }

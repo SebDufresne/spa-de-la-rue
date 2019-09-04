@@ -20,8 +20,8 @@ export default function ChooseBox(props: chooseBoxInfo) {
         {props.value ? (
           <option disabled>{props.default}</option>
         ) : (
-            <option defaultValue={props.default}>{props.default}</option>
-          )}
+          <option defaultValue={props.default}>{props.default}</option>
+        )}
         {props.options.map((option, index) => {
           if (props.value && option === props.value)
             return (
