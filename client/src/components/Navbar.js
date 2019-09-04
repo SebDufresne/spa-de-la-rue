@@ -3,26 +3,44 @@ import "components/Navbar.scss";
 import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
 
-const mockCategoryData = [
+const menuItems = [
   {
-    About: [{ title: "Testing", path: "/" }, { title: "Testing2", path: "/" }]
+    "About Us": [
+      { title: "Vision, Mission, Valeurs", path: "/" },
+      { title: "Mot du Président, Directeur Général", path: "/" },
+      { title: "Membres du CA", path: "/" },
+      { title: "La Presse en Parle", path: "/" }
+    ]
   },
   {
-    News: [
+    "News": [
       { title: "Schedule", path: "/" },
       { title: "Blogs", path: "/" },
       { title: "Events", path: "/" }
     ]
   },
   {
-    Press: [
-      { title: "Picture", path: "/" },
-      { title: "videos", path: "/" },
+    "Our Team": [
+      { title: "Administrators", path: "/" },
+      { title: "Volunteers", path: "/" },
+      { title: "Partners", path: "/" },
+      { title: "Sponsors", path: "/sponsors" }
+    ]
+  },
+  {
+    "Press": [
+      { title: "Pictures", path: "/" },
+      { title: "Videos", path: "/" },
       { title: "Meet Us", path: "/" }
     ]
   },
   {
-    Support: [{ title: "Donate", path: "/" }]
+    "Support Us": [
+      { title: "Join Our Team", path: "/volunteer/new/" },
+      { title: "Donate", path: "/" },
+      { title: "Become a Partner", path: "/" },
+      { title: "Become a Sponsor", path: "/sponsor/new/" }
+    ]
   }
 ];
 
@@ -32,19 +50,18 @@ export default function Navbar() {
       <Logo />
       <div className="d-flex">
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
-          {mockCategoryData.slice(0,-1).map((categoryData, index) => {
-            // return console.log(...catagoryData);
+          {menuItems.slice(0,-1).map((categoryData, index) => {
             return <Category key={index} {...categoryData} />;
           })}
         </ul>
-       <Category {...mockCategoryData[mockCategoryData.length-1]} />
+       <Category {...menuItems[menuItems.length-1]} />
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavbar"
-        >
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
           <span className="navbar-toggler-icon"></span>
         </button>
       </div>
