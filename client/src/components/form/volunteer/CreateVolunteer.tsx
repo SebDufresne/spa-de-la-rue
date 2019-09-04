@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SmallInput from "../SmallInput";
 import LongInput from "../LongInput";
 import ChooseRadio from "../ChooseRadio";
@@ -17,7 +17,7 @@ const ADD_USER = gql`
     $contact_prefered: String
     $description: String
     $password_hash: String
-  ){
+  ) {
     addUser(
       first_name: $first_name
       last_name: $last_name
@@ -27,7 +27,7 @@ const ADD_USER = gql`
       contact_prefered: $contact_prefered
       description: $description
       password_hash: $password_hash
-    ){
+    ) {
       first_name
       last_name
       gender
@@ -41,6 +41,15 @@ const ADD_USER = gql`
 `;
 
 export default function CreateVolunteer() {
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
+  const [contact_email, setContact_email] = useState("");
+  const [contact_phone, setContact_phone] = useState("");
+  const [contact_prefered, setContact_prefered] = useState("");
+  const [password_hasn, setPassword_hasn] = useState("");
+  const [gender, setGender] = useState("");
+  const [description, setDescription] = useState("");
+
   const [addUser, { data }] = useMutation(ADD_USER);
 
   const handleSubmit = (event: any) => {
@@ -93,7 +102,12 @@ export default function CreateVolunteer() {
             placeholder="Phone number"
             label="Phone number"
           />
-          <ChooseBox label="Prefered contact" default="Choose..." options={["phone", "email"]} />
+          <ChooseBox
+            label="Prefered contact"
+            default="Choose..."
+            options={["phone", "email"]}
+            getValue={(e: any) => setContact_prefered(e.target.value)}
+          />
         </div>
         <div className="form-row">
           <ChooseRadio legend="Gender" options={["M", "F", "O"]} />

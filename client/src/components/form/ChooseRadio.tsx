@@ -4,6 +4,7 @@ interface chooseRadioInfo {
   legend: string;
   options: string[];
   value?: string;
+  // getValue: any;
 }
 
 export default function ChooseRadio(props: chooseRadioInfo) {
