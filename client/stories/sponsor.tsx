@@ -4,8 +4,8 @@ import { Button } from '@storybook/react/demo';
 import { action } from '@storybook/addon-actions';
 
 
-import Sponsor from "../src/components/Sponsor";
-import SponsorList from "../src/components/SponsorList";
+import Sponsor from "../src/components/sponsors/Sponsor";
+import SponsorList from "../src/components/sponsors/SponsorList";
 
 
 const sponsorListData = [
