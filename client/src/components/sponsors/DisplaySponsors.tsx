@@ -45,7 +45,7 @@ export default function DisplaySponsors() {
       <div className="Sponsors">
       <h4>Sponsors</h4>
         { 
-          <SponsorList props = {data} />
+          <SponsorList props = {data.sponsors} />
         }
       </div>
     );
