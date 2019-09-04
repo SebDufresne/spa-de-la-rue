@@ -21,13 +21,13 @@ export default function displayCalendar(props: scheduleDetails) {
         return clinic.class;
       }
     }
+    return null;
   }
 
   return (
     <MonthView
         calendarType = 'US'
         tileClassName = {({ date }) =>  dateToClass(schedule, date) }
-        onClick = {onClick}
     />
   );
 }
