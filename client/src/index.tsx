@@ -21,6 +21,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+const socialMediaUrl = [
+  'https://www.instagram.com/spadelarue/',
+  'https://www.facebook.com/LeSpaDeLaRue/',
+  'https://twitter.com/SpadelaRue',
+  'https://www.linkedin.com/company/le-spa-de-la-rue/',
+  'https://www.youtube.com/channel/UCW6po-uIX2zbvrKFJeAH17w'
+];
+
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>

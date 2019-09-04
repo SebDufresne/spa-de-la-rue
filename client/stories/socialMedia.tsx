@@ -15,7 +15,7 @@ const socialMediaUrl = [
 
 
 storiesOf('Social Media', module)
-  .add('Calendar', () => (
+  .add('Social Media', () => (
     <SocialMedia 
       props = {socialMediaUrl}
     />
