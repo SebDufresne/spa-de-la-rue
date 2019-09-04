@@ -4,7 +4,7 @@ interface chooseRadioInfo {
   legend: string;
   options: string[];
   value?: string;
-  // getValue: any;
+  getValue: any;
 }
 
 export default function ChooseRadio(props: chooseRadioInfo) {
@@ -22,17 +22,18 @@ export default function ChooseRadio(props: chooseRadioInfo) {
                   name="gridRadios"
                   id={option}
                   value={option}
-                  checked
+                  onChange = {e=>props.getValue(e)}
                 />
               ) : (
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="gridRadios"
-                  id={option}
-                  value={option}
-                />
-              )}
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="gridRadios"
+                    id={option}
+                    value={option}
+                    onChange = {e=>props.getValue(e)}
+                  />
+                )}
               <label>{option}</label>
             </div>
           );

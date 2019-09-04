@@ -9,10 +9,10 @@ import gql from "graphql-tag";
 
 const ADD_USER = gql`
   mutation AddUser(
-    $first_name: String
-    $last_name: String
-    $gender: String
-    $contact_email: String
+    $first_name: String!
+    $last_name: String!
+    $gender: String!
+    $contact_email: String!
     $contact_phone: String
     $contact_prefered: String
     $description: String
@@ -46,7 +46,7 @@ export default function CreateVolunteer() {
   const [contact_email, setContact_email] = useState("");
   const [contact_phone, setContact_phone] = useState("");
   const [contact_prefered, setContact_prefered] = useState("");
-  const [password_hasn, setPassword_hasn] = useState("");
+  const [password_hash, setPassword_hash] = useState("");
   const [gender, setGender] = useState("");
   const [description, setDescription] = useState("");
 
@@ -54,7 +54,18 @@ export default function CreateVolunteer() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    addUser({ variables: {} });
+    addUser({
+      variables: {
+        first_name,
+        last_name,
+        contact_email,
+        contact_phone,
+        contact_prefered,
+        password_hash,
+        gender,
+        description
+      }
+    });
   };
   return (
     <div className="container">
@@ -65,12 +76,14 @@ export default function CreateVolunteer() {
             type="name"
             placeholder="First name"
             label="First name"
+            getValue={(e: any) => setFirst_name(e.target.value)}
           />
           <SmallInput
             name="lastName"
             type="name"
             placeholder="Last name"
             label="Last name"
+            getValue={(e: any) => setLast_name(e.target.value)}
           />
         </div>
         <div className="form-row">
@@ -79,6 +92,7 @@ export default function CreateVolunteer() {
             type="email"
             placeholder="Email"
             label="Email"
+            getValue={(e: any) => setContact_email(e.target.value)}
           />
         </div>
         <div className="form-row">
@@ -87,6 +101,7 @@ export default function CreateVolunteer() {
             type="password"
             placeholder="Password"
             label="Password"
+            getValue={(e: any) => setPassword_hash(e.target.value)}
           />
           <SmallInput
             name="passwordConformation"
@@ -101,6 +116,7 @@ export default function CreateVolunteer() {
             type="phone"
             placeholder="Phone number"
             label="Phone number"
+            getValue={(e: any) => setContact_phone(e.target.value)}
           />
           <ChooseBox
             label="Prefered contact"
@@ -110,9 +126,19 @@ export default function CreateVolunteer() {
           />
         </div>
         <div className="form-row">
-          <ChooseRadio legend="Gender" options={["M", "F", "O"]} />
+          <ChooseRadio
+            legend="Gender"
+            options={["M", "F", "O"]}
+            getValue={(e: any) => {
+              setGender(e.target.value);
+            }}
+          />
         </div>
-        <TextareaInput label="Description" rows={5} />
+        <TextareaInput
+          label="Description"
+          rows={5}
+          getValue={(e: any) => setDescription(e.target.value)}
+        />
 
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
