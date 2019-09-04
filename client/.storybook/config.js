@@ -11,7 +11,7 @@ function loadStories() {
   require('../stories/schedule');
   require('../stories/volunteer');
   require('../stories/partner');
-  // require('../stories/socialMedia');
+  require('../stories/socialMedia');
   
   // You can require as many stories as you need.
 }

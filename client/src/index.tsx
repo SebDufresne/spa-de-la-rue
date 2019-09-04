@@ -7,6 +7,7 @@ import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
 import VolunteerList from "components/volunteers/VolunteerList";
 import PartnerList from "components/partners/PartnerList";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
+import SocialMedia from "components/SocialMedia";
 import SponsorCreation from "components/form/SponsorCreation";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
@@ -33,6 +34,7 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <Navbar />
+      <SocialMedia props={socialMediaUrl} />
       <Switch>
         <Route exact path="/" component={Application} />
         <Route path = "/about/" component={AboutUs} />
