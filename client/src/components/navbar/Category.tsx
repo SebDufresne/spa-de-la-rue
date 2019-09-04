@@ -14,11 +14,11 @@ export default function Category(props: propsInfo) {
   const key = Object.keys(props)[0];
 
   return (
-    <li className="dropdown">
-      <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+    <li className="nav-item dropdown">
+      <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
         {key}
       </a>
-      <ul className="dropdown-menu">
+      <div className="dropdown-menu">
         {props[key].map(dropdownMenu => {
           return (
             <li>
@@ -26,7 +26,7 @@ export default function Category(props: propsInfo) {
             </li>
           );
         })}
-      </ul>
+      </div>
     </li>
   );
 }
