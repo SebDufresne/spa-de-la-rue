@@ -39,7 +39,7 @@ const menuItems = [
       { title: "Join Our Team", path: "/volunteer/new/" },
       { title: "Donate", path: "/" },
       { title: "Become a Partner", path: "/" },
-      { title: "Become a Sponsor", path: "/" }
+      { title: "Become a Sponsor", path: "/sponsor/new/" }
     ]
   }
 ];
