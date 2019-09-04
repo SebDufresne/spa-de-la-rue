@@ -38,6 +38,21 @@ exports.seed = function(knex) {
           is_admin: false,
           is_disable: false,
         },
+        {
+          first_name: 'Sebastien',
+          last_name: 'Dufresne',
+          gender: 'M',
+          contact_email:'seb@test.com',
+          contact_phone:'15555555555',
+          contact_prefered:'phone',
+          description: faker.lorem,
+          picture_url: 'images/volunteers/seb.png',
+          total_hours: 10,
+          password_hash:'$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.',
+          status: 'active',
+          is_admin: false,
+          is_disable: false,
+        },
       ]);
     }),
   ]);
