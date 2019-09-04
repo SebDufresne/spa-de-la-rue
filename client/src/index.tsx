@@ -5,6 +5,7 @@ import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
 import VolunteerList from "components/volunteers/VolunteerList";
+import SocialMedia from "components/SocialMedia";
 import PartnerList from "components/partners/PartnerList";
 import SponsorList from "components/SponsorList";
 import SponsorCreation from "components/form/SponsorCreation";
@@ -33,6 +34,7 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <Navbar />
+      <SocialMedia props = {socialMediaUrl!}/>
       <Switch>
         <Route exact path="/" component={Application} />
         <Route path = "/about/" component={AboutUs} />
