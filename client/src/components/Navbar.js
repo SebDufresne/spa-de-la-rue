@@ -60,7 +60,6 @@ export default function Navbar() {
     isAuthenticated,
     loginWithRedirect,
     logout,
-    loadingAuth,
     user
   } = useAuth0();
 
@@ -70,6 +69,8 @@ export default function Navbar() {
       dispatch(setUserInfo(user));
     }
   });
+  console.log('user: ', user);
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">
       <Logo logo_url={logo_url} />
@@ -89,6 +90,7 @@ export default function Navbar() {
 
         {isAuthenticated && (
           <React.Fragment>
+            <div className="nav-item">Hello! {user&&user.given_name}</div>
             <Category {...volunteerCategory} />
             <button className="btn btn-warning" onClick={() => logout()}>
               Log out

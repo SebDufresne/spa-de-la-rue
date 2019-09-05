@@ -31,8 +31,6 @@ export default function DisplayVolunteerProfile() {
   if (error) {
     return <p>{error.message}</p>;
   }
-  console.log("data: ", data);
-
   return (
     <div className="container">
       <VolunteerProfile {...data.user} />
