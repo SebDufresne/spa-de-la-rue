@@ -4,15 +4,12 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import SponsorList from "./SponsorList";
 
-interface Sponsor {
-  name: string;
-  picture_url: string;
-  description: string;
-  sponsor_url: string;
-}
+import { SponsorDetails } from './types';
 
-interface SponsorListData {
-  sponsors: Sponsor[];
+import PropTypes from 'prop-types';
+
+interface PropTypes {
+  sponsors: SponsorDetails[];
 }
 
 const GET_SPONSOR_LIST = gql`
@@ -27,7 +24,7 @@ const GET_SPONSOR_LIST = gql`
 `;
 
 export default function DisplaySponsors() {
-  const { loading, error, data } = useQuery<SponsorListData>(
+  const { loading, error, data } = useQuery<PropTypes>(
     GET_SPONSOR_LIST
   );
 
@@ -45,7 +42,7 @@ export default function DisplaySponsors() {
       <div className="Sponsors">
       <h4>Sponsors</h4>
         { 
-          <SponsorList props = {data.sponsors} />
+          <SponsorList sponsors = {data.sponsors} />
         }
       </div>
     );

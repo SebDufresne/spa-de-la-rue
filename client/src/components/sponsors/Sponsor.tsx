@@ -1,14 +1,9 @@
 import React from 'react';
 
-interface sponsorDetails {
-  name: string,
-  picture_url: string,
-  description: string,
-  sponsor_url: string
-}
+import { SponsorDetails } from './types';
 
-export default function Sponsor(props: sponsorDetails) {
-  const { name, picture_url, description, sponsor_url } = props;
+export default function Sponsor(sponsors: SponsorDetails) {
+  const { name, picture_url, description, sponsor_url } = sponsors;
 
   return (
     <main className="appointment__card appointment__card--error">
