@@ -7,6 +7,7 @@ import TextareaInput from "../TextareaInput";
 import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import { Redirect } from "react-router-dom";
 
 const ADD_USER = gql`
   mutation AddUser(
@@ -44,15 +45,17 @@ const ADD_USER = gql`
 export default function CreateVolunteer() {
   const { loadingAuth, user } = useAuth0();
 
-  const [first_name, setFirst_name] = useState("");
-  const [last_name, setLast_name] = useState("");
-  const [contact_email, setContact_email] = useState("");
+  const [first_name, setFirst_name] = useState();
+  const [last_name, setLast_name] = useState();
+  const [contact_email, setContact_email] = useState();
   const [contact_phone, setContact_phone] = useState();
   const [contact_prefered, setContact_prefered] = useState();
   const [password_hash, setPassword_hash] = useState();
   const [password_confirm, setPassword_confirm] = useState();
   const [gender, setGender] = useState();
   const [description, setDescription] = useState();
+
+  const [toHome, SetToHome] =useState(false);
 
   const [addUser] = useMutation(ADD_USER);
 
@@ -71,6 +74,7 @@ export default function CreateVolunteer() {
         description
       }
     });
+    SetToHome(true);
   };
 
   if (loadingAuth || !user) {
@@ -80,7 +84,11 @@ export default function CreateVolunteer() {
       </div>
     );
   }
-  console.log("user: ", user);
+
+  if(toHome){
+    return <Redirect to="/" />
+  }
+
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>

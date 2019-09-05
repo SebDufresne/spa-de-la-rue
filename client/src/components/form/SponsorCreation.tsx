@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SmallInput from "./SmallInput";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import { Redirect } from "react-router-dom";
 
 const ADD_SPONSOR = gql`
   mutation AddSponsor(
@@ -29,13 +30,18 @@ export default function SponsorCreation() {
   const [description, setDescription] = useState("");
   const [picture_url, setPicture_url] = useState("");
   const [sponsor_url, setSponsor_url] = useState("");
+  const [toHome, setToHome] = useState(false);
 
   const [addSponsor] = useMutation(ADD_SPONSOR);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
     addSponsor({ variables: { name, description, picture_url, sponsor_url } });
+    setToHome(true);
   };
+  if (toHome) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
