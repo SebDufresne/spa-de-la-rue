@@ -5,7 +5,9 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(id: ID!): User
+    partners: [Partner]
     sponsors: [Sponsor]
+    volunteers: [User]
   }
   type Mutation {
     addUser(
@@ -48,6 +50,16 @@ const typeDefs = gql`
     is_admin: Boolean
     is_disable: Boolean
   }
+
+  type Partner {
+    id: ID
+    name: String
+    picture_url: String
+    description: String
+    partner_url: String
+    is_active: Boolean
+  }
+
   type Sponsor {
     id: ID
     name: String

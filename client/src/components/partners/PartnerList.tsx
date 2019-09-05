@@ -2,19 +2,15 @@ import React from 'react';
 
 import Partner from './Partner';
 
-interface partnerDetails {
-  name: string,
-  picture_url: string,
-  description: string,
+import { PartnerSummary } from './types';
+
+interface PropTypes {
+  partners: PartnerSummary[]
 }
 
-interface propsType {
-  [key:string]: partnerDetails[]
-}
-
-export default function PartnerList({props}: propsType) {
-  if (props) {
-    const partnerList = props.map(partner => {
+export default function PartnerList({partners}: PropTypes) {
+  if (partners && partners.length > 0) {
+    const partnerList = partners.map(partner => {
   
       const { name, picture_url, description } = partner;
   
@@ -29,7 +25,6 @@ export default function PartnerList({props}: propsType) {
   
     return (
       <section>
-        <h4>Partners</h4>
         <ul>{partnerList}</ul>
       </section>
     );

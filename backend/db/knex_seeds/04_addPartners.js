@@ -22,7 +22,7 @@ exports.seed = function(knex) {
           name: 'Appartements Supervisés Augustine-Gonzalez',
           description: 'Chaque jour, nous ouvrons notre porte à des centaines de personnes vivant en situation d’itinérance ou étant à risque. Chaque fois, ce sont des gens comme vous, des bénévoles, des intervenants, des religieuses, des employés et de généreux bienfaiteurs qui ouvrent leur cœur et tendent la main pour leur donner un peu de réconfort et nouer un lien, le premier pas vers la réinsertion sociale. Grâce à vous, nous sommes l’Accueil Bonneau depuis 1877, merci!',
           address_id: 1,
-          picture_url: 'images/sponsors/appartements_augustine_gonzalez.jpg',
+          picture_url: 'images/partners/appartements_augustine_gonzalez.jpg',
           private_contact_name: 'Serge Test',
           private_phone_number: '15555555555',
           private_email: 'test@test.com',

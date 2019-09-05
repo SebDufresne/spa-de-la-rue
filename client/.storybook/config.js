@@ -6,11 +6,13 @@ import { withInfo } from '@storybook/addon-info';
 function loadStories() {
   require('../stories/volunteerForm');
   require('../stories/button.tsx');
-  require('../stories/sponsor.tsx');
   require('../stories/profile');
-  require('../stories/schedule');
-  require('../stories/volunteer');
+
   require('../stories/partner');
+  require('../stories/sponsor.tsx');
+  require('../stories/volunteer');
+
+  require('../stories/schedule');
   require('../stories/socialMedia');
   
   // You can require as many stories as you need.

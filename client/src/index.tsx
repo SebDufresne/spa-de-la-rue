@@ -4,9 +4,9 @@ import "index.scss";
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
-import VolunteerList from "components/volunteers/VolunteerList";
-import PartnerList from "components/partners/PartnerList";
+import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
+import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
 import SocialMedia from "components/SocialMedia";
 import SponsorCreation from "components/form/SponsorCreation";
 import * as serviceWorker from "serviceWorker";
@@ -58,10 +58,12 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Application} />
           <Route path="/about/" component={AboutUs} />
-          <Route path="/partners" component={PartnerList} />
+          
+          <Route path="/partners" component={DisplayPartners} />
           <Route path="/sponsors" component={DisplaySponsors} />
+          <Route path="/volunteers" component={DisplayVolunteers} />
+
           <Route path="/sponsor/new" component={SponsorCreation} />
-          <Route path="/volunteers" component={VolunteerList} />
           <Route path="/volunteer/new/" component={CreateVolunteer} />
         </Switch>
       </Router>
