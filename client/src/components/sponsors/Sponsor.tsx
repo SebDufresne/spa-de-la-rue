@@ -1,15 +1,6 @@
 import React from "react";
 
-<<<<<<< HEAD
-interface sponsorDetails {
-  name: string;
-  picture_url: string;
-  description: string;
-  sponsor_url: string;
-}
-=======
 import { SponsorSummary } from './types';
->>>>>>> master
 
 export default function Sponsor(sponsors: SponsorSummary) {
   const { name, picture_url, description, sponsor_url } = sponsors;
