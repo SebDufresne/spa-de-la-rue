@@ -13,9 +13,10 @@ exports.up = function(knex) {
     table.enu('frequency', ['once', 'weekly', 'bi-weekly', 'monthly']).notNullable().defaultTo('weekly');
     table.time('start_time').notNullable();
     table.time('end_time').notNullable();
-    table.integer('number_of_spots').notNullable();
-    table.float('google_coords_X').notNullable();
-    table.float('google_coords_Y').notNullable();
+    table.integer('hours_of_work').notNullable();
+    table.integer('therapist_needed').notNullable();
+    table.float('google_coords_X').nullable();
+    table.float('google_coords_Y').nullable();
     table.string('color').notNullable();
   
     table.foreign('administrator_id').references('id').inTable('users');
