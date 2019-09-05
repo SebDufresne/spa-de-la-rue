@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Sponsor from './Sponsor';
 
@@ -10,7 +9,7 @@ interface PropTypes {
 }
 
 export default function SponsorList({sponsors}: PropTypes) {
-  if (sponsors.length > 1) {
+  if (sponsors && sponsors.length > 1) {
     const sponsorList = sponsors.map((sponsor: SponsorDetails) => {
   
       const { name, picture_url, description, sponsor_url } = sponsor;
