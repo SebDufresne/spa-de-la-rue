@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SmallInput from "../SmallInput";
-import LongInput from "../LongInput";
-import ChooseRadio from "../ChooseRadio";
-import ChooseBox from "../ChooseBox";
-import TextareaInput from "../TextareaInput";
+import SmallInput from "./SmallInput";
+import LongInput from "./LongInput";
+import ChooseRadio from "./ChooseRadio";
+import ChooseBox from "./ChooseBox";
+import TextareaInput from "./TextareaInput";
 import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";

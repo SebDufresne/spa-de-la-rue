@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import "index.scss";
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
-import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
+
+import CreateEvent from "components/form/CreateEvent";
+import CreateSponsor from "components/form/CreateSponsor";
+import CreateVolunteer from "components/form/CreateVolunteer";
+
 import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
 import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
 import SocialMedia from "components/SocialMedia";
-import SponsorCreation from "components/form/SponsorCreation";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
@@ -63,7 +66,8 @@ ReactDOM.render(
           <Route path="/sponsors" component={DisplaySponsors} />
           <Route path="/volunteers" component={DisplayVolunteers} />
 
-          <Route path="/sponsor/new" component={SponsorCreation} />
+          <Route path="/events/new/" component={CreateEvent} />
+          <Route path="/sponsor/new" component={CreateSponsor} />
           <Route path="/volunteer/new/" component={CreateVolunteer} />
         </Switch>
       </Router>
