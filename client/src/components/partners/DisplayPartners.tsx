@@ -34,7 +34,7 @@ export default function DisplayPartners() {
 
   if (data) {
     return (
-      <div className="Partners">
+      <div className="container text-center my-5 Partners">
       <h1>Partners</h1>
         { 
           <PartnerList partners = {data.partners} />
