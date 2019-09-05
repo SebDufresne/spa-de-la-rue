@@ -2,7 +2,7 @@ import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import SponsorList from "./SponsorList";
-import "./DisplaySponsor.scss";
+import "./DisplaySponsors.scss";
 
 import { SponsorSummary } from "./types";
 

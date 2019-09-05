@@ -10,12 +10,13 @@ interface PropTypes {
 
 export default function SponsorList({sponsors}: PropTypes) {
   if (sponsors && sponsors.length > 1) {
-    const sponsorList = sponsors.map((sponsor: SponsorSummary) => {
+    const sponsorList = sponsors.map((sponsor: SponsorSummary, index) => {
   
       const { name, picture_url, description, sponsor_url } = sponsor;
   
         return (
         <Sponsor
+          key={index}
           name = {name}
           picture_url =  {picture_url}
           description =  {description}
