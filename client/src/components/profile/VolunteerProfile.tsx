@@ -8,8 +8,8 @@ interface profileInfo {
   last_name: string;
   gender: string;
   description?: string;
-  phone?: string;
-  email: string;
+  contact_phone?: string;
+  contact_email: string;
 }
 
 export default function VolunteerProfile(props: profileInfo) {
@@ -34,14 +34,14 @@ export default function VolunteerProfile(props: profileInfo) {
         name="email"
         placeholder="Input your email"
         label="Email"
-        value={props.email}
+        value={props.contact_email}
       />
       <SmallInput
         type="phone number"
         name="phone number"
         placeholder="Input your phone number"
         label="Phone number"
-        value={props.phone}
+        value={props.contact_phone}
       />
       <TextareaInput label="description" rows={3} value={props.description} />
 

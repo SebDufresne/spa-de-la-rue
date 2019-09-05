@@ -82,7 +82,6 @@ export default function CreateVolunteer() {
   };
   
   useEffect(() => {
-    console.log("user: ", user);
     if (user) {
       dispatch(setUserInfo(user));
     }

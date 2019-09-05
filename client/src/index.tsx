@@ -21,10 +21,10 @@ import config from "./auth_config.json";
 import AboutUs from "components/AboutUs";
 
 import { Provider } from "react-redux";
-import {createStore} from 'redux';
-import state from 'state/index';
+import { createStore } from "redux";
+import state from "state/index";
 
-const store=createStore(state);
+const store = createStore(state);
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: "http://localhost:4000/graphql" }),
@@ -52,8 +52,8 @@ const onRedirectCallback = (appState: any) => {
 };
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
+    <Provider store={store}>
       <Auth0Provider
         domain={config.domain}
         client_id={config.clientId}
@@ -81,8 +81,8 @@ ReactDOM.render(
           </Switch>
         </Router>
       </Auth0Provider>
-    </ApolloProvider>
-  </Provider>,
+    </Provider>
+  </ApolloProvider>,
   document.getElementById("root")
 );
 

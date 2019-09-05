@@ -1,8 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "components/Navbar.scss";
 import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
 import { useAuth0 } from "../react-auth0-wrapper";
+import { setUserInfo } from "state/app";
+import { useDispatch } from "react-redux";
 
 const logo_url = "/images/assets/logo_fr.png";
 
@@ -52,6 +54,8 @@ const volunteerCategory = {
 };
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+
   const {
     isAuthenticated,
     loginWithRedirect,
@@ -60,6 +64,12 @@ export default function Navbar() {
     user
   } = useAuth0();
 
+  
+  useEffect(() => {
+    if (user) {
+      dispatch(setUserInfo(user));
+    }
+  });
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">
       <Logo logo_url={logo_url} />

@@ -12,7 +12,6 @@ export const setUserInfo = (userInfo: object) => ({
 });
 
 export default (state = initialState, payload: any) => {
-  console.log('payload: ', payload);
   switch (payload.type) {
     case SET_USER_INFO:
       return { ...state, userInfo: payload.userInfo};
