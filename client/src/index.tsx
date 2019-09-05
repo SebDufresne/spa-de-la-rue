@@ -7,6 +7,7 @@ import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
 import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
 import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
+import DisplayVolunteerProfile from "components/profile/DisplayVolunteerProfile";
 import SocialMedia from "components/SocialMedia";
 import SponsorCreation from "components/form/SponsorCreation";
 import * as serviceWorker from "serviceWorker";
@@ -65,6 +66,8 @@ ReactDOM.render(
 
           <Route path="/sponsor/new" component={SponsorCreation} />
           <Route path="/volunteer/new/" component={CreateVolunteer} />
+
+          <Route path="/volunteer/profile/" component={DisplayVolunteerProfile} />
         </Switch>
       </Router>
     </Auth0Provider>

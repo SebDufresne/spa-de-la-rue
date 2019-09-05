@@ -4,7 +4,7 @@ import { gql } from "apollo-server-express";
 const typeDefs = gql`
   type Query {
     users: [User]
-    user(id: ID!): User
+    user(contact_email: String!): User
     partners: [Partner]
     sponsors: [Sponsor]
     volunteers: [User]
