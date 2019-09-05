@@ -20,6 +20,12 @@ import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 import AboutUs from "components/AboutUs";
 
+import { Provider } from "react-redux";
+import {createStore} from 'redux';
+import state from 'state/index';
+
+const store=createStore(state);
+
 const client = new ApolloClient({
   link: new HttpLink({ uri: "http://localhost:4000/graphql" }),
   cache: new InMemoryCache()
@@ -46,32 +52,37 @@ const onRedirectCallback = (appState: any) => {
 };
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Auth0Provider
-      domain={config.domain}
-      client_id={config.clientId}
-      redirect_uri="http://localhost:3000/volunteer/new/"
-      onRedirectCallback={onRedirectCallback}
-    >
-      <Router>
-        <Navbar />
-        <SocialMedia props={socialMediaUrl} />
-        <Switch>
-          <Route exact path="/" component={Application} />
-          <Route path="/about/" component={AboutUs} />
-          
-          <Route path="/partners" component={DisplayPartners} />
-          <Route path="/sponsors" component={DisplaySponsors} />
-          <Route path="/volunteers" component={DisplayVolunteers} />
+  <Provider store={store}>
+    <ApolloProvider client={client}>
+      <Auth0Provider
+        domain={config.domain}
+        client_id={config.clientId}
+        redirect_uri="http://localhost:3000/volunteer/new/"
+        onRedirectCallback={onRedirectCallback}
+      >
+        <Router>
+          <Navbar />
+          <SocialMedia props={socialMediaUrl} />
+          <Switch>
+            <Route exact path="/" component={Application} />
+            <Route path="/about/" component={AboutUs} />
 
-          <Route path="/sponsor/new" component={SponsorCreation} />
-          <Route path="/volunteer/new/" component={CreateVolunteer} />
+            <Route path="/partners" component={DisplayPartners} />
+            <Route path="/sponsors" component={DisplaySponsors} />
+            <Route path="/volunteers" component={DisplayVolunteers} />
 
-          <Route path="/volunteer/profile/" component={DisplayVolunteerProfile} />
-        </Switch>
-      </Router>
-    </Auth0Provider>
-  </ApolloProvider>,
+            <Route path="/sponsor/new" component={SponsorCreation} />
+            <Route path="/volunteer/new/" component={CreateVolunteer} />
+
+            <Route
+              path="/volunteer/profile/"
+              component={DisplayVolunteerProfile}
+            />
+          </Switch>
+        </Router>
+      </Auth0Provider>
+    </ApolloProvider>
+  </Provider>,
   document.getElementById("root")
 );
 

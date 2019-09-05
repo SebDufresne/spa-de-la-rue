@@ -47,14 +47,18 @@ const menuItems = [
   }
 ];
 
-const volunteerCategory={
-  "My profile": [
-    {title: "Profile", path: "/volunteer/profile/"}
-  ]
-}
+const volunteerCategory = {
+  "My profile": [{ title: "Profile", path: "/volunteer/profile/" }]
+};
 
 export default function Navbar() {
-  const { isAuthenticated, loginWithRedirect, logout, loadingAuth, user } = useAuth0();
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+    logout,
+    loadingAuth,
+    user
+  } = useAuth0();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">

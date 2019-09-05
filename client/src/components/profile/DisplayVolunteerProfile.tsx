@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import VolunteerProfile from "./VolunteerProfile";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import { useSelector } from "react-redux";
 
-interface profileInfo{
-  email: string
-}
-
-export default function DisplayVolunteerProfile(props: profileInfo) {
+export default function DisplayVolunteerProfile() {
+  const userInfo = useSelector((state: any) => state.app.userInfo);
 
   const GET_VOLUNTEER_PROFILE = gql`
     query GetVolunteerProfile{
-      user(contact_email: ${props.email}){
+      user(contact_email: ${userInfo.email}){
         first_name
         last_name
         contact_email
@@ -24,7 +22,7 @@ export default function DisplayVolunteerProfile(props: profileInfo) {
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE);
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   if (error) {
