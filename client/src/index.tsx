@@ -15,6 +15,8 @@ import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Auth0Provider } from "./react-auth0-wrapper";
+import config from "./auth_config.json";
 import AboutUs from "components/AboutUs";
 
 const client = new ApolloClient({
@@ -23,28 +25,47 @@ const client = new ApolloClient({
 });
 
 const socialMediaUrl = [
-  'https://www.instagram.com/spadelarue/',
-  'https://www.facebook.com/LeSpaDeLaRue/',
-  'https://twitter.com/SpadelaRue',
-  'https://www.linkedin.com/company/le-spa-de-la-rue/',
-  'https://www.youtube.com/channel/UCW6po-uIX2zbvrKFJeAH17w'
+  "https://www.instagram.com/spadelarue/",
+  "https://www.facebook.com/LeSpaDeLaRue/",
+  "https://twitter.com/SpadelaRue",
+  "https://www.linkedin.com/company/le-spa-de-la-rue/",
+  "https://www.youtube.com/channel/UCW6po-uIX2zbvrKFJeAH17w"
 ];
+
+// A function that routes the user to the right place
+// after login
+const onRedirectCallback = (appState: any) => {
+  window.history.replaceState(
+    {},
+    document.title,
+    appState && appState.targetUrl
+      ? appState.targetUrl
+      : window.location.pathname
+  );
+};
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Router>
-      <Navbar />
-      <SocialMedia props={socialMediaUrl} />
-      <Switch>
-        <Route exact path="/" component={Application} />
-        <Route path = "/about/" component={AboutUs} />
-        <Route path = "/partners" component={PartnerList} />
-        <Route path = "/sponsors" component={DisplaySponsors} />
-        <Route path = "/sponsor/new" component={SponsorCreation} />
-        <Route path = "/volunteers" component={VolunteerList} />
-        <Route path = "/volunteer/new/" component={CreateVolunteer} />
-      </Switch>
-    </Router>
+    <Auth0Provider
+      domain={config.domain}
+      client_id={config.clientId}
+      redirect_uri="http://localhost:3000/volunteer/new/"
+      onRedirectCallback={onRedirectCallback}
+    >
+      <Router>
+        <Navbar />
+        <SocialMedia props={socialMediaUrl} />
+        <Switch>
+          <Route exact path="/" component={Application} />
+          <Route path="/about/" component={AboutUs} />
+          <Route path="/partners" component={PartnerList} />
+          <Route path="/sponsors" component={DisplaySponsors} />
+          <Route path="/sponsor/new" component={SponsorCreation} />
+          <Route path="/volunteers" component={VolunteerList} />
+          <Route path="/volunteer/new/" component={CreateVolunteer} />
+        </Switch>
+      </Router>
+    </Auth0Provider>
   </ApolloProvider>,
   document.getElementById("root")
 );
