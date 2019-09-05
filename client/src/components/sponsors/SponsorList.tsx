@@ -15,7 +15,7 @@ interface propsType {
 
 export default function SponsorList({props}: propsType) {
   if (props) {
-    const sponsorList = props.map(sponsor => {
+    const sponsorList = props.map((sponsor: sponsorDetails) => {
   
       const { name, picture_url, description, sponsor_url } = sponsor;
   
@@ -31,14 +31,12 @@ export default function SponsorList({props}: propsType) {
   
     return (
       <section>
-        <h4>Sponsors</h4>
         <ul>{sponsorList}</ul>
       </section>
     );
   }
   return (
     <section>
-      <h4>Sponsors</h4>
       <p>We don't have any sponsors at the moment</p>
     </section>
   );

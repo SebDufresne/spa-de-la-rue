@@ -4,6 +4,8 @@ import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
 import { useAuth0 } from "../react-auth0-wrapper";
 
+const logo_url = "/images/assets/logo_fr.png";
+
 const menuItems = [
   {
     "About Us": [
@@ -23,8 +25,8 @@ const menuItems = [
   {
     "Our Team": [
       { title: "Administrators", path: "/" },
-      { title: "Volunteers", path: "/" },
-      { title: "Partners", path: "/" },
+      { title: "Volunteers", path: "/volunteers" },
+      { title: "Partners", path: "/partners" },
       { title: "Sponsors", path: "/sponsors" }
     ]
   },
@@ -50,7 +52,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">
-      <Logo />
+      <Logo logo_url = {logo_url} />
       <div className="d-flex">
         <ul className="collapse navbar-collapse" id="collapsibleNavbar">
           {menuItems.slice(0, -1).map((categoryData, index) => {
