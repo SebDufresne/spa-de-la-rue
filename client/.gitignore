@@ -11,6 +11,9 @@
 # production
 /build
 
+# auth0 config
+/src/auth_config.json
+
 # misc
 .DS_Store
 .env.local

@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 interface logo {
   logo_url: string
@@ -11,5 +11,5 @@ export default function Logo(props: logo) {
     <div className="navbar-brand">
       <Link to="/"><img alt="Logo" src={logo_url} height="150" width="150" /></Link>
     </div>
-  )
+  );
 }

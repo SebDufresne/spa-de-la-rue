@@ -22,18 +22,18 @@ export default function ChooseRadio(props: chooseRadioInfo) {
                   name="gridRadios"
                   id={option}
                   value={option}
-                  onChange = {e=>props.getValue(e)}
+                  onChange={e => props.getValue(e)}
                 />
               ) : (
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="gridRadios"
-                    id={option}
-                    value={option}
-                    onChange = {e=>props.getValue(e)}
-                  />
-                )}
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id={option}
+                  value={option}
+                  onChange={e => props.getValue(e)}
+                />
+              )}
               <label>{option}</label>
             </div>
           );
