@@ -34,7 +34,7 @@ export default function DisplayVolunteers() {
 
   if (data) {
     return (
-      <div className="Volunteers">
+      <div className="container text-center my-5 Volunteers">
       <h1>Volunteers</h1>
         { 
           <VolunteerList volunteers = {data.users} />
