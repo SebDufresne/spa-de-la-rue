@@ -3,10 +3,10 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import SponsorList from "./SponsorList";
 
-import { SponsorDetails } from './types';
+import { SponsorSummary } from './types';
 
 interface SponsorDetailsList {
-  sponsors: SponsorDetails[];
+  sponsors: SponsorSummary[];
 }
 
 const GET_SPONSOR_LIST = gql`

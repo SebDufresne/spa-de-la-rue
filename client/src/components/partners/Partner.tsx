@@ -1,13 +1,9 @@
 import React from 'react';
 
-interface partnerSummary {
-  picture_url: string,
-  name: string,
-  description: string,
-}
+import { PartnerSummary } from './types';
 
-export default function Partner(props: partnerSummary) {
-  const { name, description, picture_url } = props;
+export default function Partner(partners: PartnerSummary) {
+  const { name, description, picture_url } = partners;
 
   return (
     <main className="appointment__card appointment__card--error">

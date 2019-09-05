@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { SponsorDetails } from './types';
+import { SponsorSummary } from './types';
 
-export default function Sponsor(sponsors: SponsorDetails) {
+export default function Sponsor(sponsors: SponsorSummary) {
   const { name, picture_url, description, sponsor_url } = sponsors;
 
   return (
