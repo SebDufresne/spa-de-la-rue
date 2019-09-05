@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import { SponsorSummary } from './types';
 
@@ -7,15 +7,18 @@ export default function Sponsor(sponsors: SponsorSummary) {
 
   return (
     <main className="appointment__card appointment__card--error">
-      <img
-        className="appointment__error-close"
-        src={picture_url}
-        alt={name}
-      />
+      <img className="appointment__error-close" src={picture_url} alt={name} />
       <section className="">
         <h2>{name}</h2>
         <p>{description}</p>
-        <a href={sponsor_url} className="btn btn-primary">Follow them</a>
+        <a
+          href={sponsor_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          Follow them
+        </a>
       </section>
     </main>
   );
