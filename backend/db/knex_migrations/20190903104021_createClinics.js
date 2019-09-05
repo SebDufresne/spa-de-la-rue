@@ -7,8 +7,8 @@ exports.up = function(knex) {
     table.date('date').notNullable();
     table.time('start_time').notNullable();
     table.time('end_time').notNullable();
-    table.integer('number_of_spots').notNullable();
-    table.integer('number_of_hours').notNullable();
+    table.integer('hours_of_work').notNullable();
+    table.integer('therapist_needed').notNullable();
     
     table.foreign('event_id').references('id').inTable('events');
     table.foreign('administrator_id').references('id').inTable('users');
