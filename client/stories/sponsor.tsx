@@ -1,14 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button } from '@storybook/react/demo';
-import { action } from '@storybook/addon-actions';
-
 
 import Sponsor from "../src/components/sponsors/Sponsor";
 import SponsorList from "../src/components/sponsors/SponsorList";
 
+const sponsor = {
+  name: 'Zayat Aroma',
+  picture_url: 'images/sponsors/zayat_aroma.jpg',
+  description:'A great Sponsor',
+  sponsor_url: 'https://www.zayataroma.com/'
+};
 
-const sponsorListData = [
+const emptySponsorList = [];
+
+const sponsorList = [
   {
     name: 'Zayat Aroma',
     picture_url: 'images/sponsors/zayat_aroma.jpg',
@@ -23,13 +28,8 @@ const sponsorListData = [
   }
 ];
 
-const sponsorMock = {
-  name: 'Zayat Aroma',
-  picture_url: 'images/sponsors/zayat_aroma.jpg',
-  description:'A great Sponsor',
-  sponsor_url: 'https://www.zayataroma.com/'
-};
-const {name, picture_url, description, sponsor_url} = sponsorMock
+
+const {name, picture_url, description, sponsor_url} = sponsor;
 
 storiesOf('Sponsor', module)
   .add('Single Sponsor', () => (
@@ -40,6 +40,9 @@ storiesOf('Sponsor', module)
       sponsor_url =  {sponsor_url}
     />
   ))
-  .add('List of Sponsor', () => (
-  <SponsorList  props={sponsorListData} />
+  .add('List of Sponsors', () => (
+  <SponsorList  sponsors={sponsorList} />
+  ))
+  .add('Empty List of Sponsors', () => (
+    <SponsorList  sponsors={emptySponsorList} />
   ));

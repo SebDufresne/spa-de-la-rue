@@ -4,8 +4,9 @@ import { storiesOf } from '@storybook/react';
 import Volunteer from "../src/components/volunteers/Volunteer";
 import VolunteerList from "../src/components/volunteers/VolunteerList";
 
+const emptyVolunteerList = [];
 
-const volunteerListData = [
+const volunteerList = [
   {
     first_name: 'Sebastien',
     last_name: 'Dufresne',
@@ -18,13 +19,13 @@ const volunteerListData = [
   }
 ];
 
-const volunteerData = {
+const volunteer = {
   first_name: 'Sebastien',
   last_name: 'Dufresne',
   picture_url: 'images/volunteers/seb.png',
 };
 
-const {first_name, last_name, picture_url} = volunteerData;
+const {first_name, last_name, picture_url} = volunteer;
 
 storiesOf('Volunteer', module)
   .add('Single Volunteer', () => (
@@ -34,7 +35,10 @@ storiesOf('Volunteer', module)
       picture_url =  {picture_url}
     />
   ))
-  .add('List of Sponsor', () => (
-    <VolunteerList props={volunteerListData} />
+  .add('List of Volunteers', () => (
+    <VolunteerList volunteers = {volunteerList} />
+  ))
+  .add('Empty List of Volunteers', () => (
+    <VolunteerList volunteers = {emptyVolunteerList} />
   ));
   

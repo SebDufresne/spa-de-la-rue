@@ -2,19 +2,15 @@ import React from 'react';
 
 import Volunteer from './Volunteer';
 
-interface volunteerDetails {
-  first_name: string,
-  last_name: string,
-  picture_url: string,
-}
+import { VolunteerSummary } from './types';
 
 interface propsType {
-  [key:string]: volunteerDetails[]
+  volunteers: VolunteerSummary[]
 }
 
-export default function VolunteerList({props}: propsType) {
-  if (props) {
-    const volunteerList = props.map(volunteer => {
+export default function VolunteerList({volunteers}: propsType) {
+  if (volunteers && volunteers.length > 0) {
+    const volunteerList = volunteers.map(volunteer => {
   
       const { first_name, last_name, picture_url } = volunteer;
   
@@ -29,14 +25,12 @@ export default function VolunteerList({props}: propsType) {
   
     return (
       <section>
-        <h4>Volunteers</h4>
         <ul>{volunteerList}</ul>
       </section>
     );
   }
   return (
     <section>
-      <h4>Volunteers</h4>
       <p>We don't have any volunteers at the moment</p>
     </section>
   );

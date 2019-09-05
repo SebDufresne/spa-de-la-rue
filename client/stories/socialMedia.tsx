@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import SocialMedia from "../src/components/SocialMedia";
 
-import "bootstrap/dist/css/bootstrap.css";
+import "index.scss";
 
 const socialMediaUrl = [
   'https://www.instagram.com/spadelarue/',

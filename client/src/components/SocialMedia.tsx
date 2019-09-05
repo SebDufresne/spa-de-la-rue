@@ -17,7 +17,6 @@ export default function SocialMedia({props}: propsType) {
   
     return (
       <section>
-        <h4>Sponsors</h4>
         <ul>{socialMediaList}</ul>
       </section>
     );

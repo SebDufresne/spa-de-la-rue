@@ -1,13 +1,9 @@
 import React from 'react';
 
-interface volunteerDetails {
-  first_name: string,
-  last_name: string,
-  picture_url: string,
-}
+import { VolunteerSummary } from './types';
 
-export default function Volunteer(props: volunteerDetails) {
-  const { first_name, last_name, picture_url } = props;
+export default function Volunteer(volunteer: VolunteerSummary) {
+  const { first_name, last_name, picture_url } = volunteer;
 
   const full_name = `${first_name} ${last_name}`
 
@@ -19,7 +15,7 @@ export default function Volunteer(props: volunteerDetails) {
         alt={full_name}
       />
       <section className="">
-        <h1>{full_name}</h1>
+        <h2>{full_name}</h2>
       </section>
     </main>
   );

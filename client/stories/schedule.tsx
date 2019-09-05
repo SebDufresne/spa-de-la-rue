@@ -2,10 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-
 import Calendar from "../src/components/Calendar";
 
-import "bootstrap/dist/css/bootstrap.css";
+import "index.scss";
 
 const schedule = [{
   dates: ['2019-09-13', '2019-09-29'],
