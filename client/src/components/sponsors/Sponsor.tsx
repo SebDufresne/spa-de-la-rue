@@ -13,7 +13,7 @@ export default function Sponsor(sponsors: SponsorSummary) {
         alt={name}
       />
       <section className="">
-        <h1>{name}</h1>
+        <h2>{name}</h2>
         <p>{description}</p>
         <a href={sponsor_url} className="btn btn-primary">Follow them</a>
       </section>

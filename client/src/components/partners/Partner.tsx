@@ -13,7 +13,7 @@ export default function Partner(partners: PartnerSummary) {
         alt={name}
       />
       <section className="">
-        <h1>{name}</h1>
+        <h2>{name}</h2>
         <p>{description}</p>
       </section>
     </main>

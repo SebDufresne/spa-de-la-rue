@@ -36,7 +36,7 @@ export default function DisplaySponsors() {
   if (data) {
     return (
       <div className="Sponsors">
-      <h4>Sponsors</h4>
+      <h1>Sponsors</h1>
         { 
           <SponsorList sponsors = {data.sponsors} />
         }

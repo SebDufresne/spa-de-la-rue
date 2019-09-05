@@ -5,7 +5,7 @@ import Partner from './Partner';
 import { PartnerSummary } from './types';
 
 interface PropTypes {
-  [key:string]: PartnerSummary[]
+  partners: PartnerSummary[]
 }
 
 export default function PartnerList({partners}: PropTypes) {
@@ -25,7 +25,6 @@ export default function PartnerList({partners}: PropTypes) {
   
     return (
       <section>
-        <h4>Partners</h4>
         <ul>{partnerList}</ul>
       </section>
     );

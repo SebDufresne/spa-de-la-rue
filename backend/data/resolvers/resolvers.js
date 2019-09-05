@@ -2,26 +2,27 @@
 const db = require("../../database");
 // GraphQL: Resolvers
 
-const getUser = (args) => {
-  db.knex("users")
-    .where({id: args.id})
-    .then(userData => userData);
-}
-
 const resolvers = {
   Query: {
+    partners: () => {
+      return db.knex("partners");
+    }, 
+    sponsors: () => {
+      return db.knex("sponsors");
+    },
     users: () => {
       return db.knex("users");
     },
+
     user: (root, args, context) => {
       return db.knex("users")
         .where({id: args.id})
         .then(userData => {
           return userData[0]
         });
-    }, 
-    sponsors: ()=>{
-      return db.knex("sponsors");
+    },
+    volunteers: () => {
+      return db.knex("users");
     }
   },
   Mutation: {
