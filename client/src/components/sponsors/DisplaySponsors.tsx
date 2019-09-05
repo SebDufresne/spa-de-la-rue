@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import SponsorList from "./SponsorList";
+import "./DisplaySponsors.scss";
 
-import { SponsorSummary } from './types';
+import { SponsorSummary } from "./types";
 
 interface SponsorDetailsList {
   sponsors: SponsorSummary[];
@@ -26,20 +27,20 @@ export default function DisplaySponsors() {
   );
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
-  
+
   if (error) {
-    return <p>{error.message}</p>
+    return <p>{error.message}</p>;
   }
 
   if (data) {
     return (
-      <div className="Sponsors">
-      <h1>Sponsors</h1>
-        { 
-          <SponsorList sponsors = {data.sponsors} />
-        }
+      <div className="container">
+        <div className="Sponsors text-center">
+          <h1>Sponsors</h1>
+          {<SponsorList sponsors={data.sponsors} />}
+        </div>
       </div>
     );
   }

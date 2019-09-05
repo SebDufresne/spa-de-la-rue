@@ -6,10 +6,11 @@ interface propsType {
 }
 
 export default function SocialMedia({props}: propsType) {
-    const socialMediaList = props.map(url => {
+    const socialMediaList = props.map((url, index) => {
   
         return (
           <SocialIcon
+          key={index}
           url = {url}
         />
         )
