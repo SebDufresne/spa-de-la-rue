@@ -20,7 +20,6 @@ const ADD_USER = gql`
     $contact_phone: String
     $contact_prefered: String
     $description: String
-    $password_hash: String
   ) {
     addUser(
       first_name: $first_name
@@ -30,7 +29,6 @@ const ADD_USER = gql`
       contact_phone: $contact_phone
       contact_prefered: $contact_prefered
       description: $description
-      password_hash: $password_hash
     ) {
       first_name
       last_name
@@ -39,7 +37,6 @@ const ADD_USER = gql`
       contact_phone
       contact_prefered
       description
-      password_hash
     }
   }
 `;
@@ -54,8 +51,6 @@ export default function CreateVolunteer() {
   const [contact_email, setContact_email] = useState();
   const [contact_phone, setContact_phone] = useState();
   const [contact_prefered, setContact_prefered] = useState();
-  const [password_hash, setPassword_hash] = useState();
-  const [password_confirm, setPassword_confirm] = useState();
   const [gender, setGender] = useState();
   const [description, setDescription] = useState();
 
@@ -73,7 +68,6 @@ export default function CreateVolunteer() {
         contact_email,
         contact_phone,
         contact_prefered,
-        password_hash,
         gender,
         description
       }
@@ -128,24 +122,7 @@ export default function CreateVolunteer() {
             getValue={(e: any) => setContact_email(e.target.value)}
           />
         </div>
-        <div className="form-row">
-          <SmallInput
-            name="password"
-            type="password"
-            placeholder="Password"
-            label="Password"
-            getValue={(e: any) => {
-              setPassword_hash(e.target.value);
-            }}
-          />
-          <SmallInput
-            name="passwordConformation"
-            type="password"
-            placeholder="Conform your password"
-            label="Confirm your password"
-            getValue={(e: any) => setPassword_confirm(e.target.value)}
-          />
-        </div>
+
         <div className="form-row">
           <SmallInput
             name="contact_phone"

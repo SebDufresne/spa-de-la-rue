@@ -58,7 +58,7 @@ ReactDOM.render(
       <Auth0Provider
         domain={config.domain}
         client_id={config.clientId}
-        redirect_uri="http://localhost:3000/logged/"
+        redirect_uri="http://localhost:3000/loggedin/"
         onRedirectCallback={onRedirectCallback}
       >
         <Router>
@@ -67,7 +67,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about/" component={AboutUs} />
-            <Route path="/logged/" component={Application} />
+            <Route path="/loggedin/" component={Application} />
 
             <Route path="/partners" component={DisplayPartners} />
             <Route path="/sponsors" component={DisplaySponsors} />

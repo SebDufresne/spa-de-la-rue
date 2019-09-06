@@ -63,7 +63,6 @@ export default function Navbar() {
     user
   } = useAuth0();
 
-  
   useEffect(() => {
     if (user) {
       dispatch(setUserInfo(user));
