@@ -22,6 +22,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 import AboutUs from "components/AboutUs";
+import Home from "components/Home";
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -60,15 +61,16 @@ ReactDOM.render(
       <Auth0Provider
         domain={config.domain}
         client_id={config.clientId}
-        redirect_uri="http://localhost:3000/"
+        redirect_uri="http://localhost:3000/loggedin/"
         onRedirectCallback={onRedirectCallback}
       >
         <Router>
           <Navbar />
           <SocialMedia props={socialMediaUrl} />
           <Switch>
-            <Route exact path="/" component={Application} />
+            <Route exact path="/" component={Home} />
             <Route path="/about/" component={AboutUs} />
+            <Route path="/loggedin/" component={Application} />
 
             <Route path="/partners" component={DisplayPartners} />
             <Route path="/sponsors" component={DisplaySponsors} />

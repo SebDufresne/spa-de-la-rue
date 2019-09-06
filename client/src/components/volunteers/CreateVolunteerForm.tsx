@@ -20,7 +20,6 @@ const ADD_USER = gql`
     $contact_phone: String
     $contact_prefered: String
     $description: String
-    $password_hash: String
   ) {
     addUser(
       first_name: $first_name
@@ -30,7 +29,6 @@ const ADD_USER = gql`
       contact_phone: $contact_phone
       contact_prefered: $contact_prefered
       description: $description
-      password_hash: $password_hash
     ) {
       first_name
       last_name
@@ -39,7 +37,6 @@ const ADD_USER = gql`
       contact_phone
       contact_prefered
       description
-      password_hash
     }
   }
 `;
@@ -54,8 +51,6 @@ export default function CreateVolunteerForm() {
   const [contact_email, setContact_email] = useState();
   const [contact_phone, setContact_phone] = useState();
   const [contact_prefered, setContact_prefered] = useState();
-  const [password_hash, setPassword_hash] = useState();
-  const [password_confirm, setPassword_confirm] = useState();
   const [gender, setGender] = useState();
   const [description, setDescription] = useState();
 
@@ -73,14 +68,13 @@ export default function CreateVolunteerForm() {
         contact_email,
         contact_phone,
         contact_prefered,
-        password_hash,
         gender,
         description
       }
     });
     SetToHome(true);
   };
-  
+
   useEffect(() => {
     if (user) {
       dispatch(setUserInfo(user));
@@ -93,8 +87,6 @@ export default function CreateVolunteerForm() {
       </div>
     );
   }
-
-
   if (toHome) {
     return <Redirect to="/" />;
   }
@@ -130,24 +122,7 @@ export default function CreateVolunteerForm() {
             getValue={(e: any) => setContact_email(e.target.value)}
           />
         </div>
-        <div className="form-row">
-          <SmallInput
-            name="password"
-            type="password"
-            placeholder="Password"
-            label="Password"
-            getValue={(e: any) => {
-              setPassword_hash(e.target.value);
-            }}
-          />
-          <SmallInput
-            name="passwordConformation"
-            type="password"
-            placeholder="Conform your password"
-            label="Confirm your password"
-            getValue={(e: any) => setPassword_confirm(e.target.value)}
-          />
-        </div>
+
         <div className="form-row">
           <SmallInput
             name="contact_phone"
@@ -168,8 +143,8 @@ export default function CreateVolunteerForm() {
             legend="Gender"
             options={["M", "F", "O"]}
             getValue={(e: any) => {
-              setFirst_name(user.given_name);
-              setLast_name(user.family_name);
+              setFirst_name(first_name||user.given_name);
+              setLast_name(last_name||user.family_name);
               setContact_email(user.email);
               setGender(e.target.value);
             }}
