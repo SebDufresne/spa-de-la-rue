@@ -3,6 +3,7 @@ import { gql } from "apollo-server-express";
 // GraphQL: TypeDefs
 const typeDefs = gql`
   type Query {
+    active_partners: [Partner_Brief]
     users: [User]
     user(contact_email: String!): User
     partners: [Partner]
@@ -57,6 +58,12 @@ const typeDefs = gql`
     description: String
     partner_url: String
     is_active: Boolean
+  }
+
+  type Partner_Brief {
+    id: ID
+    name: String
+    address_id: Int
   }
 
   type Sponsor {
