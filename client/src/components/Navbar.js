@@ -64,13 +64,11 @@ export default function Navbar() {
     user
   } = useAuth0();
 
-  
   useEffect(() => {
     if (user) {
       dispatch(setUserInfo(user));
     }
   });
-  console.log('user: ', user);
   
   return (
     <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light justify-content-between nav">

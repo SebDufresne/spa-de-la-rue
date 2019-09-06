@@ -21,7 +21,6 @@ const typeDefs = gql`
       description: String
       picture_url: String
       total_hours: Int
-      password_hash: String
       status: String
       is_admin: Boolean
       is_disable: Boolean
