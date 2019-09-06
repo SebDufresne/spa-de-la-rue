@@ -4,9 +4,13 @@ const db = require("../../database");
 
 const resolvers = {
   Query: {
+    active_partners: () => {
+      return db.knex("partners")
+      .where({is_active: true});
+    },
     partners: () => {
       return db.knex("partners");
-    }, 
+    },
     sponsors: () => {
       return db.knex("sponsors");
     },
@@ -18,7 +22,7 @@ const resolvers = {
       return db.knex("users")
         .where({id: args.id})
         .then(userData => {
-          return userData[0]
+          return userData[0];
         });
     },
     volunteers: () => {
