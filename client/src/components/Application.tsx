@@ -61,11 +61,9 @@ export default function Application() {
   if (error) {
     return <p>Please wait</p>;
   }
-
-  console.log("data: ", data)
   return (
     <div className="App">
-      {data.user && data.user.first_name && <h1>Logged in! </h1>}
+      {data.user && data.user.email && <h1>Logged in! </h1>}
       {!data.user && contact_email && <Redirect to="/volunteer/new/" />}
     </div>
   );

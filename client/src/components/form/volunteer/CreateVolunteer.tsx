@@ -94,7 +94,6 @@ export default function CreateVolunteer() {
     );
   }
   if (toHome) {
-    debugger
     return <Redirect to="/" />;
   }
 
@@ -167,8 +166,8 @@ export default function CreateVolunteer() {
             legend="Gender"
             options={["M", "F", "O"]}
             getValue={(e: any) => {
-              setFirst_name(user.given_name);
-              setLast_name(user.family_name);
+              setFirst_name(first_name||user.given_name);
+              setLast_name(last_name||user.family_name);
               setContact_email(user.email);
               setGender(e.target.value);
             }}
