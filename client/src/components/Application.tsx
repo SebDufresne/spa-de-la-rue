@@ -13,6 +13,8 @@ const GET_VOLUNTEER_PROFILE = gql`
       contact_email
       contact_phone
       description
+      is_admin
+      status
     }
   }
 `;
@@ -23,6 +25,8 @@ interface User {
   last_name: string;
   contact_email: string;
   gender: string;
+  is_admin: Boolean;
+  status: String;
 }
 
 interface UserListData {
@@ -41,6 +45,8 @@ const GET_USER_LIST = gql`
       last_name
       contact_email
       gender
+      is_admin
+      status
     }
   }
 `;
@@ -64,7 +70,8 @@ export default function Application() {
 
   return (
     <div className="App">
-      {data.user && data.user.contact_email && <h1>Logged in! </h1>}
+      {}
+      {data.user && data.user.contact_email &&!data.user.is_admin && <h1>Logged in! </h1>}
       {!data.user && contact_email && <Redirect to="/volunteer/new/" />}
     </div>
   );
