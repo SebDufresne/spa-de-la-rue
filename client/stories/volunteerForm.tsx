@@ -48,7 +48,7 @@ storiesOf("Form", module)
     <ChooseBox
       label="prefered contact"
       default="Choose..."
-      options={["By phone", "By eamil"]}
+      options={["By phone", "By email"]}
       getValue={action("choosed box")}
     />
   ))
