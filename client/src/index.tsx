@@ -5,8 +5,8 @@ import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 
 import CreateEventForm from "components/events/CreateEventForm";
-import CreateSponsor from "components/form/CreateSponsor";
-import CreateVolunteer from "components/form/CreateVolunteer";
+import CreateSponsorForm from "components/sponsors/CreateSponsorForm";
+import CreateVolunteerForm from "components/volunteers/CreateVolunteerForm";
 
 import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
@@ -67,8 +67,8 @@ ReactDOM.render(
           <Route path="/volunteers" component={DisplayVolunteers} />
 
           <Route path="/events/new/" component={CreateEventForm} />
-          <Route path="/sponsor/new" component={CreateSponsor} />
-          <Route path="/volunteer/new/" component={CreateVolunteer} />
+          <Route path="/sponsor/new" component={CreateSponsorForm} />
+          <Route path="/volunteer/new/" component={CreateVolunteerForm} />
         </Switch>
       </Router>
     </Auth0Provider>

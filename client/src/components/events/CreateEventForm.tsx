@@ -82,7 +82,6 @@ export default function CreateEventForm () {
   }
 
   if (data) {
-    console.log(data);
     return (
     
       <div>

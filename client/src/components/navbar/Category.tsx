@@ -19,6 +19,7 @@ export default function Category(props: propsInfo) {
         {key}
       </a>
       <div className="dropdown-menu">
+        <ul>
         {props[key].map((dropdownMenu, index) => {
           return (
             <li key={index}>
@@ -26,6 +27,7 @@ export default function Category(props: propsInfo) {
             </li>
           );
         })}
+        </ul>
       </div>
     </li>
   );

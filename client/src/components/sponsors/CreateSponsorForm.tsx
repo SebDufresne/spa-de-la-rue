@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SmallInput from "./SmallInput";
+import SmallInput from "components/form/SmallInput";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { Redirect } from "react-router-dom";
@@ -25,7 +25,7 @@ const ADD_SPONSOR = gql`
   }
 `;
 
-export default function SponsorCreation() {
+export default function CreateSponsorForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [picture_url, setPicture_url] = useState("");
