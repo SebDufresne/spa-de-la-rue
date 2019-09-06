@@ -20,7 +20,7 @@ const resolvers = {
 
     user: (root, args, context) => {
       return db.knex("users")
-        .where({id: args.id})
+        .where({contact_email: args.contact_email})
         .then(userData => {
           return userData[0];
         });

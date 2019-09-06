@@ -5,7 +5,7 @@ const typeDefs = gql`
   type Query {
     active_partners: [Partner_Brief]
     users: [User]
-    user(id: ID!): User
+    user(contact_email: String!): User
     partners: [Partner]
     sponsors: [Sponsor]
     volunteers: [User]

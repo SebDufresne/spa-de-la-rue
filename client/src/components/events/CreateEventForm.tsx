@@ -106,6 +106,13 @@ export default function CreateEventForm () {
               onChange={e => setHoursOfWork(+e.target.value)}
             />
           </p>
+          {/* <select className={formControl} value={props.value} onChange={props.onChange} name={props.name}>
+              {props.options.map(option => (
+                <option value={option.value}>
+                  {option.displayValue}
+                </option>
+              ))}
+            </select> */}
           <p>
             <label>Description</label>
             <textarea
