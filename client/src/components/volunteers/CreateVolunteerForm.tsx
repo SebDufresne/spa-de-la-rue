@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SmallInput from "../SmallInput";
-import LongInput from "../LongInput";
-import ChooseRadio from "../ChooseRadio";
-import ChooseBox from "../ChooseBox";
-import TextareaInput from "../TextareaInput";
+import SmallInput from "components/form/SmallInput";
+import LongInput from "components/form/LongInput";
+import ChooseRadio from "components/form/ChooseRadio";
+import ChooseBox from "components/form/ChooseBox";
+import TextareaInput from "components/form/TextareaInput";
 import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -44,7 +44,7 @@ const ADD_USER = gql`
   }
 `;
 
-export default function CreateVolunteer() {
+export default function CreateVolunteerForm() {
   const { loadingAuth, user } = useAuth0();
 
   const dispatch = useDispatch();

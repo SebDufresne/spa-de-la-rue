@@ -11,7 +11,7 @@ exports.up = function(knex) {
     table.string('picture_url').notNullable().defaultTo('images/assets/missing_avatar.svg');
     table.integer('total_hours').notNullable().defaultTo(0);
     table.string('password_hash');
-    table.enu('status',['new','active','inactive']).notNullable().defaultTo('new');
+    table.enu('status',['new','active','inactive','rejected']).notNullable().defaultTo('new');
     table.boolean('is_admin').notNullable().defaultTo(false);
     table.boolean('is_disable').notNullable().defaultTo(false);
     table.timestamps(true,true);
