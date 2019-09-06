@@ -37,7 +37,6 @@ const resolvers = {
         description: args.description,
         picture_url: args.picture_url,
         total_hours: args.total_hours,
-        password_hash: args.password_hash,
         status: args.status,
         is_admin: args.is_admin,
         is_disable: args.is_disable,
