@@ -4,7 +4,7 @@ import "index.scss";
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 
-import CreateEvent from "components/form/CreateEvent";
+import CreateEventForm from "components/events/CreateEventForm";
 import CreateSponsor from "components/form/CreateSponsor";
 import CreateVolunteer from "components/form/CreateVolunteer";
 
@@ -66,7 +66,7 @@ ReactDOM.render(
           <Route path="/sponsors" component={DisplaySponsors} />
           <Route path="/volunteers" component={DisplayVolunteers} />
 
-          <Route path="/events/new/" component={CreateEvent} />
+          <Route path="/events/new/" component={CreateEventForm} />
           <Route path="/sponsor/new" component={CreateSponsor} />
           <Route path="/volunteer/new/" component={CreateVolunteer} />
         </Switch>

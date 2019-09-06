@@ -3,3 +3,9 @@ export interface PartnerSummary {
   name: string,
   description: string,
 }
+
+export interface ActivePartner {
+  id: number,
+  name: string,
+  address_id: number,
+}

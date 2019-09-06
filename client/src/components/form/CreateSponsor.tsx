@@ -25,7 +25,7 @@ const ADD_SPONSOR = gql`
   }
 `;
 
-export default function CreateSponsor() {
+export default function SponsorCreation() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [picture_url, setPicture_url] = useState("");
