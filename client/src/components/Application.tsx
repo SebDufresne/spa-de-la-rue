@@ -3,7 +3,7 @@ import "components/Application.scss";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { useSelector } from "react-redux";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const GET_VOLUNTEER_PROFILE = gql`
   query GetVolunteerProfile($contact_email: String!) {
@@ -55,23 +55,25 @@ export default function Application() {
   });
 
   if (loading) {
-    return <p>Loading...</p>
-  }
-  
-  if (error) {
-    return <p>Please wait</p>
+    return <p>Loading...</p>;
   }
 
+  if (error) {
+    return <p>Please wait</p>;
+  }
+
+  console.log("data: ", data)
   return (
     <div className="App">
-      {data.user&&data.user.first_name&&<h1>Logged in! </h1>}
-      {!data.user&&contact_email&&<Redirect to="volunteer/new/" />}
+      {data.user && data.user.first_name && <h1>Logged in! </h1>}
+      {!data.user && contact_email && <Redirect to="/volunteer/new/" />}
     </div>
   );
-  
 }
-    {/* {data && data.users.map(user => (
+{
+  /* {data && data.users.map(user => (
       <li key={user.id} className="list-group-item text-danger">
         {user.first_name} {user.last_name} {user.contact_email}{user.gender}
       </li>
-    ))} */}
+    ))} */
+}

@@ -80,7 +80,7 @@ export default function CreateVolunteer() {
     });
     SetToHome(true);
   };
-  
+
   useEffect(() => {
     if (user) {
       dispatch(setUserInfo(user));
@@ -93,9 +93,8 @@ export default function CreateVolunteer() {
       </div>
     );
   }
-
-
   if (toHome) {
+    debugger
     return <Redirect to="/" />;
   }
 
