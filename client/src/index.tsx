@@ -7,6 +7,7 @@ import CreateVolunteer from "components/form/volunteer/CreateVolunteer";
 import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
 import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
+import DisplayVolunteerProfile from "components/profile/DisplayVolunteerProfile";
 import SocialMedia from "components/SocialMedia";
 import SponsorCreation from "components/form/SponsorCreation";
 import * as serviceWorker from "serviceWorker";
@@ -18,6 +19,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 import AboutUs from "components/AboutUs";
+
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import state from "state/index";
+
+const store = createStore(state);
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: "http://localhost:4000/graphql" }),
@@ -46,28 +53,35 @@ const onRedirectCallback = (appState: any) => {
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Auth0Provider
-      domain={config.domain}
-      client_id={config.clientId}
-      redirect_uri="http://localhost:3000/volunteer/new/"
-      onRedirectCallback={onRedirectCallback}
-    >
-      <Router>
-        <Navbar />
-        <SocialMedia props={socialMediaUrl} />
-        <Switch>
-          <Route exact path="/" component={Application} />
-          <Route path="/about/" component={AboutUs} />
-          
-          <Route path="/partners" component={DisplayPartners} />
-          <Route path="/sponsors" component={DisplaySponsors} />
-          <Route path="/volunteers" component={DisplayVolunteers} />
+    <Provider store={store}>
+      <Auth0Provider
+        domain={config.domain}
+        client_id={config.clientId}
+        redirect_uri="http://localhost:3000/"
+        onRedirectCallback={onRedirectCallback}
+      >
+        <Router>
+          <Navbar />
+          <SocialMedia props={socialMediaUrl} />
+          <Switch>
+            <Route exact path="/" component={Application} />
+            <Route path="/about/" component={AboutUs} />
 
-          <Route path="/sponsor/new" component={SponsorCreation} />
-          <Route path="/volunteer/new/" component={CreateVolunteer} />
-        </Switch>
-      </Router>
-    </Auth0Provider>
+            <Route path="/partners" component={DisplayPartners} />
+            <Route path="/sponsors" component={DisplaySponsors} />
+            <Route path="/volunteers" component={DisplayVolunteers} />
+
+            <Route path="/sponsor/new" component={SponsorCreation} />
+            <Route path="/volunteer/new/" component={CreateVolunteer} />
+
+            <Route
+              path="/volunteer/profile/"
+              component={DisplayVolunteerProfile}
+            />
+          </Switch>
+        </Router>
+      </Auth0Provider>
+    </Provider>
   </ApolloProvider>,
   document.getElementById("root")
 );

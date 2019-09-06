@@ -8,6 +8,8 @@ import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { Redirect } from "react-router-dom";
+import { setUserInfo } from "state/app";
+import { useDispatch } from "react-redux";
 
 const ADD_USER = gql`
   mutation AddUser(
@@ -45,6 +47,8 @@ const ADD_USER = gql`
 export default function CreateVolunteer() {
   const { loadingAuth, user } = useAuth0();
 
+  const dispatch = useDispatch();
+
   const [first_name, setFirst_name] = useState();
   const [last_name, setLast_name] = useState();
   const [contact_email, setContact_email] = useState();
@@ -55,7 +59,7 @@ export default function CreateVolunteer() {
   const [gender, setGender] = useState();
   const [description, setDescription] = useState();
 
-  const [toHome, SetToHome] =useState(false);
+  const [toHome, SetToHome] = useState(false);
 
   const [addUser] = useMutation(ADD_USER);
 
@@ -76,7 +80,12 @@ export default function CreateVolunteer() {
     });
     SetToHome(true);
   };
-
+  
+  useEffect(() => {
+    if (user) {
+      dispatch(setUserInfo(user));
+    }
+  });
   if (loadingAuth || !user) {
     return (
       <div className="container">
@@ -85,8 +94,9 @@ export default function CreateVolunteer() {
     );
   }
 
-  if(toHome){
-    return <Redirect to="/" />
+
+  if (toHome) {
+    return <Redirect to="/" />;
   }
 
   return (
