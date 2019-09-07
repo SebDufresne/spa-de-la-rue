@@ -1,4 +1,4 @@
-export interface CinicSummary {
+export interface ClinicSummary {
   id: number,
   picture_url: string,
   name: string,

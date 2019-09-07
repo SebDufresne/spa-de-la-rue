@@ -9,8 +9,9 @@ function loadStories() {
   require('../stories/profile');
 
   require('../stories/partner');
-  require('../stories/sponsor.tsx');
+  require('../stories/sponsor');
   require('../stories/volunteer');
+  require('../stories/clinic');
 
   require('../stories/schedule');
   require('../stories/socialMedia');
