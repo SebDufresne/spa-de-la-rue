@@ -35,9 +35,9 @@ export default function useFormData() {
     end_date: moment(Date.now()).format('YYYY-MM-DD'),
     day_of_week: 0,
     frequency: 'weekly',
-    start_time: '',
-    end_time: '',
-    hours_of_work: 0,
+    start_time: '10:00:00',
+    end_time: '12:00:00',
+    hours_of_work: 3,
     therapist_needed: 3,
     color: 'bg-warning'
   });

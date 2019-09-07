@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable('absentees', table => {
+  return knex.schema.createTable('attendances', table => {
     table.increments('id').primary();
     table.integer('clinic_id');
     table.integer('volunteer_id');
@@ -12,5 +12,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('absentees');
+  return knex.schema.dropTable('attendances');
 };

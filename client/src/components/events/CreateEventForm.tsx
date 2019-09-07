@@ -132,7 +132,7 @@ export default function CreateEventForm (this: any) {
     
       <div>
         <h3>Create an Event</h3>
-        <form>
+        <form onSubmit={event => event.preventDefault()}>
           <label>Partner Name</label>
           <select
             value={state.partner_id}
