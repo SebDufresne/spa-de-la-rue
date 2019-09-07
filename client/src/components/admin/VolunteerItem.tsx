@@ -1,11 +1,12 @@
-import React from 'react';
-import Table from 'react-bootstrap';
+import React from "react";
+import Table from "react-bootstrap";
 
-interface volunteerItem{
-  id?: number
-  first_name?: string
-  last_name?: string
-  status?: string
+interface volunteerItem {
+  id: number;
+  first_name?: string;
+  last_name?: string;
+  contact_email?: string;
+  status?: string;
 }
 
 export default function VolunteerItem(props: volunteerItem) {
@@ -16,5 +17,5 @@ export default function VolunteerItem(props: volunteerItem) {
       <td>{props.last_name}</td>
       <td>{props.status}</td>
     </tr>
-  )
+  );
 }

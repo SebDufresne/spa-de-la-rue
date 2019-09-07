@@ -6,7 +6,8 @@ import { Table } from "react-bootstrap";
 
 const GET_USER = gql`
   query GetUsers {
-    users{
+    users {
+      contact_email
       first_name
       last_name
       status
@@ -15,17 +16,16 @@ const GET_USER = gql`
 `;
 
 export default function AdminVolunteer() {
+  const { loading, error, data } = useQuery(GET_USER);
 
-  const {loading, error, data} = useQuery(GET_USER);
-  
-  if (loading){
+  if (loading) {
     return <div>loading</div>;
   }
 
   if (error) {
-    return <div>{error.message}</div>
+    return <div>{error.message}</div>;
   }
-  
+
   return (
     <div className="container">
       <Table striped bordered hover>
@@ -38,11 +38,10 @@ export default function AdminVolunteer() {
           </tr>
         </thead>
         <tbody>
-          {
-            data.users&&data.users.map((user:object, index:number)=>{
-              return <VolunteerItem key={index} id={index+1} {...user} />
-            })
-          }
+          {data.users &&
+            data.users.map((user: object, index: number) => {
+              return <VolunteerItem key={index} id={index + 1} {...user} />;
+            })}
         </tbody>
       </Table>
     </div>
