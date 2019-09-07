@@ -20,20 +20,20 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const ADD_EVENT = gql`
   mutation addEvent(
-    $administrator_id: Int
-    $partner_id: Int
-    $address_id: Int
-    $name: String
-    $description: String
-    $start_date: String
-    $end_date: String
-    $day_of_week: Int
-    $frequency: String
-    $start_time: String
-    $end_time: String
-    $hours_of_work: Int
-    $therapist_needed: Int
-    $color: String
+    $administrator_id: Int!
+    $partner_id: Int!
+    $address_id: Int!
+    $name: String!
+    $description: String!
+    $start_date: String!
+    $end_date: String!
+    $day_of_week: Int!
+    $frequency: String!
+    $start_time: String!
+    $end_time: String!
+    $hours_of_work: Int!
+    $therapist_needed: Int!
+    $color: String!
   ) {
     addEvent(
       administrator_id: $administrator_id

@@ -11,7 +11,6 @@ const resolvers = {
       .where({is_active: true});
     },
     active_volunteers: () => {
-      console.log('test active volunteers');
       return db.knex("users")
       .where({status: 'active'});
     },
@@ -55,9 +54,9 @@ const resolvers = {
         hours_of_work: args.hours_of_work,
         therapist_needed: args.therapist_needed,
         color: args.color
-      }).returning('id')
-      .then(id => {
-        return {id: id[0]}
+      }).returning("*")
+      .then(([event]) => {
+        return event;
       });
     },
     addUser: (root, args) => {
