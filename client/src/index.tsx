@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "index.scss";
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
+import NavParent from "components/NavParent.js";
 
 import CreateEventForm from "components/events/CreateEventForm";
 import CreateSponsorForm from "components/sponsors/CreateSponsorForm";
@@ -65,7 +66,7 @@ ReactDOM.render(
         onRedirectCallback={onRedirectCallback}
       >
         <Router>
-          <Navbar />
+          <NavParent />
           <SocialMedia props={socialMediaUrl} />
           <Switch>
             <Route exact path="/" component={Home} />
