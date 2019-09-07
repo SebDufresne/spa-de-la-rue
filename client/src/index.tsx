@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "index.scss";
+import 'bootstrap';
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 import NavParent from "components/NavParent.js";

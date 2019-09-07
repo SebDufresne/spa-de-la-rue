@@ -1,6 +1,7 @@
 import React from "react";
 import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
+import './VolunteerItem.scss';
 
 interface volunteerItem {
   id: number;
