@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { DropdownButton } from "react-bootstrap";
-import { Dropdown } from "react-bootstrap";
+import { useMutation } from "@apollo/react-hooks";
+import gql from "graphql-tag";
 import "./VolunteerItem.scss";
 
 interface volunteerItem {
@@ -11,11 +11,32 @@ interface volunteerItem {
   status?: string;
 }
 
+const UPDATE_USER = gql`
+  mutation UpdateUser(
+    $contact_email: String!
+    $status: String!
+    ) { 
+      updateUser(
+        contact_email: $contact_email 
+        status: $status
+      ) {
+        contact_email
+        status
+      }
+  }
+`;
+
 export default function VolunteerItem(props: volunteerItem) {
   const [title, setTitle] = useState(props.status);
 
+  const [updateUser] = useMutation(UPDATE_USER);
+
+  const {contact_email} = props;
+
   const handleEnable = () => {
-    setTitle("active");
+    const status = "active";
+    setTitle(status);
+    updateUser({variables: {contact_email, status}})
   };
 
   const handleDisable = () => {
@@ -25,7 +46,7 @@ export default function VolunteerItem(props: volunteerItem) {
   const handleReject = () => {
     setTitle("rejected");
   };
-
+  
   return (
     <tr>
       <td>{props.id}</td>

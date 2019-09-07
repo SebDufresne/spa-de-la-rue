@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "index.scss";
-import 'bootstrap';
+import "bootstrap";
 import Application from "components/Application";
 import Navbar from "components/Navbar.js";
 import NavParent from "components/NavParent.js";
@@ -83,7 +83,7 @@ ReactDOM.render(
             <Route path="/events/new/" component={CreateEventForm} />
             <Route path="/sponsor/new" component={CreateSponsorForm} />
             <Route path="/volunteer/new/" component={CreateVolunteerForm} />
-            
+
             <Route
               path="/volunteer/profile/"
               component={DisplayVolunteerProfile}
