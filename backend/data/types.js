@@ -46,6 +46,11 @@ const typeDefs = gql`
       is_disable: Boolean
     ): User 
 
+    updateUser(
+      contact_email: String!
+      status: String!
+    ): User
+
     addSponsor(
       name: String
       picture_url: String
