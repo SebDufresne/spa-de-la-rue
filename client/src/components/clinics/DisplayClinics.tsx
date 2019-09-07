@@ -9,8 +9,8 @@ interface ClinicList {
 }
 
 const GET_CLINIC_SUMMARY_LIST = gql`
-  query getPartnerList {
-    clinic_summmary {
+  query getClinicSumary {
+    clinic_summary {
       id
       picture_url
       name
@@ -40,12 +40,11 @@ export default function DisplayClinics() {
   }
 
   if (data) {
+    console.log(data);
     return (
       <div className="container text-center my-5 Partners">
       <h1>Partners</h1>
-        { 
-          <PartnerList partners = {data.partners} />
-        }
+  
       </div>
     );
   }
