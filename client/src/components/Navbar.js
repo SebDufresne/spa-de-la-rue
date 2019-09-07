@@ -60,12 +60,16 @@ export default function Navbar(props) {
 
   return (
     <React.Fragment>
-      <div className="nav-item">Hello! {user && user.given_name}</div>
+      <div className="btn btn-success">Hello! {user && user.given_name}</div>
       {isAuthenticated && !data.user.is_admin && (
-        <Category {...volunteerCategory} />
+        <li>
+          <Category {...volunteerCategory} />
+        </li>
       )}
       {isAuthenticated && data && data.user && data.user.is_admin && (
-        <Category {...adminCategory} />
+        <li>
+          <Category {...adminCategory} />
+        </li>
       )}
 
       <button

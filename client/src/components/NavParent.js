@@ -59,7 +59,9 @@ export default function NavParent() {
               return <Category key={index} {...categoryData} />;
             })}
           </ul>
-          <Category {...menuItems[menuItems.length - 1]} />
+          <ul>
+            <Category {...menuItems[menuItems.length - 1]} />
+          </ul>
           {user && (
             <Navbar
               loginWithRedirect={loginWithRedirect}
