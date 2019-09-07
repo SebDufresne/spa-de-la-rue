@@ -51,16 +51,14 @@ export default function Navbar(props) {
     }
   });
   const contact_email = (user && user.email) || "";
-  console.log("email: ", contact_email);
+
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
     variables: { contact_email }
   });
   if (loading) {
     return <div>loading</div>;
   }
-  if (error) return <>error</>;
-
-  console.log("data: ", data);
+  if (error) return <div>{error.message}</div>;
 
   return (
     <React.Fragment>
