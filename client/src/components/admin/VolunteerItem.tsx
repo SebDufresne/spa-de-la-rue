@@ -29,17 +29,28 @@ export default function VolunteerItem(props: volunteerItem) {
         </DropdownButton> */}
         <div className="dropdown">
           <button
-            className="btn btn-success dropdown-toggle"
+            className={
+              "btn dropdown-toggle " +
+              (props.status === "active" ? "btn-success" : "btn-warning")
+            }
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
-            aria-haspopup="false"
+            aria-haspopup="true"
             aria-expanded="false"
-          >{props.status}</button>
+          >
+            {props.status}
+          </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a href="#" className="dropdown-item enable">Enable</a>
-            <a href="#" className="dropdown-item disable ">Disable</a>
-            <a href="#" className="dropdown-item reject ">reject</a>
+            <a href="#" className="dropdown-item enable">
+              Enable
+            </a>
+            <a href="#" className="dropdown-item disable ">
+              Disable
+            </a>
+            <a href="#" className="dropdown-item reject ">
+              reject
+            </a>
           </div>
         </div>
       </td>
