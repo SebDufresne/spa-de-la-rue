@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import "./VolunteerItem.scss";
@@ -12,26 +12,31 @@ interface volunteerItem {
 }
 
 export default function VolunteerItem(props: volunteerItem) {
+  const [title, setTitle] = useState(props.status);
+
+  const handleEnable = () => {
+    setTitle("active");
+  };
+
+  const handleDisable = ()=>{
+    setTitle("inactive");
+  }
+
+  const handleReject = ()=>{
+    setTitle("rejected");
+  }
+
   return (
     <tr>
       <td>{props.id}</td>
       <td>{props.first_name}</td>
       <td>{props.last_name}</td>
       <td>
-        {/* <DropdownButton
-          id="dropdown-item-button"
-          title={props.status}
-          variant={props.status === "active" ? "success" : "warning"}
-        >
-          <Dropdown.Item as="button">Enable</Dropdown.Item>
-          <Dropdown.Item as="button">Disable</Dropdown.Item>
-          <Dropdown.Item as="button">Reject</Dropdown.Item>
-        </DropdownButton> */}
         <div className="dropdown">
           <button
             className={
               "btn dropdown-toggle " +
-              (props.status === "active" ? "btn-success" : "btn-warning")
+              (title === "active" ? "btn-success" : "btn-warning")
             }
             type="button"
             id="dropdownMenuButton"
@@ -39,25 +44,26 @@ export default function VolunteerItem(props: volunteerItem) {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            {props.status}
+            {title}
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a
               href="#"
               className={
-                "dropdown-item enable " +
-                (props.status === "active" ? "disabled" : "")
+                "dropdown-item bg-success " +
+                (title === "active" ? "disabled" : "")
               }
-              onClick={e => console.log("clicked")}
+              onClick={handleEnable}
             >
               Enable
             </a>
             <a
               href="#"
               className={
-                "dropdown-item disable " +
-                (props.status === "inactive" ? "disabled" : "")
+                "dropdown-item bg-warning " +
+                (title === "inactive" ? "disabled" : "")
               }
+              onClick={handleDisable}
             >
               Disable
             </a>
@@ -65,10 +71,11 @@ export default function VolunteerItem(props: volunteerItem) {
               href="#"
               className={
                 "dropdown-item reject " +
-                (props.status === "rejected" ? "disabled" : "")
+                (title === "rejected" ? "disabled" : "")
               }
+              onClick={handleReject}
             >
-              reject
+              Reject
             </a>
           </div>
         </div>
