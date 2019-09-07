@@ -38,8 +38,8 @@ export default function useFormData() {
     start_time: '',
     end_time: '',
     hours_of_work: 0,
-    therapist_needed: 0,
-    color: ''
+    therapist_needed: 3,
+    color: 'bg-warning'
   });
 
   const setAdministrator = (administrator_id : number) => {

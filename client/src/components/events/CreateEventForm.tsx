@@ -1,23 +1,56 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import { EventSummary } from './types';
 import { ActivePartner } from '../partners/types';
+import { ActiveVolunteer } from '../volunteers/types';
 import DatePicker from "react-datepicker";
 
 import useHookData from 'hooks/useFormData';
 import moment from 'moment';
 
+import ChooseRadio from "components/form/ChooseRadio";
+
 import "react-datepicker/dist/react-datepicker.css";
- 
+
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const SAVE_EVENT = gql`
-  mutation saveEvent($rocket: RocketInput!) {
-    addRocket(rocket: $rocket) {
+const ADD_EVENT = gql`
+  mutation addEvent(
+    $administrator_id: Int
+    $partner_id: Int
+    $address_id: Int
+    $name: String
+    $description: String
+    $start_date: String
+    $end_date: String
+    $day_of_week: Int
+    $frequency: String
+    $start_time: String
+    $end_time: String
+    $hours_of_work: Int
+    $therapist_needed: Int
+    $color: String
+  ) {
+    addEvent(
+      administrator_id: $administrator_id
+      partner_id: $partner_id
+      address_id: $address_id
+      name: $name
+      description: $description
+      start_date: $start_date
+      end_date: $end_date
+      day_of_week: $day_of_week
+      frequency: $frequency
+      start_time: $start_time
+      end_time: $end_time
+      hours_of_work: $hours_of_work
+      therapist_needed: $therapist_needed
+      color: $color
+    ) {
       administrator_id
       partner_id
       address_id
@@ -38,6 +71,7 @@ const SAVE_EVENT = gql`
 
 interface ActivePartnerList {
   active_partners: ActivePartner[];
+  active_volunteers: ActiveVolunteer[];
 }
 
 const GET_ACTIVE_PARTNERS = gql`
@@ -46,6 +80,11 @@ const GET_ACTIVE_PARTNERS = gql`
       id
       name
       address_id
+    },
+    active_volunteers {
+      id
+      first_name
+      last_name
     }
   }
 `;
@@ -59,6 +98,7 @@ export default function CreateEventForm (this: any) {
     setDescription,
     setStartDate,
     setEndDate,
+    setDayOfWeek,
     setFrequency,
     setStartTime,
     setEndTime,
@@ -66,13 +106,14 @@ export default function CreateEventForm (this: any) {
     setTherapistNeeded,
     setColor
   } = useHookData();
-;
 
-  const [saveEvent] = useMutation<
-    { saveEvent: EventSummary }
-  >(SAVE_EVENT, {
-    variables: { event: { state } }
-  });
+  // const [addEvent] = useMutation(ADD_EVENT, {
+  //   variables: state });
+
+  const [addEvent] = useMutation(ADD_EVENT);
+
+
+  console.log(state);
 
   const { loading, error, data } = useQuery<ActivePartnerList>(
     GET_ACTIVE_PARTNERS
@@ -101,13 +142,13 @@ export default function CreateEventForm (this: any) {
             name="partner"
           >
             {data.active_partners.map(partner => (
-              <option value={partner.id}>
+              <option value={partner.id} key={partner.id}>
                 {partner.name}
               </option>
             ))}
           </select>
 
-          <p>
+          <div>
             <label>Event Name</label>
             <input
               name="name"
@@ -116,9 +157,46 @@ export default function CreateEventForm (this: any) {
               value={state.name} 
               onChange={e => setName(e.target.value)}
             />
-          </p>
+          </div>
 
-          <p>
+          <label>Administrator Name</label>
+          <select
+            value={state.administrator_id}
+            onChange={e => {
+              setAdministrator(parseInt(e.target.value))
+            }}          
+            name="volunteer"
+          >
+            {data.active_volunteers.map(volunteer => (
+              <option value={volunteer.id} key={volunteer.id} >
+                {`${volunteer.first_name} ${volunteer.last_name}`}
+              </option>
+            ))}
+          </select>
+
+          <div>
+            <ChooseRadio
+              legend="Gender"
+              options={["AM - 10h00 à 12h00", "PM - 14h00 à 16h00", "Soir - 19h00 à 21h00"]}
+              getValue={(e: { target: { value: string; }; }) => {
+                switch(e.target.value) {
+                  case "AM - 10h00 à 12h00":
+                      setStartTime('10:00:00');
+                      setEndTime('12:00:00');
+                      break;
+                  case "PM - 14h00 à 16h00":
+                      setStartTime('14:00:00');
+                      setEndTime('16:00:00');
+                      break;
+                  case "Soir - 19h00 à 21h00":
+                      setStartTime('19:00:00');
+                      setEndTime('21:00:00');
+                      break;
+                }
+              }}
+            />
+          </div>
+          <div>
             <label>Hours Of Volunteering</label>
             <input
               type="number"
@@ -126,9 +204,9 @@ export default function CreateEventForm (this: any) {
               value={state.hours_of_work} 
               onChange={e => setHoursOfWork(parseInt(e.target.value))}
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label>Numbers of Therapist</label>
             <input
               type="number"
@@ -136,40 +214,50 @@ export default function CreateEventForm (this: any) {
               value={state.therapist_needed} 
               onChange={e => setTherapistNeeded(parseInt(e.target.value))}
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label>Description</label>
             <textarea
               name="description"
               rows={5}
               onChange={e => setDescription(e.target.value)}
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <label>Start Date</label>
             <DatePicker
+              inline
               selected={new Date(state.start_date)}
               onChange={e => {
-                const dateAsStr = e ? moment(e).format('YYYY-MM-DD') : ''; 
-                setStartDate(moment(dateAsStr).format('YYYY-MM-DD'));
+                if (e) {
+                  setDayOfWeek(e.getDay());
+                  setStartDate(moment(e).add(1, 'days').format('YYYY-MM-DD'));  
+                }
               }}
             />
-          </p>
-
-          <p>
+          </div>
+          <label>Frequency?</label>
+          <select value={state.frequency} onChange={e => setFrequency(e.target.value)}>
+            <option value="once">once</option>
+            <option value="weekly">weekly</option>
+            <option value="bi-weekly">bi-weekly</option>
+            <option value="monthly">monthly</option>
+          </select> 
+     
+          <div>
             <label>End Date</label>
             <DatePicker
+              inline
               selected={new Date(state.end_date)}
               onChange={e => {
-                const dateAsStr = e ? moment(e).format('YYYY-MM-DD') : ''; 
-                setEndDate(moment(dateAsStr).format('YYYY-MM-DD'));
+                const dateAsString = e ? moment(e).add(1, 'days').format('YYYY-MM-DD') : ''; 
+                setEndDate(moment(dateAsString).format('YYYY-MM-DD'));
               }}
             />
-          </p>
-
-          <button onClick={() => state.name && state.hours_of_work && state.description && saveEvent()}>
+          </div>
+          <button onClick={() => addEvent({ variables: state })}>
             Create Event
           </button>
         </form>
