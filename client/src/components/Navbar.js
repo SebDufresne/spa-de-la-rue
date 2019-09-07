@@ -28,7 +28,7 @@ const volunteerCategory = {
 
 const adminCategory = {
   "Admin control": [
-    { title: "Volunteers", path: "/" },
+    { title: "Volunteers", path: "/admin/volunteer/" },
     { title: "Events", path: "/" },
     { title: "Graphs", path: "/" }
   ]
@@ -39,9 +39,7 @@ export default function Navbar(props) {
 
   // const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
-  const { isAuthenticated, loginWithRedirect, logout, user } = props;
-
-  console.log("props: ", props);
+  const { isAuthenticated, user } = props;
 
   // const [data, setData] = useState(null);
 
@@ -51,16 +49,14 @@ export default function Navbar(props) {
     }
   });
   const contact_email = (user && user.email) || "";
-  console.log("email: ", contact_email);
+
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
     variables: { contact_email }
   });
   if (loading) {
     return <div>loading</div>;
   }
-  if (error) return <>error</>;
-
-  console.log("data: ", data);
+  if (error) return <div>{error.message}</div>;
 
   return (
     <React.Fragment>
