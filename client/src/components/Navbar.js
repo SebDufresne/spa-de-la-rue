@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "components/Navbar.scss";
-import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
-import { useAuth0 } from "../react-auth0-wrapper";
 import { setUserInfo } from "state/app";
 import { useDispatch } from "react-redux";
 import { gql } from "apollo-boost";
@@ -60,7 +58,7 @@ export default function Navbar(props) {
 
   return (
     <React.Fragment>
-      <div className="btn btn-success">Hello! {user && user.given_name}</div>
+      <ul className="btn btn-success">Hello! {user && user.given_name}</ul>
       {isAuthenticated && !data.user.is_admin && (
         <li>
           <Category {...volunteerCategory} />
