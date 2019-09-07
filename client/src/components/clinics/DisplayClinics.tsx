@@ -2,10 +2,12 @@ import React from 'react';
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-import { CinicSummary } from './types';
+import ClinicList from "./ClinicList";
+
+import { ClinicSummary } from './types';
 
 interface ClinicList {
-  clinics: CinicSummary[];
+  clinic_summary: ClinicSummary[];
 }
 
 const GET_CLINIC_SUMMARY_LIST = gql`
@@ -40,11 +42,12 @@ export default function DisplayClinics() {
   }
 
   if (data) {
-    console.log(data);
     return (
       <div className="container text-center my-5 Partners">
-      <h1>Partners</h1>
-  
+      <h1>Clinics</h1>
+      { 
+          <ClinicList clinic_summary = {data.clinic_summary} />
+      }
       </div>
     );
   }

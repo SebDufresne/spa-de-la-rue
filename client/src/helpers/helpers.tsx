@@ -1,4 +1,8 @@
-export const trimTime = (stringTime) => {
-  const hours = stringTime.match(/^(.*?):/)[1];
-  return `${hours}h`;
+export const trimTime = (stringTime : string) => {
+  const hours = stringTime.match(/^(.*?):/);
+  if (hours && hours.length > 1) {
+    return `${hours[1]}h`;
+  } else {
+    return '';
+  }
 }

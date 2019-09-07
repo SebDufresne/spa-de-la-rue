@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Clinic from "../src/components/clinics/Clinic";
+import Clinic from "../src/components/clinics/SingleClinic";
 import ClinicList from "../src/components/clinics/ClinicList";
 
 const clinic = {

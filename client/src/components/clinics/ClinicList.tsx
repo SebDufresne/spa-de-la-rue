@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Clinic from './Clinic';
+import Clinic from './SingleClinic';
 
 import { ClinicSummary } from './types';
 
 interface PropTypes {
-  clinics: ClinicSummary[];
+  clinic_summary: ClinicSummary[];
 }
 
-export default function ClinicList({clinics}: PropTypes) {
-  if (clinics && clinics.length > 1) {
-    const clinicList = clinics.map((clinic: ClinicSummary) => {
+export default function ClinicList({clinic_summary}: PropTypes) {
+  if (clinic_summary && clinic_summary.length > 1) {
+    const clinicList = clinic_summary.map((clinic: ClinicSummary) => {
   
       const {
         id,
@@ -27,7 +27,8 @@ export default function ClinicList({clinics}: PropTypes) {
       } = clinic;
   
         return (
-            <Clinic
+          <Clinic
+            key={id}
             id = {id}
             picture_url = {picture_url}
             name = {name}

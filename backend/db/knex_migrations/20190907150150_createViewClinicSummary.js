@@ -7,7 +7,9 @@ exports.up = function(knex) {
     JOIN events AS eve ON cli.event_id = eve.id
     JOIN partners as par ON eve.partner_id = par.id
     LEFT JOIN attendances as att ON cli.id = att.clinic_id
-    GROUP BY cli.id, par.id, eve.id, att.clinic_id;
+    WHERE date >= NOW()
+    GROUP BY cli.id, par.id, eve.id, att.clinic_id
+    ORDER BY date;
   `);
 };
 
