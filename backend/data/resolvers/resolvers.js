@@ -1,3 +1,6 @@
+import { argsToArgsConfig } from "graphql/type/definition";
+import { insertClinics } from "../../lib/helpers";
+
 // Imports: database
 const db = require("../../database");
 // GraphQL: Resolvers
@@ -8,6 +11,10 @@ const resolvers = {
       return db.knex("partners")
       .where({is_active: true});
     },
+    active_volunteers: () => {
+      return db.knex("users")
+      .where({status: 'active'});
+    },
     partners: () => {
       return db.knex("partners");
     },
@@ -17,7 +24,6 @@ const resolvers = {
     users: () => {
       return db.knex("users");
     },
-
     user: (root, args, context) => {
       return db.knex("users")
         .where({contact_email: args.contact_email})
@@ -30,6 +36,26 @@ const resolvers = {
     }
   },
   Mutation: {
+    addEvent: (root, args) => {
+      return db.knex("events").insert({
+        administrator_id: args.administrator_id,
+        partner_id: args.partner_id,
+        address_id: args.address_id,
+        name: args.name,
+        description: args.description,
+        start_date: args.start_date,
+        end_date: args.end_date,
+        day_of_week: args.day_of_week,
+        frequency: argsToArgsConfig,
+        frequency: args.frequency,
+        start_time: args.start_time,
+        end_time: args.end_time,
+        hours_of_work: args.hours_of_work,
+        therapist_needed: args.therapist_needed,
+        color: args.color
+      }).returning("*")
+      .then(([event]) => insertClinics(event));
+    },
     addUser: (root, args) => {
       return db.knex("users").insert({
         first_name: args.first_name,
