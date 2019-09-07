@@ -5,6 +5,7 @@ const typeDefs = gql`
   type Query {
     active_partners: [Partner_Brief]
     active_volunteers: [User_Brief]
+    clinic_summary: [Clinic_Summary]
     users: [User]
     user(contact_email: String!): User
     partners: [Partner]
@@ -53,6 +54,20 @@ const typeDefs = gql`
       sponsor_url: String
       is_active: Boolean
     ): Sponsor
+  }
+
+  type Clinic_Summary {
+    id: ID
+    picture_url: String
+    name: String
+    description: String
+    color: String
+    date: String
+    start_time: String
+    end_time: String
+    therapist_needed: Int
+    volunteers_registered: Int
+    free_spots: Int
   }
 
   type Event {

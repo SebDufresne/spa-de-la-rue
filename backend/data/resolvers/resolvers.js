@@ -15,6 +15,9 @@ const resolvers = {
       return db.knex("users")
       .where({status: 'active'});
     },
+    clinic_summary: () => {
+      return db.knex("clinic_summary");
+    },
     partners: () => {
       return db.knex("partners");
     },
