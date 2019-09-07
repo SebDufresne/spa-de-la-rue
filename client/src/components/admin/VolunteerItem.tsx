@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
-// import "./VolunteerItem.scss";
+import "./VolunteerItem.scss";
 
 interface volunteerItem {
   id: number;
@@ -42,13 +42,32 @@ export default function VolunteerItem(props: volunteerItem) {
             {props.status}
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a href="#" className="dropdown-item enable">
+            <a
+              href="#"
+              className={
+                "dropdown-item enable " +
+                (props.status === "active" ? "disabled" : "")
+              }
+              onClick={e => console.log("clicked")}
+            >
               Enable
             </a>
-            <a href="#" className="dropdown-item disable ">
+            <a
+              href="#"
+              className={
+                "dropdown-item disable " +
+                (props.status === "inactive" ? "disabled" : "")
+              }
+            >
               Disable
             </a>
-            <a href="#" className="dropdown-item reject ">
+            <a
+              href="#"
+              className={
+                "dropdown-item reject " +
+                (props.status === "rejected" ? "disabled" : "")
+              }
+            >
               reject
             </a>
           </div>
