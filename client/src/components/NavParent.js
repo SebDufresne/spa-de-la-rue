@@ -51,7 +51,7 @@ export default function NavParent() {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between big-nav">
         <Logo logo_url={logo_url} />
         <div className="d-flex">
           <ul className="collapse navbar-collapse" id="collapsibleNavbar">

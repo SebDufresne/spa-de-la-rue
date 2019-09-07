@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
-import './VolunteerItem.scss';
+// import "./VolunteerItem.scss";
 
 interface volunteerItem {
   id: number;
@@ -18,7 +18,7 @@ export default function VolunteerItem(props: volunteerItem) {
       <td>{props.first_name}</td>
       <td>{props.last_name}</td>
       <td>
-        <DropdownButton
+        {/* <DropdownButton
           id="dropdown-item-button"
           title={props.status}
           variant={props.status === "active" ? "success" : "warning"}
@@ -26,7 +26,22 @@ export default function VolunteerItem(props: volunteerItem) {
           <Dropdown.Item as="button">Enable</Dropdown.Item>
           <Dropdown.Item as="button">Disable</Dropdown.Item>
           <Dropdown.Item as="button">Reject</Dropdown.Item>
-        </DropdownButton>
+        </DropdownButton> */}
+        <div className="dropdown">
+          <button
+            className="btn btn-success dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="false"
+            aria-expanded="false"
+          >{props.status}</button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a href="#" className="dropdown-item enable">Enable</a>
+            <a href="#" className="dropdown-item disable ">Disable</a>
+            <a href="#" className="dropdown-item reject ">reject</a>
+          </div>
+        </div>
       </td>
     </tr>
   );
