@@ -9,6 +9,7 @@ import CreateEventForm from "components/events/CreateEventForm";
 import CreateSponsorForm from "components/sponsors/CreateSponsorForm";
 import CreateVolunteerForm from "components/volunteers/CreateVolunteerForm";
 
+import DisplayClinics from "components/clinics/DisplayClinics";
 import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
 import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
@@ -78,6 +79,7 @@ ReactDOM.render(
             <Route path="/partners" component={DisplayPartners} />
             <Route path="/sponsors" component={DisplaySponsors} />
             <Route path="/volunteers" component={DisplayVolunteers} />
+            <Route path="/clinics" component={DisplayClinics} />
 
             <Route path="/events/new/" component={CreateEventForm} />
             <Route path="/sponsor/new" component={CreateSponsorForm} />
