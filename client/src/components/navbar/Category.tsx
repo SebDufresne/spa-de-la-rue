@@ -14,8 +14,8 @@ export default function Category(props: propsInfo) {
   const key = Object.keys(props)[0];
 
   return (
-    <li className="nav-item dropdown">
-      <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+    <li className="dropdown">
+      <a className="btn btn-muted dropdown-toggle" data-toggle="dropdown" href="#">
         {key}
       </a>
       <div className="dropdown-menu">
