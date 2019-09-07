@@ -10,7 +10,7 @@ exports.up = function(knex) {
     table.date('start_date').notNullable();
     table.date('end_date').notNullable();
     table.integer('day_of_week').notNullable();
-    table.enu('frequency', ['once', 'weekly', 'bi-weekly', 'monthly']).notNullable().defaultTo('weekly');
+    table.enu('frequency', ['once', 'daily', 'weekly', 'bi-weekly']).notNullable().defaultTo('weekly');
     table.time('start_time').notNullable();
     table.time('end_time').notNullable();
     table.integer('hours_of_work').notNullable();

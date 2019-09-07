@@ -1,4 +1,5 @@
 import { argsToArgsConfig } from "graphql/type/definition";
+import { insertClinics } from "../../lib/helpers";
 
 // Imports: database
 const db = require("../../database");
@@ -36,8 +37,6 @@ const resolvers = {
   },
   Mutation: {
     addEvent: (root, args) => {
-      console.log('test addevent');
-      console.log(args);
       return db.knex("events").insert({
         administrator_id: args.administrator_id,
         partner_id: args.partner_id,
@@ -55,9 +54,7 @@ const resolvers = {
         therapist_needed: args.therapist_needed,
         color: args.color
       }).returning("*")
-      .then(([event]) => {
-        return event;
-      });
+      .then(([event]) => insertClinics(event));
     },
     addUser: (root, args) => {
       return db.knex("users").insert({
