@@ -5,7 +5,7 @@ exports.up = function(knex) {
     table.integer('clinic_id');
     table.integer('administrator_id');
     table.integer('number_of_clients');
-    table.integer('notes');
+    table.text('notes');
     
     table.foreign('clinic_id').references('id').inTable('clinics');
     table.foreign('administrator_id').references('id').inTable('users');
