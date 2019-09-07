@@ -22,7 +22,7 @@ export default function Category(props: propsInfo) {
         <ul>
         {props[key].map((dropdownMenu, index) => {
           return (
-            <li key={index}>
+            <li key={index} className="dropdown-item">
               <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
             </li>
           );
