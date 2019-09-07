@@ -18,6 +18,16 @@ import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
+const dateFix = (setDate: any) : any => {
+
+  if(setDate) {
+    const date = new Date(setDate);
+
+    return date.setDate(date.getDate() + 1);
+  }
+  return new Date(setDate);
+}
+
 const ADD_EVENT = gql`
   mutation addEvent(
     $administrator_id: Int!
@@ -229,11 +239,11 @@ export default function CreateEventForm (this: any) {
             <label>Start Date</label>
             <DatePicker
               inline
-              selected={new Date(state.start_date)}
+              selected={dateFix(state.start_date)}
               onChange={e => {
                 if (e) {
                   setDayOfWeek(e.getDay());
-                  setStartDate(moment(e).add(1, 'days').format('YYYY-MM-DD'));  
+                  setStartDate(moment(e).format('YYYY-MM-DD'));  
                 }
               }}
             />
@@ -250,10 +260,12 @@ export default function CreateEventForm (this: any) {
             <label>End Date</label>
             <DatePicker
               inline
-              selected={new Date(state.end_date)}
+              selected={dateFix(state.end_date)}
               onChange={e => {
-                const dateAsString = e ? moment(e).add(1, 'days').format('YYYY-MM-DD') : ''; 
-                setEndDate(moment(dateAsString).format('YYYY-MM-DD'));
+                if (e) {
+                  setDayOfWeek(e.getDay());
+                  setEndDate(moment(e).format('YYYY-MM-DD'));  
+                }
               }}
             />
           </div>
