@@ -15,6 +15,7 @@ const GET_VOLUNTEER_PROFILE = gql`
       contact_email
       contact_phone
       description
+      status
     }
   }
 `;
@@ -39,66 +40,74 @@ export default function BootstrapVolProfile(props: profileInfo) {
   if (error) {
     return <p>{error.message}</p>;
   }
-
+  
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-      <Form.Row>
-        <Form.Group as={Col} md="4" controlId="validation1">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First Name"
-            defaultValue={data.user.first_name}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validation2">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Last Name"
-            defaultValue={data.user.last_name}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="8" controlId="validation3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Email"
-            defaultValue={data.user.contact_email}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="4" controlId="validation4">
-          <Form.Label>Phone number</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Phone number"
-            defaultValue={data.user.contact_phone}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="8" controlId="validation5">
-          <Form.Label>Why you are interested</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="3"
-            defaultValue={data.user.description}
-          />
-        </Form.Group>
-      </Form.Row>
-      <Button type="submit">Submit form</Button>
-    </Form>
+    <div className="container">
+      {data.user.status === "new" ? (
+        <React.Fragment>Your application is still in process...</React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Row>
+              <Form.Group as={Col} md="4" controlId="validation1">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="First Name"
+                  defaultValue={data.user.first_name}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="4" controlId="validation2">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Last Name"
+                  defaultValue={data.user.last_name}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="8" controlId="validation3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Email"
+                  defaultValue={data.user.contact_email}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="4" controlId="validation4">
+                <Form.Label>Phone number</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Phone number"
+                  defaultValue={data.user.contact_phone}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} md="8" controlId="validation5">
+                <Form.Label>Why you are interested</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows="3"
+                  defaultValue={data.user.description}
+                />
+              </Form.Group>
+            </Form.Row>
+            <Button type="submit">Submit</Button>
+          </Form>
+        </React.Fragment>
+      )}
+    </div>
   );
 }
