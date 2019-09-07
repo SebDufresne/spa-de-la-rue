@@ -2,6 +2,10 @@ import React from "react";
 
 import { ClinicSummary } from './types';
 
+import moment from 'moment';
+
+import { trimTime } from "helpers/helpers"
+
 export default function Sponsor(clinic: ClinicSummary) {
   const {
     id,
@@ -17,6 +21,8 @@ export default function Sponsor(clinic: ClinicSummary) {
     color,
   } = clinic;
 
+  const formattedDate = new Date(parseInt(date));
+
   return (
     <section className="">
       <img
@@ -26,11 +32,11 @@ export default function Sponsor(clinic: ClinicSummary) {
       />
       <h2>{name}</h2>
       <p>{description}</p>
-      <p>Date: {date}</p>
-      <p>{start_time} - {end_time}</p>
-      <p>Needed: {therapist_needed}</p>
-      <p>Registered: {volunteers_registered}</p>
-      <p>Free: {free_spots}</p>
+      <p>{moment(formattedDate).format('MMMM DD')}</p>
+      <p>{trimTime(start_time)} - {trimTime(end_time)}</p>
+      <p>{therapist_needed} Needed</p>
+      <p>{volunteers_registered} Registered</p>
+      <p>{free_spots} Free</p>
     </section>
   );
 }
