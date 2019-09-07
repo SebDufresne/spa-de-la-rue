@@ -28,6 +28,7 @@ import Home from "components/Home";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import state from "state/index";
+import AdminVolunteer from "components/admin/AdminVolunteer";
 
 const store = createStore(state);
 
@@ -72,6 +73,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route path="/about/" component={AboutUs} />
             <Route path="/loggedin/" component={Application} />
+            <Route path="/admin/volunteer/" component={AdminVolunteer} />
 
             <Route path="/partners" component={DisplayPartners} />
             <Route path="/sponsors" component={DisplaySponsors} />
