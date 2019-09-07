@@ -4,6 +4,7 @@ import { gql } from "apollo-server-express";
 const typeDefs = gql`
   type Query {
     active_partners: [Partner_Brief]
+    active_volunteers: [User_Brief]
     users: [User]
     user(contact_email: String!): User
     partners: [Partner]
@@ -11,6 +12,25 @@ const typeDefs = gql`
     volunteers: [User]
   }
   type Mutation {
+    addEvent(
+      administrator_id: Int!
+      partner_id: Int!
+      address_id: Int!
+      name: String!
+      description: String!
+      start_date: String!
+      end_date: String!
+      day_of_week: Int!
+      frequency: String!
+      start_time: String!
+      end_time: String!
+      hours_of_work: Int!
+      therapist_needed: Int!
+      google_coords_X: Int
+      google_coords_Y: Int
+      color: String!
+    ): Event
+
     addUser(
       first_name: String!
       last_name: String!
@@ -25,6 +45,7 @@ const typeDefs = gql`
       is_admin: Boolean
       is_disable: Boolean
     ): User 
+
     addSponsor(
       name: String
       picture_url: String
@@ -32,6 +53,25 @@ const typeDefs = gql`
       sponsor_url: String
       is_active: Boolean
     ): Sponsor
+  }
+
+  type Event {
+    administrator_id: ID
+    partner_id: Int!
+    address_id: Int!
+    name: String!
+    description: String!
+    start_date: String!
+    end_date: String!
+    day_of_week: Int!
+    frequency: String!
+    start_time: String!
+    end_time: String!
+    hours_of_work: Int!
+    therapist_needed: Int!
+    google_coords_X: Int
+    google_coords_Y: Int
+    color: String!
   }
 
   type User {
@@ -58,6 +98,12 @@ const typeDefs = gql`
     description: String
     partner_url: String
     is_active: Boolean
+  }
+
+  type User_Brief {
+    id: ID
+    first_name: String
+    last_name: String
   }
 
   type Partner_Brief {

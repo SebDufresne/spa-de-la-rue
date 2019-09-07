@@ -1,4 +1,7 @@
 import { useReducer } from 'react';
+import moment from 'moment';
+
+import { ActivePartner } from 'components/partners/types';
 
 import {
   reducer,
@@ -28,23 +31,29 @@ export default function useFormData() {
     address_id: 1,
     name: '',
     description: '',
-    start_date: '',
-    end_date: '',
+    start_date: moment(Date.now()).format('YYYY-MM-DD'),
+    end_date: moment(Date.now()).format('YYYY-MM-DD'),
     day_of_week: 0,
     frequency: 'weekly',
-    start_time: '',
-    end_time: '',
-    hours_of_work: 0,
-    therapist_needed: 0,
-    color: ''
+    start_time: '10:00:00',
+    end_time: '12:00:00',
+    hours_of_work: 3,
+    therapist_needed: 3,
+    color: 'bg-warning'
   });
 
   const setAdministrator = (administrator_id : number) => {
     dispatch({ type: SET_ADMINISTRATOR_ID, administrator_id }); 
   }
 
-  const setPartner = (partner_id : number) => {
+  const setPartner = (partner_id : number, partnerList: ActivePartner[]) => {
     dispatch({ type: SET_PARTNER_ID, partner_id })
+    const selectPartner : any = partnerList.find( e => Number(e.id) === partner_id);
+
+    const name: string = selectPartner.name;
+    const address_id: number = selectPartner.address_id;
+    setName(name);
+    setAddress(address_id);
   };
 
   const setAddress = (address_id : number) => {
