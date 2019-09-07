@@ -49,17 +49,20 @@ export default function Navbar(props) {
   const contact_email = (user && user.email) || "";
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
-    variables: { contact_email }
+    variables: { contact_email }, 
+    pollInterval: 1000
   });
+
   if (loading) {
     return <div>loading</div>;
   }
-  if (error) return <div>{error.message}</div>;
 
+  if (error) return <div>{error.message}</div>;
+  
   return (
     <React.Fragment>
       <ul className="btn btn-success">Hello! {user && user.given_name}</ul>
-      {isAuthenticated && !data.user.is_admin && (
+      {(isAuthenticated && data.user&&!data.user.is_admin ||!data.user) && (
         <li>
           <Category {...volunteerCategory} />
         </li>
