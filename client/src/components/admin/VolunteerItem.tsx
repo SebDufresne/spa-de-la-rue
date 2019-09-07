@@ -18,13 +18,13 @@ export default function VolunteerItem(props: volunteerItem) {
     setTitle("active");
   };
 
-  const handleDisable = ()=>{
+  const handleDisable = () => {
     setTitle("inactive");
-  }
+  };
 
-  const handleReject = ()=>{
+  const handleReject = () => {
     setTitle("rejected");
-  }
+  };
 
   return (
     <tr>
@@ -36,7 +36,11 @@ export default function VolunteerItem(props: volunteerItem) {
           <button
             className={
               "btn dropdown-toggle " +
-              (title === "active" ? "btn-success" : "btn-warning")
+              (title === "active"
+                ? "btn-success"
+                : title === "inactive"
+                ? "btn-secondary"
+                : "btn-warning")
             }
             type="button"
             id="dropdownMenuButton"
@@ -50,8 +54,7 @@ export default function VolunteerItem(props: volunteerItem) {
             <a
               href="#"
               className={
-                "dropdown-item bg-success " +
-                (title === "active" ? "disabled" : "")
+                "dropdown-item " + (title === "active" ? "disabled" : "")
               }
               onClick={handleEnable}
             >
@@ -60,8 +63,7 @@ export default function VolunteerItem(props: volunteerItem) {
             <a
               href="#"
               className={
-                "dropdown-item bg-warning " +
-                (title === "inactive" ? "disabled" : "")
+                "dropdown-item " + (title === "inactive" ? "disabled" : "")
               }
               onClick={handleDisable}
             >
