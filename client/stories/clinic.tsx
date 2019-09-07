@@ -77,5 +77,5 @@ storiesOf('Clinic', module)
     />
   ))
   .add('List of Clinics', () => (
-    <ClinicList clinics = {clinicList} />
+    <ClinicList clinic_summary = {clinicList} />
   ));
