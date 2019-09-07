@@ -4,15 +4,11 @@ import VolunteerItem from "./VolunteerItem";
 import { useQuery } from "@apollo/react-hooks";
 import { Table } from "react-bootstrap";
 
-const GET_VOLUNTEER_PROFILE = gql`
-  query GetVolunteerProfile($contact_email: String!) {
-    user(contact_email: $contact_email) {
+const GET_USER = gql`
+  query GetUser {
+    user{
       first_name
       last_name
-      contact_email
-      contact_phone
-      description
-      is_admin
       status
     }
   }
@@ -30,6 +26,9 @@ export default function AdminVolunteer() {
             <th>Status</th>
           </tr>
         </thead>
+        <tbody>
+
+        </tbody>
       </Table>
     </div>
   );
