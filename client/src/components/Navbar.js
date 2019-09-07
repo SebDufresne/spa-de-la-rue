@@ -39,9 +39,7 @@ export default function Navbar(props) {
 
   // const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
-  const { isAuthenticated, loginWithRedirect, logout, user } = props;
-
-  console.log("props: ", props);
+  const { isAuthenticated, user } = props;
 
   // const [data, setData] = useState(null);
 
