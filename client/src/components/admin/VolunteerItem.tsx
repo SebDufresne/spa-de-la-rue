@@ -40,11 +40,15 @@ export default function VolunteerItem(props: volunteerItem) {
   };
 
   const handleDisable = () => {
-    setTitle("inactive");
+    const status = "inactive";
+    setTitle(status);
+    updateUser({variables: {contact_email, status}})
   };
 
   const handleReject = () => {
-    setTitle("rejected");
+    const status = "rejected";
+    setTitle(status);
+    updateUser({variables: {contact_email, status}})
   };
   
   return (
