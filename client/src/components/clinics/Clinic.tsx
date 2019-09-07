@@ -17,8 +17,7 @@ export default function Sponsor(clinic: ClinicSummary) {
     end_time,
     free_spots,
     therapist_needed,
-    volunteers_registered,
-    color,
+    volunteers_registered
   } = clinic;
 
   const formattedDate = new Date(parseInt(date));
