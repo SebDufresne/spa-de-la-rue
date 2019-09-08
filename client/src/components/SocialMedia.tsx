@@ -17,7 +17,7 @@ export default function SocialMedia({props}: propsType) {
       });
   
     return (
-      <section>
+      <section className="mediaBar" >
         <ul>{socialMediaList}</ul>
       </section>
     );
