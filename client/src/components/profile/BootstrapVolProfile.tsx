@@ -48,6 +48,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
   const { contact_email } = props;
 
   const [validated, setValidated] = useState(false);
+  const [disable, setDisable] = useState(true);
 
   const [first_name, setFirst_name] = useState();
   const [last_name, setLast_name] = useState();
@@ -55,16 +56,6 @@ export default function BootstrapVolProfile(props: profileInfo) {
   const [description, setDescription] = useState();
 
   const [updateProfile] = useMutation(UPDATE_PROFILE);
-
-  const handleSubmit = (event: any) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    updateProfile({ variables: {} });
-    setValidated(true);
-  };
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
     variables: { contact_email }
@@ -77,6 +68,24 @@ export default function BootstrapVolProfile(props: profileInfo) {
   if (error) {
     return <p>{error.message}</p>;
   }
+
+  const handleSubmit = (event: any) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    updateProfile({
+      variables: {
+        first_name,
+        last_name,
+        contact_email,
+        contact_phone,
+        description
+      }
+    });
+    setValidated(true);
+  };
 
   return (
     <div className="container">
@@ -93,7 +102,13 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   type="text"
                   placeholder="First Name"
                   defaultValue={data.user.first_name}
-                  onChange={(e: any) => setFirst_name(e.target.value)}
+                  onChange={(e: any) => {
+                    setFirst_name(e.target.value);
+                    setLast_name(last_name || data.user.last_name);
+                    setContact_phone(contact_phone || data.user.contact_phone);
+                    setDescription(description || data.user.description);
+                    setDisable(false);
+                  }}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid first name
@@ -106,7 +121,13 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   type="text"
                   placeholder="Last Name"
                   defaultValue={data.user.last_name}
-                  onChange={(e: any) => setLast_name(e.target.value)}
+                  onChange={(e: any) => {
+                    setLast_name(e.target.value);
+                    setFirst_name(first_name || data.user.first_name);
+                    setContact_phone(contact_phone || data.user.contact_phone);
+                    setDescription(description || data.user.description);
+                    setDisable(false);
+                  }}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid last name
@@ -133,7 +154,13 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   type="text"
                   placeholder="Phone number"
                   defaultValue={data.user.contact_phone}
-                  onChange={(e: any) => setContact_phone(e.target.value)}
+                  onChange={(e: any) => {
+                    setContact_phone(e.target.value);
+                    setFirst_name(first_name || data.user.first_name);
+                    setLast_name(last_name || data.user.last_name);
+                    setDescription(description || data.user.description);
+                    setDisable(false);
+                  }}
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
@@ -145,11 +172,19 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   as="textarea"
                   rows="3"
                   defaultValue={data.user.description}
-                  onChange={(e: any) => setDescription(e.target.value)}
+                  onChange={(e: any) => {
+                    setDescription(e.target.value);
+                    setFirst_name(first_name || data.user.first_name);
+                    setContact_phone(contact_phone || data.user.contact_phone);
+                    setLast_name(last_name || data.user.last_name);
+                    setDisable(false);
+                  }}
                 />
               </Form.Group>
             </Form.Row>
-            <Button type="submit">Modify</Button>
+            <Button disabled={disable} type="submit">
+              Save Change
+            </Button>
           </Form>
         </React.Fragment>
       )}
