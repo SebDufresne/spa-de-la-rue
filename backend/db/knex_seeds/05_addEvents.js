@@ -21,8 +21,8 @@ exports.seed = function(knex) {
           end_time: '12:00:00',
           hours_of_work: 3,
           therapist_needed: 3,
-          google_coords_X: null,
-          google_coords_Y: null,
+          google_coords_X: 45.5101847,
+          google_coords_Y: -73.5507545,
           color:'bg-warning'
         }
       ]);

@@ -14,7 +14,8 @@ export const SET_END_TIME = 'SET_END_TIME';
 export const SET_HOURS_OF_WORK = 'SET_HOURS_OF_WORK';
 export const SET_THERAPIST_NEEDED = 'SET_THERAPIST_NEEDED';
 export const SET_COLOR = 'SET_COLOR';
-
+export const SET_GOOGLE_COORDS_X = 'SET_GOOGLE_COORDS_X';
+export const SET_GOOGLE_COORDS_Y = 'SET_GOOGLE_COORDS_Y';
 
 export function reducer(state : any, action : ActionTS) {
   const { 
@@ -32,7 +33,9 @@ export function reducer(state : any, action : ActionTS) {
     hours_of_work,
     therapist_needed,
     color,
-    type } = action;
+    type,
+    google_coords_X,
+    google_coords_Y } = action;
 
   switch (type) {
     case SET_ADMINISTRATOR_ID:
@@ -63,6 +66,10 @@ export function reducer(state : any, action : ActionTS) {
       return { ...state, therapist_needed };
     case SET_COLOR:
       return { ...state, color };
+    case SET_GOOGLE_COORDS_X:
+      return { ...state, google_coords_X };
+    case SET_GOOGLE_COORDS_Y:
+      return { ...state, google_coords_Y };
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${type}`);
   }

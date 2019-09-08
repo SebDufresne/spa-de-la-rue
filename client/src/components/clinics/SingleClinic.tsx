@@ -5,9 +5,11 @@ import { ClinicSummary } from './types';
 import moment from 'moment';
 
 import { trimTime } from "helpers/helpers"
+import { Link } from "react-router-dom";
 
 export default function Clinic(clinics: ClinicSummary) {
   const {
+    id,
     picture_url,
     name,
     description,
@@ -21,6 +23,8 @@ export default function Clinic(clinics: ClinicSummary) {
 
   const formattedDate = new Date(parseInt(date));
 
+  const pathToClinic = `/clinic/${id}`;
+
   return (
     <main className="appointment__card appointment__card--error">
     <section className="">
@@ -29,6 +33,9 @@ export default function Clinic(clinics: ClinicSummary) {
         src={picture_url}
         alt={name}
       />
+      
+      <Link to={pathToClinic}>Here</Link>
+      <h1>{id}</h1>
       <h2>{name}</h2>
       <p>{description}</p>
       <p>{moment(formattedDate).format('MMMM D')}</p>
