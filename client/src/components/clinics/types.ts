@@ -11,3 +11,27 @@ export interface ClinicSummary {
   volunteers_registered: number,
   free_spots: number,
 }
+
+export interface ClinicInfoTS {
+  id: number,
+  picture_url: string,
+  partner_name: string,
+  event_name: string,
+  partner_description: string,
+  event_description: string,
+  google_coords_X: number,
+  google_coords_Y: number,
+  address1: string,
+  address2: string,
+  city: string,
+  state: string,
+  zip: string,
+  country: string,
+  color: string,
+  date: string,
+  start_time: string,
+  end_time: string,
+  therapist_needed: number,
+  volunteers_registered: number,
+  free_spots: number,
+}

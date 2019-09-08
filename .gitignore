@@ -3,6 +3,8 @@
 
 # Environment variables
 .env
+.env.development
+.env.test
 
 # OS generated
 .DS_Store

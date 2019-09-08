@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
   return knex.schema.createTable('addresses', table => {
     table.increments('id').primary();
@@ -8,6 +7,8 @@ exports.up = function(knex) {
     table.string('state').notNullable();
     table.string('zip').notNullable();
     table.string('country').notNullable();
+    table.float('google_coords_X').nullable();
+    table.float('google_coords_Y').nullable();
     table.timestamps(true,true);
   });
 };
