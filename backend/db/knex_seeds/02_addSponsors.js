@@ -9,49 +9,49 @@ exports.seed = function(knex) {
       return knex('sponsors').insert([
         {
           name: 'Zayat Aroma',
-          picture_url: 'images/sponsors/zayat_aroma.jpg',
+          picture_url: '/images/sponsors/zayat_aroma.jpg',
           description:'',
           sponsor_url:'https://www.zayataroma.com/'
         },
         {
           name: 'Spa Bota Bota',
-          picture_url: 'images/sponsors/bota_bota.jpg',
+          picture_url: '/images/sponsors/bota_bota.jpg',
           description:'',
           sponsor_url:'https://botabota.ca/'
         },
         {
           name: "L'Aubainerie",
-          picture_url: 'images/sponsors/aubainerie.jpg',
+          picture_url: '/images/sponsors/aubainerie.jpg',
           description:"L'Aubainerie s'est transformée en Père Noël : 1,000 Paires de bas chaud !",
           sponsor_url:'https://www.aubainerie.com/'
         },
         {
           name: 'Fédération Québécoise des Massothérapeutes',
-          picture_url: 'images/sponsors/fqm.jpg',
+          picture_url: '/images/sponsors/fqm.jpg',
           description:'',
           sponsor_url:'https://www.fqm.qc.ca/'
         },
         {
           name: 'La Biosthetique',
-          picture_url: 'images/sponsors/la_biosthetique.jpg',
+          picture_url: '/images/sponsors/la_biosthetique.jpg',
           description:'',
           sponsor_url:'https://www.labiosthetique.ca/'
         },
         {
           name: 'Boutique Mädo',
-          picture_url: 'images/sponsors/boutique_mado.jpg',
+          picture_url: '/images/sponsors/boutique_mado.jpg',
           description:'',
           sponsor_url:'http://www.boutiquemado.ca/'
         },
         {
           name: 'Hugo Sport',
-          picture_url: 'images/sponsors/hugo_sport.jpg',
+          picture_url: '/images/sponsors/hugo_sport.jpg',
           description:'',
           sponsor_url:'https://www.hugosport.com/'
         },
         {
           name: 'Norton Rose Fulbright',
-          picture_url: 'images/sponsors/norton_rose_fulbright.jpg',
+          picture_url: '/images/sponsors/norton_rose_fulbright.jpg',
           description:'',
           sponsor_url:'https://www.nortonrosefulbright.com/'
         }
