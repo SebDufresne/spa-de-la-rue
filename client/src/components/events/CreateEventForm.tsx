@@ -142,19 +142,6 @@ export default function CreateEventForm(this: any) {
         <form onSubmit={event => event.preventDefault()}>
           <div className="form-row">
             <div className="form-group col-md-12">
-              <label>Event Name: </label>
-              <input
-                name="name"
-                className="form-control "
-                type="text"
-                placeholder="name"
-                value={state.name}
-                onChange={e => setName(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group col-md-12">
               <label>Partner Name</label>
               <select
                 value={state.partner_id}
@@ -170,6 +157,19 @@ export default function CreateEventForm(this: any) {
                   </option>
                 ))}
               </select>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <label>Event Name: </label>
+              <input
+                name="name"
+                className="form-control "
+                type="text"
+                placeholder="name"
+                value={state.name}
+                onChange={e => setName(e.target.value)}
+              />
             </div>
           </div>
           <div className="form-row">
