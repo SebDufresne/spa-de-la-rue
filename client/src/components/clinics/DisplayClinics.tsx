@@ -6,6 +6,10 @@ import ClinicList from "./ClinicList";
 
 import { ClinicSummary } from './types';
 
+import { getDatesByClass} from "helpers/schedule";
+
+import Calendar from "components/Calendar";
+
 interface ClinicList {
   clinic_summary: ClinicSummary[];
 }
@@ -42,9 +46,14 @@ export default function DisplayClinics() {
   }
 
   if (data) {
+    const datesByCalss = getDatesByClass(data.clinic_summary);
+    console.log(datesByCalss);
     return (
       <div className="container text-center my-5 Partners">
       <h1>Clinics</h1>
+      <Calendar
+        schedule = {datesByCalss}
+      />
       { 
           <ClinicList clinic_summary = {data.clinic_summary} />
       }
