@@ -15,6 +15,8 @@ import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
 import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
 import DisplayVolunteerProfile from "components/profile/DisplayVolunteerProfile";
+import VolunteerInfo from "components/volunteers/VolunteerInfo";
+
 import SocialMedia from "components/SocialMedia";
 import * as serviceWorker from "serviceWorker";
 import { ApolloProvider } from "react-apollo";
@@ -85,6 +87,7 @@ ReactDOM.render(
             <Route path="/events/new/" component={CreateEventForm} />
             <Route path="/sponsor/new" component={CreateSponsorForm} />
             <Route path="/volunteer/new/" component={CreateVolunteerForm} />
+            <Route path="/volunteer/:userId" component={VolunteerInfo} />
 
             <Route
               path="/volunteer/profile/"
