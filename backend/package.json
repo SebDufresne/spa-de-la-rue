@@ -20,7 +20,7 @@
     "knex": "^0.19.3",
     "nodemailer": "^6.3.0",
     "pg": "^7.12.1",
-    "twilio": "^3.33.4"
+    "twilio": "^3.34.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
