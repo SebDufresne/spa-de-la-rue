@@ -104,6 +104,22 @@ const resolvers = {
           return { id: id[0] };
         });
     },
+    updateProfile: (root, args) => {
+      return db
+        .knex("users")
+        .where({ contact_email: args.contact_email })
+        .update({
+          first_name: args.first_name,
+          last_name: args.last_name,
+          contact_phone: args.contact_phone,
+          description: args.description,
+          contact_prefered: args.contact_prefered
+        })
+        .returning("id")
+        .then(id => {
+          return { id: id[0] };
+        });
+    },
     addSponsor: (root, args) => {
       return db
         .knex("sponsors")

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "components/Navbar.scss";
-import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
-import { useAuth0 } from "../react-auth0-wrapper";
 import { setUserInfo } from "state/app";
 import { useDispatch } from "react-redux";
 import { gql } from "apollo-boost";
@@ -51,21 +49,28 @@ export default function Navbar(props) {
   const contact_email = (user && user.email) || "";
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
-    variables: { contact_email }
+    variables: { contact_email }, 
+    pollInterval: 1000
   });
+
   if (loading) {
     return <div>loading</div>;
   }
-  if (error) return <div>{error.message}</div>;
 
+  if (error) return <div>{error.message}</div>;
+  
   return (
     <React.Fragment>
-      <div className="nav-item">Hello! {user && user.given_name}</div>
-      {isAuthenticated && !data.user.is_admin && (
-        <Category {...volunteerCategory} />
+      <ul className="btn btn-success">Hello! {user && user.given_name}</ul>
+      {(isAuthenticated && data.user&&!data.user.is_admin ||!data.user) && (
+        <li>
+          <Category {...volunteerCategory} />
+        </li>
       )}
       {isAuthenticated && data && data.user && data.user.is_admin && (
-        <Category {...adminCategory} />
+        <li>
+          <Category {...adminCategory} />
+        </li>
       )}
 
       <button

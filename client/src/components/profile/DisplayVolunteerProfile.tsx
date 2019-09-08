@@ -1,5 +1,5 @@
 import React from "react";
-import VolunteerProfile from "./VolunteerProfile";
+import BootstrapVolProfile from "./BootstrapVolProfile";
 import { useSelector } from "react-redux";
 
 export default function DisplayVolunteerProfile() {
@@ -9,7 +9,7 @@ export default function DisplayVolunteerProfile() {
   
   return (
     <div className="container">
-      {contact_email && <VolunteerProfile contact_email={contact_email} />}
+      {contact_email && <BootstrapVolProfile contact_email={contact_email} />}
     </div>
   );
 }

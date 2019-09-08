@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "index.scss";
 import "bootstrap";
 import Application from "components/Application";
-import Navbar from "components/Navbar.js";
 import NavParent from "components/NavParent.js";
 
 import CreateEventForm from "components/events/CreateEventForm";
@@ -89,7 +88,7 @@ ReactDOM.render(
             <Route path="/events/new/" component={CreateEventForm} />
             <Route path="/sponsor/new" component={CreateSponsorForm} />
             <Route path="/volunteer/new/" component={CreateVolunteerForm} />
-            <Route path="/volunteer/:userId" component={VolunteerInfo} />
+            <Route path="/volunteer/:userId/info/" component={VolunteerInfo} />
 
             <Route
               path="/volunteer/profile/"
