@@ -2,9 +2,7 @@ import React from 'react';
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-interface RocketInventoryVars {
-  clinic_id: number;
-}
+import { MapComponent } from "components/GoogleMaps";
 
 
 const GET_CLINIC_INFO = gql`
@@ -73,6 +71,10 @@ export default function ClinicInfo(props: any) {
         volunteers_registered,
         free_spots
       } = data.clinic_info;
+      const coordinates = {
+        google_coords_X,
+        google_coords_Y
+      }
       return (
         <div className="container text-center my-5 Volunteers">
           <h1>Clinic #{clinic_id}</h1>
@@ -82,6 +84,13 @@ export default function ClinicInfo(props: any) {
             src={picture_url}
             alt={partner_name}
           />
+          <p>{google_coords_X}</p>
+          <p>{google_coords_Y}</p>
+
+          <MapComponent
+            { ...coordinates }
+          />
+
         </div>
       );
     }
