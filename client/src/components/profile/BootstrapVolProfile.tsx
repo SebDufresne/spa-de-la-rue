@@ -138,7 +138,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
               <Form.Group as={Col} md="8" controlId="validation3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                  disabled
+                  readOnly
                   type="text"
                   placeholder="Email"
                   defaultValue={data.user.contact_email}
