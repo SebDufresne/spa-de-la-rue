@@ -117,6 +117,8 @@ const typeDefs = gql`
     google_coords_X: Int
     google_coords_Y: Int
     color: String!
+    google_coords_X: Float,
+    google_coords_Y: Float
   }
 
   type User {

@@ -65,7 +65,9 @@ const resolvers = {
           end_time: args.end_time,
           hours_of_work: args.hours_of_work,
           therapist_needed: args.therapist_needed,
-          color: args.color
+          color: args.color,
+          google_coords_X: args.google_coords_X,
+          google_coords_Y: args.google_coords_Y
         })
         .returning("*")
         .then(([event]) => insertClinics(event));
