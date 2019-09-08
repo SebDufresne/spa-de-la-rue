@@ -95,7 +95,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
         <React.Fragment>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Row>
-              <Form.Group as={Col} md="4" controlId="validation1">
+              <Form.Group as={Col} md="6" controlId="validation1">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
                   required
@@ -114,7 +114,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   Please provide a valid first name
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4" controlId="validation2">
+              <Form.Group as={Col} md="6" controlId="validation2">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
                   required
@@ -135,10 +135,10 @@ export default function BootstrapVolProfile(props: profileInfo) {
               </Form.Group>
             </Form.Row>
             <Form.Row>
-              <Form.Group as={Col} md="8" controlId="validation3">
+              <Form.Group as={Col} md="12" controlId="validation3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                  disabled
+                  readOnly
                   type="text"
                   placeholder="Email"
                   defaultValue={data.user.contact_email}
@@ -147,7 +147,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
               </Form.Group>
             </Form.Row>
             <Form.Row>
-              <Form.Group as={Col} md="4" controlId="validation4">
+              <Form.Group as={Col} md="6" controlId="validation4">
                 <Form.Label>Phone number</Form.Label>
                 <Form.Control
                   required
@@ -166,7 +166,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
               </Form.Group>
             </Form.Row>
             <Form.Row>
-              <Form.Group as={Col} md="8" controlId="validation5">
+              <Form.Group as={Col} md="12" controlId="validation5">
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
