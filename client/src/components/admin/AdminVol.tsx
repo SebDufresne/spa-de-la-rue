@@ -16,7 +16,7 @@ const GET_USER = gql`
 `;
 
 export default function AdminVolunteer() {
-  const { loading, error, data } = useQuery(GET_USER);
+  const { loading, error, data } = useQuery(GET_USER, { pollInterval: 1000 });
 
   if (loading) {
     return <div>loading</div>;
