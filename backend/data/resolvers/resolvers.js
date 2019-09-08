@@ -13,6 +13,15 @@ const resolvers = {
     active_volunteers: () => {
       return db.knex("users").where({ status: "active" });
     },
+    clinic_info: (root, args, context) => {
+      console.log("Yest");
+      return db
+        .knex("clinic_info")
+        .where('id', args.id )
+        .then(userData => {
+          return userData[0];
+        });
+    },
     clinic_summary: () => {
       return db.knex("clinic_summary");
     },

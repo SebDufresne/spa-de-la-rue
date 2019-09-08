@@ -11,6 +11,7 @@ const typeDefs = gql`
     partners: [Partner]
     sponsors: [Sponsor]
     volunteers: [User]
+    clinic_info(id: ID!): Clinic_Info
   }
   type Mutation {
     addEvent(
@@ -59,6 +60,30 @@ const typeDefs = gql`
       sponsor_url: String
       is_active: Boolean
     ): Sponsor
+  }
+
+  type Clinic_Info {
+    id: ID
+    picture_url: String
+    partner_name: String
+    event_name: String
+    partner_description: String
+    event_description: String
+    google_coords_X: Float
+    google_coords_Y: Float
+    address1: String
+    address2: String
+    city: String
+    state: String
+    zip: String
+    country: String
+    color: String
+    date: String
+    start_time: String
+    end_time: String
+    therapist_needed: Int
+    volunteers_registered: Int
+    free_spots: Int
   }
 
   type Clinic_Summary {

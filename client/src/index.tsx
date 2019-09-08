@@ -15,6 +15,7 @@ import DisplayPartners from "components/partners/DisplayPartners";
 import DisplaySponsors from "components/sponsors/DisplaySponsors";
 import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
 import DisplayVolunteerProfile from "components/profile/DisplayVolunteerProfile";
+import ClinicInfo from "components/clinics/ClinicInfo";
 import VolunteerInfo from "components/volunteers/VolunteerInfo";
 
 import SocialMedia from "components/SocialMedia";
@@ -83,6 +84,7 @@ ReactDOM.render(
             <Route path="/sponsors" component={DisplaySponsors} />
             <Route path="/volunteers" component={DisplayVolunteers} />
             <Route path="/clinics" component={DisplayClinics} />
+            <Route path="/clinic/:clinicId" component={ClinicInfo} />
 
             <Route path="/events/new/" component={CreateEventForm} />
             <Route path="/sponsor/new" component={CreateSponsorForm} />
