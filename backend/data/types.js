@@ -151,6 +151,8 @@ const typeDefs = gql`
     id: ID
     first_name: String
     last_name: String
+    google_coords_X: Int
+    google_coords_Y: Int
   }
 
   type Partner_Brief {

@@ -90,6 +90,8 @@ const GET_ACTIVE_PARTNERS = gql`
       id
       name
       address_id
+      google_coords_x
+      google_coords_y
     },
     active_volunteers {
       id

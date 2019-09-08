@@ -18,7 +18,9 @@ import {
   SET_END_TIME,
   SET_HOURS_OF_WORK,
   SET_THERAPIST_NEEDED,
-  SET_COLOR
+  SET_COLOR,
+  SET_GOOGLE_COORDS_X,
+  SET_GOOGLE_COORDS_Y
 } from '../reducers/forms';
 
 export default function useFormData() {
@@ -39,7 +41,9 @@ export default function useFormData() {
     end_time: '12:00:00',
     hours_of_work: 3,
     therapist_needed: 3,
-    color: 'bg-warning'
+    color: 'bg-warning',
+    google_coords_x: null,
+    google_coords_y: null
   });
 
   const setAdministrator = (administrator_id : number) => {
@@ -54,6 +58,8 @@ export default function useFormData() {
     const address_id: number = selectPartner.address_id;
     setName(name);
     setAddress(address_id);
+    setGoogleCoordsX(selectPartner.google_coords_x);
+    setGoogleCoordsY(selectPartner.google_coords_y);
   };
 
   const setAddress = (address_id : number) => {
@@ -102,6 +108,14 @@ export default function useFormData() {
 
   const setColor = (color : string) => {
     dispatch({ type: SET_COLOR, color });
+  }
+
+  const setGoogleCoordsX = (google_coords_x : number) => {
+    dispatch({ type: SET_GOOGLE_COORDS_X, google_coords_x });
+  }
+
+  const setGoogleCoordsY = (google_coords_y : number) => {
+    dispatch({ type: SET_GOOGLE_COORDS_Y, google_coords_y });
   }
 
   return {

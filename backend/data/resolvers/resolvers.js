@@ -8,7 +8,7 @@ const db = require("../../database");
 const resolvers = {
   Query: {
     active_partners: () => {
-      return db.knex("partners").where({ is_active: true });
+      return db.knex("active_partners");
     },
     active_volunteers: () => {
       return db.knex("users").where({ status: "active" });
