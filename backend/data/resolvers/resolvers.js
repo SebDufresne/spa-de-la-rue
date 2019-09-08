@@ -14,7 +14,6 @@ const resolvers = {
       return db.knex("users").where({ status: "active" });
     },
     clinic_info: (root, args, context) => {
-      console.log("Yest");
       return db
         .knex("clinic_info")
         .where('id', args.id )
@@ -48,6 +47,7 @@ const resolvers = {
   },
   Mutation: {
     addEvent: (root, args) => {
+      console.log('Inside addEvent');
       return db
         .knex("events")
         .insert({

@@ -44,6 +44,8 @@ const ADD_EVENT = gql`
     $hours_of_work: Int!
     $therapist_needed: Int!
     $color: String!
+    $google_coords_X: Float!
+    $google_coords_Y: Float!
   ) {
     addEvent(
       administrator_id: $administrator_id
@@ -60,6 +62,8 @@ const ADD_EVENT = gql`
       hours_of_work: $hours_of_work
       therapist_needed: $therapist_needed
       color: $color
+      google_coords_X: $google_coords_X
+      google_coords_Y: $google_coords_Y
     ) {
       administrator_id
       partner_id
@@ -75,6 +79,8 @@ const ADD_EVENT = gql`
       hours_of_work
       therapist_needed
       color
+      google_coords_X
+      google_coords_Y
     }
   }
 `;
@@ -90,8 +96,8 @@ const GET_ACTIVE_PARTNERS = gql`
       id
       name
       address_id
-      google_coords_x
-      google_coords_y
+      google_coords_X
+      google_coords_Y
     },
     active_volunteers {
       id
@@ -124,9 +130,6 @@ export default function CreateEventForm (this: any) {
 
   const [addEvent] = useMutation(ADD_EVENT);
 
-
-  console.log(state);
-
   const { loading, error, data } = useQuery<ActivePartnerList>(
     GET_ACTIVE_PARTNERS
   );
@@ -140,6 +143,7 @@ export default function CreateEventForm (this: any) {
   }
 
   if (data) {
+    console.log(state);
     return (
     
       <div>

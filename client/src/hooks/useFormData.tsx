@@ -42,8 +42,8 @@ export default function useFormData() {
     hours_of_work: 3,
     therapist_needed: 3,
     color: 'bg-warning',
-    google_coords_x: null,
-    google_coords_y: null
+    google_coords_X: null,
+    google_coords_Y: null
   });
 
   const setAdministrator = (administrator_id : number) => {
@@ -58,8 +58,8 @@ export default function useFormData() {
     const address_id: number = selectPartner.address_id;
     setName(name);
     setAddress(address_id);
-    setGoogleCoordsX(selectPartner.google_coords_x);
-    setGoogleCoordsY(selectPartner.google_coords_y);
+    setGoogleCoordsX(selectPartner.google_coords_X);
+    setGoogleCoordsY(selectPartner.google_coords_Y);
   };
 
   const setAddress = (address_id : number) => {
@@ -110,12 +110,12 @@ export default function useFormData() {
     dispatch({ type: SET_COLOR, color });
   }
 
-  const setGoogleCoordsX = (google_coords_x : number) => {
-    dispatch({ type: SET_GOOGLE_COORDS_X, google_coords_x });
+  const setGoogleCoordsX = (google_coords_X : number) => {
+    dispatch({ type: SET_GOOGLE_COORDS_X, google_coords_X });
   }
 
-  const setGoogleCoordsY = (google_coords_y : number) => {
-    dispatch({ type: SET_GOOGLE_COORDS_Y, google_coords_y });
+  const setGoogleCoordsY = (google_coords_Y : number) => {
+    dispatch({ type: SET_GOOGLE_COORDS_Y, google_coords_Y });
   }
 
   return {

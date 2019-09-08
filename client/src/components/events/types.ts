@@ -12,5 +12,7 @@ export interface EventSummary {
   end_time:string,
   hours_of_work: number,
   therapist_needed: number,
-  color: string
+  color: string,
+  google_coords_X: number,
+  google_coords_Y: number
 }

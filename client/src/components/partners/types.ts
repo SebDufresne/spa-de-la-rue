@@ -8,6 +8,6 @@ export interface ActivePartner {
   id: number,
   name: string,
   address_id: number,
-  google_coords_x: number,
-  google_coords_y: number
+  google_coords_X: number,
+  google_coords_Y: number
 }

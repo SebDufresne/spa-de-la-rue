@@ -14,6 +14,6 @@ export interface ActionTS {
   hours_of_work?: number,
   therapist_needed?: number,
   color?: string,
-  google_coords_x?: number,
-  google_coords_y?: number
+  google_coords_X?: number,
+  google_coords_Y?: number
 }

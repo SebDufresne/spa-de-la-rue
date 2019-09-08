@@ -28,9 +28,9 @@ const typeDefs = gql`
       end_time: String!
       hours_of_work: Int!
       therapist_needed: Int!
-      google_coords_X: Int
-      google_coords_Y: Int
       color: String!
+      google_coords_X: Float!
+      google_coords_Y: Float!
     ): Event
 
     addUser(
@@ -114,11 +114,9 @@ const typeDefs = gql`
     end_time: String!
     hours_of_work: Int!
     therapist_needed: Int!
-    google_coords_X: Int
-    google_coords_Y: Int
     color: String!
-    google_coords_X: Float,
-    google_coords_Y: Float
+    google_coords_X: Float!
+    google_coords_Y: Float!
   }
 
   type User {
@@ -151,14 +149,14 @@ const typeDefs = gql`
     id: ID
     first_name: String
     last_name: String
-    google_coords_X: Int
-    google_coords_Y: Int
   }
 
   type Partner_Brief {
     id: ID
     name: String
     address_id: Int
+    google_coords_X: Float
+    google_coords_Y: Float
   }
 
   type Sponsor {

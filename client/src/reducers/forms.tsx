@@ -34,8 +34,8 @@ export function reducer(state : any, action : ActionTS) {
     therapist_needed,
     color,
     type,
-    google_coords_x,
-    google_coords_y } = action;
+    google_coords_X,
+    google_coords_Y } = action;
 
   switch (type) {
     case SET_ADMINISTRATOR_ID:
@@ -67,9 +67,9 @@ export function reducer(state : any, action : ActionTS) {
     case SET_COLOR:
       return { ...state, color };
     case SET_GOOGLE_COORDS_X:
-      return { ...state, google_coords_x };
+      return { ...state, google_coords_X };
     case SET_GOOGLE_COORDS_Y:
-      return { ...state, google_coords_y };
+      return { ...state, google_coords_Y };
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${type}`);
   }
