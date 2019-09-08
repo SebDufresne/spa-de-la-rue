@@ -10,8 +10,6 @@ exports.up = function(knex) {
     table.string('private_contact_name').nullable();
     table.string('private_phone_number').nullable();
     table.string('private_email').nullable();
-    table.float('google_coords_X').nullable();
-    table.float('google_coords_Y').nullable();
     table.boolean('is_active').notNullable().defaultTo(true);
     table.boolean('is_address_visible').notNullable().defaultTo(true);
     table.timestamps(true,true);
