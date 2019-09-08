@@ -20,13 +20,36 @@ const GET_VOLUNTEER_PROFILE = gql`
   }
 `;
 
+const UPDATE_USER = gql`
+  mutation UpdateUser(
+    $contact_email: String!
+    $first_name: String!
+    $last_name: String!
+    $contact_phone: String
+    $description: String
+    ) { 
+      updateUser(
+        contact_email: $contact_email 
+        status: $status
+      ) {
+        contact_email
+        status
+      }
+  }
+`;
+
 export default function BootstrapVolProfile(props: profileInfo) {
   const { contact_email } = props;
 
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event: any) => {
-    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
   };
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
@@ -57,7 +80,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   placeholder="First Name"
                   defaultValue={data.user.first_name}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">Please provide a valid first name</Form.Control.Feedback>
               </Form.Group>
               <Form.Group as={Col} md="4" controlId="validation2">
                 <Form.Label>Last Name</Form.Label>
@@ -67,19 +90,19 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   placeholder="Last Name"
                   defaultValue={data.user.last_name}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">Please provide a valid last name</Form.Control.Feedback>
               </Form.Group>
             </Form.Row>
             <Form.Row>
               <Form.Group as={Col} md="8" controlId="validation3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                  required
+                  disabled
                   type="text"
                   placeholder="Email"
                   defaultValue={data.user.contact_email}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                {/* <Form.Control.Feedback type="invalid">Please provide a valid email</Form.Control.Feedback> */}
               </Form.Group>
             </Form.Row>
             <Form.Row>
@@ -96,7 +119,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
             </Form.Row>
             <Form.Row>
               <Form.Group as={Col} md="8" controlId="validation5">
-                <Form.Label>Why you are interested</Form.Label>
+                <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows="3"
@@ -104,7 +127,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
                 />
               </Form.Group>
             </Form.Row>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Modify</Button>
           </Form>
         </React.Fragment>
       )}

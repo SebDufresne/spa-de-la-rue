@@ -52,6 +52,14 @@ const typeDefs = gql`
       status: String!
     ): User
 
+    updateProfile(
+      contact_email: String!
+      first_name: String!
+      last_name: String!
+      contact_phone: String
+      description: String
+    ): User
+
     addSponsor(
       name: String
       picture_url: String
