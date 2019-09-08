@@ -216,7 +216,7 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Hours Of Volunteering</label>
+              <label>Hours Of Volunteering: </label>
               <input
                 type="number"
                 name="hours_of_work"
@@ -225,7 +225,7 @@ export default function CreateEventForm(this: any) {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>Numbers of Therapist</label>
+              <label>Numbers of Therapist: </label>
               <input
                 type="number"
                 name="therapist_needed"
@@ -235,55 +235,64 @@ export default function CreateEventForm(this: any) {
             </div>
           </div>
 
-          <div>
-            <label>Description</label>
-            <textarea
-              name="description"
-              rows={5}
-              onChange={e => setDescription(e.target.value)}
-            />
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <label>Description</label>
+              <textarea
+                name="description"
+                className="form-control"
+                rows={5}
+                onChange={e => setDescription(e.target.value)}
+              />
+            </div>
           </div>
-
-          <div>
-            <label>Start Date</label>
-            <DatePicker
-              inline
-              selected={dateFix(state.start_date)}
-              onChange={e => {
-                if (e) {
-                  setDayOfWeek(e.getDay());
-                  setStartDate(moment(e).format("YYYY-MM-DD"));
-                }
-              }}
-            />
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label>Start Date</label>
+              <DatePicker
+                inline
+                selected={dateFix(state.start_date)}
+                onChange={e => {
+                  if (e) {
+                    setDayOfWeek(e.getDay());
+                    setStartDate(moment(e).format("YYYY-MM-DD"));
+                  }
+                }}
+              />
+            </div>
+            <div className="form-group col-md-6">
+              <label>End Date</label>
+              <DatePicker
+                inline
+                selected={dateFix(state.end_date)}
+                onChange={e => {
+                  if (e) {
+                    setDayOfWeek(e.getDay());
+                    setEndDate(moment(e).format("YYYY-MM-DD"));
+                  }
+                }}
+              />
+            </div>
           </div>
-          <label>Frequency?</label>
-          <select
-            value={state.frequency}
-            onChange={e => setFrequency(e.target.value)}
-          >
-            <option value="once">once</option>
-            <option value="weekly">weekly</option>
-            <option value="bi-weekly">bi-weekly</option>
-            <option value="monthly">monthly</option>
-          </select>
-
-          <div>
-            <label>End Date</label>
-            <DatePicker
-              inline
-              selected={dateFix(state.end_date)}
-              onChange={e => {
-                if (e) {
-                  setDayOfWeek(e.getDay());
-                  setEndDate(moment(e).format("YYYY-MM-DD"));
-                }
-              }}
-            />
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label>Frequency?</label>
+              <select
+                value={state.frequency}
+                onChange={e => setFrequency(e.target.value)}
+              >
+                <option value="once">once</option>
+                <option value="weekly">weekly</option>
+                <option value="bi-weekly">bi-weekly</option>
+                <option value="monthly">monthly</option>
+              </select>
+            </div>
+            <div className="form-group col-md-6">
+              <button onClick={() => addEvent({ variables: state })}>
+                Create Event
+              </button>
+            </div>
           </div>
-          <button onClick={() => addEvent({ variables: state })}>
-            Create Event
-          </button>
         </form>
       </div>
     );
