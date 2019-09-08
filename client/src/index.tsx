@@ -86,7 +86,7 @@ ReactDOM.render(
             <Route path="/events/new/" component={CreateEventForm} />
             <Route path="/sponsor/new" component={CreateSponsorForm} />
             <Route path="/volunteer/new/" component={CreateVolunteerForm} />
-            <Route path="/volunteer/:userId/info/" component={VolunteerInfo} />
+            <Route path="/volunteer/:userId" component={VolunteerInfo} />
 
             <Route
               path="/volunteer/profile/"
