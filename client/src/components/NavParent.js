@@ -59,7 +59,9 @@ export default function NavParent() {
               return <Category key={index} {...categoryData} />;
             })}
           </ul>
-          <Category {...menuItems[menuItems.length - 1]} />
+          <ul>
+            <Category {...menuItems[menuItems.length - 1]} />
+          </ul>
           {user && (
             <Navbar
               loginWithRedirect={loginWithRedirect}
@@ -69,18 +71,22 @@ export default function NavParent() {
             />
           )}
           {!isAuthenticated && (
-            <button
-              className="btn btn-info"
-              onClick={() => loginWithRedirect()}
-            >
-              Log in
-            </button>
+            <ul>
+              <button
+                className="btn btn-info"
+                onClick={() => loginWithRedirect()}
+              >
+                Log in
+              </button>
+            </ul>
           )}
 
           {isAuthenticated && (
-            <button className="btn btn-warning" onClick={() => logout()}>
-              Log out
-            </button>
+            <ul>
+              <button className="btn btn-warning" onClick={() => logout()}>
+                Log out
+              </button>
+            </ul>
           )}
         </div>
       </nav>
