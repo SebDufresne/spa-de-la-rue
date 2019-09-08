@@ -4,7 +4,6 @@ const nodemailer = require("nodemailer");
 
 // Imports: database
 const db = require("../../database");
-// GraphQL: Resolvers
 
 let smtpTransport = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -17,6 +16,7 @@ let smtpTransport = nodemailer.createTransport({
   }
 });
 
+// GraphQL: Resolvers
 const resolvers = {
   Query: {
     active_partners: () => {
@@ -106,9 +106,8 @@ const resolvers = {
           let mailOptions = {
             from: "spiritxhx@gmail.com",
             to: args.contact_email,
-            subject: "Hello world",
-            generateTextFromHTML: true,
-            html: "<b>Hello world</b>"
+            subject: "New Volunteer registered!",
+            text: `${args.first_name} ${args.last_name} has signed up for a volunteer! \n \nHis(Her) reason to apply: ${args.description}\nHe(She) prefers to be contacted by ${args.contact_prefered}. `
           };
           smtpTransport.sendMail(mailOptions, (err, res) => {
             if (err) {
