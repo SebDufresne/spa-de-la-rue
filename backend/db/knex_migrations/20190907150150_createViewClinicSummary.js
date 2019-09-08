@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
   return knex.schema.raw(`
     CREATE VIEW clinic_summary AS

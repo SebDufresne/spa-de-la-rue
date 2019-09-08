@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
   return knex.schema.createTable('clinic_reports', table => {
     table.increments('id').primary();
