@@ -1,9 +1,21 @@
 import { argsToArgsConfig } from "graphql/type/definition";
 import { insertClinics } from "../../lib/helpers";
+const nodemailer = require("nodemailer");
 
 // Imports: database
 const db = require("../../database");
 // GraphQL: Resolvers
+
+let smtpTransport = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  auth: {
+    type: "OAuth2",
+    user: "spiritxhx@gmail.com",
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    refreshToken: process.env.GOOGLE_REFRESH_TOKEN
+  }
+});
 
 const resolvers = {
   Query: {
@@ -16,7 +28,7 @@ const resolvers = {
     clinic_info: (root, args, context) => {
       return db
         .knex("clinic_info")
-        .where('id', args.id )
+        .where("id", args.id)
         .then(userData => {
           return userData[0];
         });
@@ -47,7 +59,7 @@ const resolvers = {
   },
   Mutation: {
     addEvent: (root, args) => {
-      console.log('Inside addEvent');
+      console.log("Inside addEvent");
       return db
         .knex("events")
         .insert({
@@ -91,6 +103,20 @@ const resolvers = {
         })
         .returning("id")
         .then(id => {
+          let mailOptions = {
+            from: "spiritxhx@gmail.com",
+            to: args.contact_email,
+            subject: "Hello world",
+            generateTextFromHTML: true,
+            html: "<b>Hello world</b>"
+          };
+          smtpTransport.sendMail(mailOptions, (err, res) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("res: ", res);
+            }
+          });
           return { id: id[0] };
         });
     },
