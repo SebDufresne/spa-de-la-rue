@@ -8,16 +8,16 @@ interface scheduleItem {
 }
 
 interface scheduleDetails {
-  [key: string]: scheduleItem[],
-  onClick: any
+  schedule: scheduleItem[]
 }
 
 export default function displayCalendar(props: scheduleDetails) {
-  const { schedule, onClick } = props;
+  const { schedule } = props;
 
-  const dateToClass = (schedule : scheduleItem[], date: Date) => {
-    for (const clinic of schedule) {
-      if (clinic.dates.includes(moment(date).format('YYYY-MM-DD'))) {
+  const dateToClass = (classList : scheduleItem[], date: Date) => {
+    for (const clinic of classList) {
+      const dateList = clinic.dates.map(e => moment(parseInt(e)).format('YYYY-MM-DD'));
+      if (dateList.includes(moment(date).format('YYYY-MM-DD'))) {
         return clinic.class;
       }
     }
