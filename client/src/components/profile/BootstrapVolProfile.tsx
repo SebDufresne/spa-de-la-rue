@@ -90,7 +90,11 @@ export default function BootstrapVolProfile(props: profileInfo) {
   return (
     <div className="container">
       {data.user.status === "new" ? (
-        <React.Fragment>Your application is still in process...</React.Fragment>
+        <React.Fragment>
+          <h3 className="text-center">
+            Your application is still in process...
+          </h3>
+        </React.Fragment>
       ) : (
         <React.Fragment>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>

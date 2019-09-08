@@ -19,7 +19,7 @@ const menuItems = [
     News: [
       { title: "Schedule", path: "/clinics" },
       { title: "Blogs", path: "/" },
-      { title: "Events", path: "/" }
+      { title: "Events", path: "/clinics/" }
     ]
   },
   {

@@ -97,7 +97,7 @@ const GET_ACTIVE_PARTNERS = gql`
       address_id
       google_coords_X
       google_coords_Y
-    },
+    }
     active_volunteers {
       id
       first_name
@@ -149,20 +149,7 @@ export default function CreateEventForm(this: any) {
         <form onSubmit={event => event.preventDefault()}>
           <div className="form-row">
             <div className="form-group col-md-12">
-              <label>Event Name: </label>
-              <input
-                name="name"
-                className="form-control "
-                type="text"
-                placeholder="name"
-                value={state.name}
-                onChange={e => setName(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group col-md-12">
-              <label>Partner Name</label>
+              <label>Partner Name: </label>
               <select
                 value={state.partner_id}
                 className="form-control"
@@ -177,6 +164,19 @@ export default function CreateEventForm(this: any) {
                   </option>
                 ))}
               </select>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <label>Event Name: </label>
+              <input
+                name="name"
+                className="form-control "
+                type="text"
+                placeholder="name"
+                value={state.name}
+                onChange={e => setName(e.target.value)}
+              />
             </div>
           </div>
           <div className="form-row">
@@ -205,7 +205,7 @@ export default function CreateEventForm(this: any) {
               }}
             />
             <div className="form-group col-md-6">
-              <label>Administrator Name</label>
+              <label>Administrator Name: </label>
               <select
                 value={state.administrator_id}
                 onChange={e => {
@@ -221,12 +221,13 @@ export default function CreateEventForm(this: any) {
               </select>
             </div>
           </div>
-          <div className="form-row">
+          <div className="form-row mt-3">
             <div className="form-group col-md-6">
               <label>Hours Of Volunteering: </label>
               <input
                 type="number"
                 name="hours_of_work"
+                className="form-control"
                 value={state.hours_of_work}
                 onChange={e => setHoursOfWork(parseInt(e.target.value))}
               />
@@ -236,15 +237,36 @@ export default function CreateEventForm(this: any) {
               <input
                 type="number"
                 name="therapist_needed"
+                className="form-control"
                 value={state.therapist_needed}
                 onChange={e => setTherapistNeeded(parseInt(e.target.value))}
               />
             </div>
           </div>
+          <div className="form-row">
+            <ChooseRadio
+              legend="choose a color for the event: "
+              options={["red", "blue", "green"]}
+              getValue={(e: { target: { value: string } }) => {
+                switch (e.target.value) {
+                  case "red":
+                    setColor("bg-danger");
+                    break;
+                  case "blue":
+                    setColor("bg-primary");
+                    break;
+                  case "green":
+                    setColor("bg-success");
+                    break;
+                }
+              }}
+            />
+            <div className={"my-auto btn "+state.color}>Color example</div>
+          </div>
 
           <div className="form-row">
             <div className="form-group col-md-12">
-              <label>Description</label>
+              <label>Description: </label>
               <textarea
                 name="description"
                 className="form-control"
@@ -255,7 +277,7 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Start Date</label>
+              <label>Start Date: </label>
               <DatePicker
                 inline
                 selected={dateFix(state.start_date)}
@@ -268,7 +290,7 @@ export default function CreateEventForm(this: any) {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>End Date</label>
+              <label>End Date: </label>
               <DatePicker
                 inline
                 selected={dateFix(state.end_date)}
