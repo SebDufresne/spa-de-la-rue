@@ -216,23 +216,28 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Hours Of Volunteering: </label>
-              <input
-                type="number"
-                name="hours_of_work"
-                value={state.hours_of_work}
-                onChange={e => setHoursOfWork(parseInt(e.target.value))}
-              />
+              <div className="form-col">
+                <div className="form-group">
+                  <label>Hours Of Volunteering: </label>
+                  <input
+                    type="number"
+                    name="hours_of_work"
+                    value={state.hours_of_work}
+                    onChange={e => setHoursOfWork(parseInt(e.target.value))}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Numbers of Therapist: </label>
+                  <input
+                    type="number"
+                    name="therapist_needed"
+                    value={state.therapist_needed}
+                    onChange={e => setTherapistNeeded(parseInt(e.target.value))}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="form-group col-md-6">
-              <label>Numbers of Therapist: </label>
-              <input
-                type="number"
-                name="therapist_needed"
-                value={state.therapist_needed}
-                onChange={e => setTherapistNeeded(parseInt(e.target.value))}
-              />
-            </div>
+            <div className="form-group col-md-6"></div>
           </div>
 
           <div className="form-row">
