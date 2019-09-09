@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import VolunteerList from "./VolunteerList";
 
-import { VolunteerSummary } from './types';
+import { VolunteerSummary } from "./types";
 
 interface VolunteerDetailsList {
   users: VolunteerSummary[];
@@ -25,20 +25,20 @@ export default function DisplayVolunteers() {
   );
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
-  
+
   if (error) {
-    return <p>{error.message}</p>
+    return <p>{error.message}</p>;
   }
 
   if (data) {
     return (
       <div className="container text-center my-5 Volunteers">
-      <h1>Volunteers</h1>
-        { 
-          <VolunteerList volunteers = {data.users} />
-        }
+        <h1>Volunteers</h1>
+        <div className="row">
+          <VolunteerList volunteers={data.users} />
+        </div>
       </div>
     );
   }

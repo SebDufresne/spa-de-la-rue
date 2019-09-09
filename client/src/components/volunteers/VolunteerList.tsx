@@ -24,8 +24,8 @@ export default function VolunteerList({volunteers}: propsType) {
       });
   
     return (
-      <section>
-        <ul>{volunteerList}</ul>
+      <section className="row">
+        {volunteerList}
       </section>
     );
   }
