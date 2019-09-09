@@ -115,7 +115,6 @@ const resolvers = {
         .update({ status: args.status })
         .returning("*")
         .then(res => {
-          console.log('contact_phone: ', res[0].contact_phone);
           sendSMS(res[0].contact_phone, `Your status in Spa de la rue has been changed to ${res[0].status}!`)
           return { id: id[0] };
         });

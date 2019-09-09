@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -7,6 +7,7 @@ import { EventSummary } from "./types";
 import { ActivePartner } from "../partners/types";
 import { ActiveVolunteer } from "../volunteers/types";
 import DatePicker from "react-datepicker";
+import { Modal, Button } from "react-bootstrap";
 
 import useHookData from "hooks/useFormData";
 import moment from "moment";
@@ -123,6 +124,10 @@ export default function CreateEventForm(this: any) {
     setTherapistNeeded,
     setColor
   } = useHookData();
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // const [addEvent] = useMutation(ADD_EVENT, {
   //   variables: state });
@@ -261,7 +266,7 @@ export default function CreateEventForm(this: any) {
                 }
               }}
             />
-            <div className={"my-auto btn "+state.color}>Color example</div>
+            <div className={"my-auto btn " + state.color}>Color example</div>
           </div>
 
           <div className="form-row">
@@ -317,9 +322,33 @@ export default function CreateEventForm(this: any) {
               </select>
             </div>
             <div className="form-group col-md-6">
-              <button onClick={() => addEvent({ variables: state })}>
+              {/* <button onClick={() => addEvent({ variables: state })}>
                 Create Event
-              </button>
+              </button> */}
+              <Button variant="primary" onClick={handleShow}>
+                Create Event
+              </Button>
+
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Create Event</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure to create this event?</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      addEvent({ variables: state });
+                      handleClose();
+                    }}
+                  >
+                    Confirm
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </div>
           </div>
         </form>
