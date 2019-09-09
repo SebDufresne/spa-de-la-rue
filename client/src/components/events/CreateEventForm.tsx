@@ -315,7 +315,6 @@ export default function CreateEventForm(this: any) {
                 selected={dateFix(state.end_date)}
                 onChange={e => {
                   if (e) {
-                    setDayOfWeek(e.getDay());
                     setEndDate(moment(e).format("YYYY-MM-DD"));
                   }
                 }}
