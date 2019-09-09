@@ -29,7 +29,7 @@ export default function Clinic(clinics: ClinicSummary) {
     <main className="appointment__card appointment__card--error">
     <section className="">
       <img
-        className="appointment__error-close"
+        className="appointment__error-close img-fluid"
         src={picture_url}
         alt={name}
       />
