@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
 import ClinicList from "./ClinicList";
 
-import { ClinicSummary } from './types';
+import { ClinicSummary } from "./types";
 
-import { getDatesByClass} from "helpers/schedule";
+import { getDatesByClass } from "helpers/schedule";
 
 import Calendar from "components/Calendar";
 
@@ -34,16 +34,16 @@ const GET_CLINIC_SUMMARY_LIST = gql`
 
 export default function DisplayClinics() {
   const { loading, error, data } = useQuery<ClinicList>(
-    GET_CLINIC_SUMMARY_LIST, 
-    {pollInterval: 500}
+    GET_CLINIC_SUMMARY_LIST,
+    { pollInterval: 500 }
   );
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
-  
+
   if (error) {
-    return <p>{error.message}</p>
+    return <p>{error.message}</p>;
   }
 
   if (data) {
@@ -51,13 +51,10 @@ export default function DisplayClinics() {
     console.log(datesByCalss);
     return (
       <div className="container text-center my-5 Partners">
-      <h1>Clinics</h1>
-      <Calendar
-        schedule = {datesByCalss}
-      />
-      { 
-          <ClinicList clinic_summary = {data.clinic_summary} />
-      }
+        <h1>Clinics</h1>
+        <Calendar schedule={datesByCalss} />
+
+        <ClinicList clinic_summary={data.clinic_summary} />
       </div>
     );
   }

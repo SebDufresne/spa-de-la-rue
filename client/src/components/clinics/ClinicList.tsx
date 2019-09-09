@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import Clinic from './SingleClinic';
+import Clinic from "./SingleClinic";
 
-import { ClinicSummary } from './types';
+import { ClinicSummary } from "./types";
 
 interface PropTypes {
   clinic_summary: ClinicSummary[];
 }
 
-export default function ClinicList({clinic_summary}: PropTypes) {
+export default function ClinicList({ clinic_summary }: PropTypes) {
   if (clinic_summary && clinic_summary.length > 1) {
     const clinicList = clinic_summary.map((clinic: ClinicSummary) => {
-  
       const {
         id,
         picture_url,
@@ -23,31 +22,31 @@ export default function ClinicList({clinic_summary}: PropTypes) {
         free_spots,
         therapist_needed,
         volunteers_registered,
-        color,
+        color
       } = clinic;
-  
-        return (
-          <Clinic
-            key={id}
-            id = {id}
-            picture_url = {picture_url}
-            name = {name}
-            description = {description}
-            date = {date}
-            start_time = {start_time}
-            end_time = {end_time}
-            free_spots = {free_spots}
-            therapist_needed = {therapist_needed}
-            volunteers_registered = {volunteers_registered}
-            color = {color}
-          />
-        )
-      });
-  
+
+      return (
+        <Clinic
+          key={id}
+          id={id}
+          picture_url={picture_url}
+          name={name}
+          description={description}
+          date={date}
+          start_time={start_time}
+          end_time={end_time}
+          free_spots={free_spots}
+          therapist_needed={therapist_needed}
+          volunteers_registered={volunteers_registered}
+          color={color}
+        />
+      );
+    });
+
     return (
-      <section>
-        <ul>{clinicList}</ul>
-      </section>
+      <div className="row">
+        {clinicList}
+      </div>
     );
   }
   return (

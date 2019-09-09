@@ -41,8 +41,7 @@ const menuItems = [
     "Support Us": [
       { title: "Donate", path: "/" },
       { title: "Become a Partner", path: "/" },
-      { title: "Become a Sponsor", path: "/sponsor/new/" },
-      { title: "Create Event", path: "/events/new/" }
+      { title: "Become a Sponsor", path: "/sponsor/new/" }
     ]
   }
 ];

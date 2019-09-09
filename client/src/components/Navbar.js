@@ -28,7 +28,8 @@ const adminCategory = {
   "Admin control": [
     { title: "Volunteers", path: "/admin/volunteer/" },
     { title: "Events", path: "/" },
-    { title: "Graphs", path: "/" }
+    { title: "Graphs", path: "/" },
+    { title: "Create Event", path: "/events/new/" }
   ]
 };
 
