@@ -34,7 +34,8 @@ const GET_CLINIC_SUMMARY_LIST = gql`
 
 export default function DisplayClinics() {
   const { loading, error, data } = useQuery<ClinicList>(
-    GET_CLINIC_SUMMARY_LIST
+    GET_CLINIC_SUMMARY_LIST, 
+    {pollInterval: 500}
   );
 
   if (loading) {

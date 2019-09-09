@@ -33,9 +33,12 @@ const generateDateList = (start_date, end_date, frequency, day_of_week) => {
   const dateList = [];
 
   let evalDate = new Date(startDate);
-
+  // console.log('evalDate', evalDate)
+  // console.log('startDate, endDate: ', startDate, endDate,increment, day_of_week);
   do {
+    // console.log('evalDate.getDay', evalDate.getDay())
     if (evalDate.getDay() === day_of_week) {
+      // console.log('in the if statement')
       dateList.push(formatDate(evalDate));
     }
     evalDate.setDate(evalDate.getDate() + increment);
@@ -46,6 +49,7 @@ const generateDateList = (start_date, end_date, frequency, day_of_week) => {
 };
 
 const generateClinics = (eventInfo) => {
+  console.log("eventInfo",eventInfo);
   const {id,
     administrator_id,
     start_time,
@@ -70,13 +74,15 @@ const generateClinics = (eventInfo) => {
   const clinicListWithDate = [];
 
   const clinicDates = generateDateList(start_date, end_date, frequency, day_of_week);
+
+  console.log("clinicDates", clinicDates);
   
   for (const clinicDate of clinicDates) {
     let currentClinic = {...clinic};
     currentClinic.date = clinicDate;
     clinicListWithDate.push(currentClinic);
   }
-
+  console.log("clinicListWithDate", clinicListWithDate);
   return clinicListWithDate;
 };
 
@@ -84,11 +90,11 @@ const insertClinics = (eventInfo) => {
   const db = require("../database");
 
   const clinicList = generateClinics(eventInfo);
-  console.log(clinicList);
+  console.log("clinicList", clinicList);
   return db.knex("clinics")
     .insert(clinicList)
     .then(id => {
-      console.log("Yeah");
+      console.log("Yeah", id);
     });
 
 };
