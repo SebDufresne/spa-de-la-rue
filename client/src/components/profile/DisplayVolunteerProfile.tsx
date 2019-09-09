@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import BootstrapVolProfile from "./BootstrapVolProfile";
 import { useSelector } from "react-redux";
 
+import { UserContext } from "contexts/UserContext";
+
 export default function DisplayVolunteerProfile() {
-  const contact_email = useSelector(
-    (state: any) => state.app.userInfo && state.app.userInfo.email
-  )
-  
+  const { userInfo: { contact_email }} = useContext(UserContext);
+
   return (
     <div className="container">
       {contact_email && <BootstrapVolProfile contact_email={contact_email} />}

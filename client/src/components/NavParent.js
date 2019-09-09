@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "./navbar/Logo";
 import Category from "./navbar/Category";
 import { useAuth0 } from "../react-auth0-wrapper";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.tsx";
 
 const logo_url = "/images/assets/logo_fr.png";
 

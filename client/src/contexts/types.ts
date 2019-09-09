@@ -1,8 +1,10 @@
+import { Dispatch, SetStateAction } from "react";
+
 type UserInfo = {
   contact_email: string
 }
 
 export type UserContextTS = {
   userInfo: UserInfo | null
-  setUserInfo(info:UserInfo): void
+  setUserInfo: Dispatch<SetStateAction<null>>
 }

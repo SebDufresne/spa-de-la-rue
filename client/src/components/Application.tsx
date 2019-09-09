@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "components/Application.scss";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
+import { UserContext } from "contexts/UserContext";
 
 const GET_VOLUNTEER_PROFILE = gql`
   query GetVolunteerProfile($contact_email: String!) {
@@ -52,9 +54,7 @@ const GET_USER_LIST = gql`
 `;
 
 export default function Application() {
-  const contact_email = useSelector(
-    (state: any) => state.app.userInfo && state.app.userInfo.email
-  );
+  const { userInfo: { contact_email }} = useContext(UserContext);
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
     variables: { contact_email }

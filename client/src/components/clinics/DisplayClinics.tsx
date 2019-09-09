@@ -10,12 +10,6 @@ import { getDatesByClass} from "helpers/schedule";
 
 import Calendar from "components/Calendar";
 
-import { useSelector } from "react-redux";
-
-const contact_email = useSelector(
-  (state: any) => state.app.userInfo && state.app.userInfo.email
-)
-
 interface ClinicList {
   clinic_summary: ClinicSummary[];
 }

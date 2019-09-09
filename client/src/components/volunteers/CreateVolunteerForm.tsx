@@ -12,7 +12,8 @@ import { Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { UserContext } from "contexts/UserContext";
-const { userInfo, setUserInfo} = useContext(UserContext);
+
+
 
 const ADD_USER = gql`
   mutation AddUser(
@@ -45,6 +46,7 @@ const ADD_USER = gql`
 `;
 
 export default function CreateVolunteerForm() {
+  const { userInfo, setUserInfo} = useContext(UserContext);
   const { loadingAuth, user } = useAuth0();
 
   const dispatch = useDispatch();
