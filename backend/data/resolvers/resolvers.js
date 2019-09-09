@@ -1,20 +1,9 @@
 import { argsToArgsConfig } from "graphql/type/definition";
 import { insertClinics } from "../../lib/helpers";
-const nodemailer = require("nodemailer");
-
 // Imports: database
 const db = require("../../database");
-
-let smtpTransport = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  auth: {
-    type: "OAuth2",
-    user: "spiritxhx@gmail.com",
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    refreshToken: process.env.GOOGLE_REFRESH_TOKEN
-  }
-});
+const { sendSMS } = require("../../lib/sendSMS");
+const { smtpTransport } = require("../../lib/sendEmail");
 
 // GraphQL: Resolvers
 const resolvers = {
@@ -124,8 +113,10 @@ const resolvers = {
         .knex("users")
         .where({ contact_email: args.contact_email })
         .update({ status: args.status })
-        .returning("id")
-        .then(id => {
+        .returning("*")
+        .then(res => {
+          console.log('contact_phone: ', res[0].contact_phone);
+          sendSMS(res[0].contact_phone, `Your status in Spa de la rue has been changed to ${res[0].status}!`)
           return { id: id[0] };
         });
     },
