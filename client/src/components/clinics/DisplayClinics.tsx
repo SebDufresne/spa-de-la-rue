@@ -51,9 +51,9 @@ export default function DisplayClinics() {
     console.log(datesByCalss);
     return (
       <div className="container text-center my-5 Partners">
-        <h1>Clinics</h1>
+        <h2>Calendar</h2>
         <Calendar schedule={datesByCalss} />
-
+        <h3 className="mb-5">Upcoming events</h3>
         <ClinicList clinic_summary={data.clinic_summary} />
       </div>
     );

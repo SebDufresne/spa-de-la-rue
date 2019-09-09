@@ -37,15 +37,26 @@ export default function Clinic(clinics: ClinicSummary) {
         </a>
 
         {/* <Link to={pathToClinic}>Here</Link> */}
-        <h4>{name}</h4>
-        <p>{description}</p>
-        <p>{moment(formattedDate).format("MMMM D")}</p>
-        <p>
-          {trimTime(start_time)} - {trimTime(end_time)}
-        </p>
-        <p>{therapist_needed} Needed</p>
-        <p>{volunteers_registered} Registered</p>
-        <p>{free_spots} Free</p>
+        <div className="text-left">
+          <h4 className="text-center">{name}</h4>
+          <p>{description}</p>
+          <div className="d-flex justify-content-between">
+            <strong>
+              <p className="text-left">
+                {moment(formattedDate).format("MMMM D")}
+              </p>
+            </strong>
+            <strong>
+              <p className="text-right">
+                {trimTime(start_time)} - {trimTime(end_time)}
+              </p>
+            </strong>
+          </div>
+          <div className="d-flex justify-content-between">
+            <p className="text-left">Total: {therapist_needed}</p>
+            <p className="text-right">Left: {free_spots}</p>
+          </div>
+        </div>
       </section>
     </main>
   );
