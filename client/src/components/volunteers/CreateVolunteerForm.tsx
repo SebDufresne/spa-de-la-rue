@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SmallInput from "components/form/SmallInput";
 import LongInput from "components/form/LongInput";
 import ChooseRadio from "components/form/ChooseRadio";
@@ -8,8 +8,11 @@ import { useAuth0 } from "react-auth0-wrapper";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { Redirect } from "react-router-dom";
-import { setUserInfo } from "state/app";
+// import { setUserInfo } from "state/app";
 import { useDispatch } from "react-redux";
+
+import { UserContext } from "contexts/UserContext";
+const { userInfo, setUserInfo} = useContext(UserContext);
 
 const ADD_USER = gql`
   mutation AddUser(
@@ -77,9 +80,9 @@ export default function CreateVolunteerForm() {
 
   useEffect(() => {
     if (user) {
-      dispatch(setUserInfo(user));
+      setUserInfo(user);
     }
-  });
+  },[user]);
   if (loadingAuth || !user) {
     return (
       <div className="container">

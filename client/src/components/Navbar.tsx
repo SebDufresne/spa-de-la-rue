@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "components/Navbar.scss";
 import Category from "./navbar/Category";
-import { setUserInfo } from "state/app";
+// import { setUserInfo } from "state/app";
+
+import { UserContext } from "contexts/UserContext";
+
 import { useDispatch } from "react-redux";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
@@ -32,7 +35,8 @@ const adminCategory = {
   ]
 };
 
-export default function Navbar(props) {
+export default function Navbar(props : any) {
+  const { userInfo, setUserInfo} = useContext(UserContext);
   const dispatch = useDispatch();
 
   // const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
@@ -43,9 +47,9 @@ export default function Navbar(props) {
 
   useEffect(() => {
     if (user) {
-      dispatch(setUserInfo(user));
+      setUserInfo(user);
     }
-  });
+  },[user]);
   const contact_email = (user && user.email) || "";
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {

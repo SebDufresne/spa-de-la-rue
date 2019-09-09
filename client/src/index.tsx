@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "index.scss";
 import "bootstrap";
@@ -34,6 +34,8 @@ import { createStore } from "redux";
 import state from "state/index";
 import AdminVol from "components/admin/AdminVol";
 
+import { UserContext } from "contexts/UserContext";
+
 const store = createStore(state);
 
 const client = new ApolloClient({
@@ -61,44 +63,55 @@ const onRedirectCallback = (appState: any) => {
   );
 };
 
+
+function Root() {
+  const [userInfo, setUserInfo] = useState(null);
+
+  return (
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <Auth0Provider
+          domain={config.domain}
+          client_id={config.clientId}
+          redirect_uri="http://localhost:3000/loggedin/"
+          onRedirectCallback={onRedirectCallback}
+        >
+          <UserContext.Provider value={{ userInfo, setUserInfo }}>
+            <Router>
+              <NavParent />
+              <SocialMedia props={socialMediaUrl} />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/about/" component={AboutUs} />
+                <Route path="/loggedin/" component={Application} />
+                <Route path="/admin/volunteer/" component={AdminVol} />
+
+                <Route path="/partners" component={DisplayPartners} />
+                <Route path="/sponsors" component={DisplaySponsors} />
+                <Route path="/volunteers" component={DisplayVolunteers} />
+                <Route path="/clinics" component={DisplayClinics} />
+                <Route path="/clinic/:clinicId" component={ClinicInfo} />
+
+                <Route path="/events/new/" component={CreateEventForm} />
+                <Route path="/sponsor/new" component={CreateSponsorForm} />
+                <Route path="/volunteer/new/" component={CreateVolunteerForm} />
+                <Route path="/volunteer/:userId/info/" component={VolunteerInfo} />
+
+                <Route
+                  path="/volunteer/profile/"
+                  component={DisplayVolunteerProfile}
+                />
+              </Switch>
+            </Router>
+          </UserContext.Provider>
+        </Auth0Provider>
+      </Provider>
+    </ApolloProvider>
+  )
+}
+
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Provider store={store}>
-      <Auth0Provider
-        domain={config.domain}
-        client_id={config.clientId}
-        redirect_uri="http://localhost:3000/loggedin/"
-        onRedirectCallback={onRedirectCallback}
-      >
-        <Router>
-          <NavParent />
-          <SocialMedia props={socialMediaUrl} />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about/" component={AboutUs} />
-            <Route path="/loggedin/" component={Application} />
-            <Route path="/admin/volunteer/" component={AdminVol} />
-
-            <Route path="/partners" component={DisplayPartners} />
-            <Route path="/sponsors" component={DisplaySponsors} />
-            <Route path="/volunteers" component={DisplayVolunteers} />
-            <Route path="/clinics" component={DisplayClinics} />
-            <Route path="/clinic/:clinicId" component={ClinicInfo} />
-
-            <Route path="/events/new/" component={CreateEventForm} />
-            <Route path="/sponsor/new" component={CreateSponsorForm} />
-            <Route path="/volunteer/new/" component={CreateVolunteerForm} />
-            <Route path="/volunteer/:userId/info/" component={VolunteerInfo} />
-
-            <Route
-              path="/volunteer/profile/"
-              component={DisplayVolunteerProfile}
-            />
-          </Switch>
-        </Router>
-      </Auth0Provider>
-    </Provider>
-  </ApolloProvider>,
+  <Root />,
   document.getElementById("root")
 );
 
