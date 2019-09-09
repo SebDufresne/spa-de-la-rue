@@ -8,6 +8,7 @@ import { ActivePartner } from "../partners/types";
 import { ActiveVolunteer } from "../volunteers/types";
 import DatePicker from "react-datepicker";
 import { Modal, Button } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 import useHookData from "hooks/useFormData";
 import moment from "moment";
@@ -126,8 +127,13 @@ export default function CreateEventForm(this: any) {
   } = useHookData();
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [toList, setToList] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleShow = () => {
+    setShow(true);
+  };
 
   // const [addEvent] = useMutation(ADD_EVENT, {
   //   variables: state });
@@ -144,6 +150,14 @@ export default function CreateEventForm(this: any) {
 
   if (error) {
     return <p>{error.message}</p>;
+  }
+
+  if (toList) {
+    return (
+      <React.Fragment>
+        <Redirect to="/clinics" />
+      </React.Fragment>
+    );
   }
 
   if (data) {
@@ -301,7 +315,6 @@ export default function CreateEventForm(this: any) {
                 selected={dateFix(state.end_date)}
                 onChange={e => {
                   if (e) {
-                    setDayOfWeek(e.getDay());
                     setEndDate(moment(e).format("YYYY-MM-DD"));
                   }
                 }}
@@ -341,8 +354,10 @@ export default function CreateEventForm(this: any) {
                   <Button
                     variant="primary"
                     onClick={() => {
+                      console.log('confirm')
                       addEvent({ variables: state });
                       handleClose();
+                      setToList(true);
                     }}
                   >
                     Confirm

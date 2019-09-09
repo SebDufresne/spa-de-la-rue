@@ -93,6 +93,9 @@ export default function CreateVolunteerForm() {
 
   return (
     <div className="container">
+      <h3 className="text-center">
+        We need some extra information for your sign up.
+      </h3>
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <SmallInput
@@ -143,8 +146,8 @@ export default function CreateVolunteerForm() {
             legend="Gender"
             options={["M", "F", "O"]}
             getValue={(e: any) => {
-              setFirst_name(first_name||user.given_name);
-              setLast_name(last_name||user.family_name);
+              setFirst_name(first_name || user.given_name);
+              setLast_name(last_name || user.family_name);
               setContact_email(user.email);
               setGender(e.target.value);
             }}
