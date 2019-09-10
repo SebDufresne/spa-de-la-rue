@@ -86,7 +86,7 @@ export default function ClinicInfo(props: any) {
         <h1>Clinic #{clinic_id}</h1>
         <div className="d-flex justify-content-between my-5">
           <img
-            className="appointment__error-close img-fluid img-thumbnail col-md-6"
+            className="appointment__error-close img-thumbnail col-md-6"
             src={picture_url}
             alt={partner_name}
           />
@@ -94,6 +94,7 @@ export default function ClinicInfo(props: any) {
             
             <h2>{partner_name}</h2>
             <p>{event_description}</p>
+            <p>{address1}, {address2}, {city}, {state}, {zip}</p>
           </div>
         </div>
 

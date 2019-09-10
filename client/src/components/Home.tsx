@@ -79,11 +79,11 @@ export default function Home() {
           </footer>
         </blockquote>
         <div className="container">
-          <h2 className="text-left">
+          <h3 className="text-left mt-5">
             <a href="/volunteers">Our Volunteers</a>
-          </h2>
+          </h3>
           <VolunteerList volunteers={users} />
-          <h2 className="text-left"><a href="/clinics">Events</a></h2>
+          <h3 className="text-left mt-5"><a href="/clinics">Events</a></h3>
           <ClinicList clinic_summary={data.clinic_summary.slice(0,3)} />
         </div>
       </div>

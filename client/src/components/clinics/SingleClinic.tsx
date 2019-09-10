@@ -30,7 +30,7 @@ export default function Clinic(clinics: ClinicSummary) {
       <section className="">
         <a href={pathToClinic}>
           <img
-            className="appointment__error-close img-fluid img-thumbnail"
+            className="appointment__error-close img-thumbnail"
             src={picture_url}
             alt={name}
           />
