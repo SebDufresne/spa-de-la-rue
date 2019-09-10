@@ -1,6 +1,32 @@
 import React from "react";
 import "./Home.scss";
 import VolunteerList from "./volunteers/VolunteerList";
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
+import ClinicList from "./clinics/ClinicList";
+import { ClinicSummary } from "./clinics/types";
+
+interface ClinicList {
+  clinic_summary: ClinicSummary[];
+}
+
+const GET_CLINIC_SUMMARY_LIST = gql`
+  query getClinicSumary {
+    clinic_summary {
+      id
+      picture_url
+      name
+      description
+      color
+      date
+      start_time
+      end_time
+      therapist_needed
+      volunteers_registered
+      free_spots
+    }
+  }
+`;
 
 const users = [
   {
@@ -21,29 +47,51 @@ const users = [
 ];
 
 export default function Home() {
-  return (
-    <div className="text-center">
-      <img
-        className="appointment__error-close img-fluid home-img"
-        src="/images/assets/site_fontPage.png"
-        alt="Spa de la Rue"
-      />
-      <h1>Welcome to Spa de la rue!!</h1>
-      <blockquote className="blockquote">
-        <p className="mb-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          posuere erat a ante.
-        </p>
-        <footer className="blockquote-footer">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </footer>
-      </blockquote>
-      <div className="container">
-        <h2 className="text-left"><a href="/volunteers">Our Volunteers</a></h2>
-        <VolunteerList volunteers={users} />
-        <h2 className="text-left">Events</h2>
-
-      </div>
-    </div>
+  const { loading, error, data } = useQuery<ClinicList>(
+    GET_CLINIC_SUMMARY_LIST,
+    { pollInterval: 500 }
   );
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
+  if (data) {
+    return (
+      <div className="text-center">
+        <img
+          className="appointment__error-close img-fluid home-img"
+          src="/images/assets/site_fontPage.png"
+          alt="Spa de la Rue"
+        />
+        <h1>Welcome to Spa de la rue!!</h1>
+        <blockquote className="blockquote">
+          <p className="mb-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+            posuere erat a ante.
+          </p>
+          <footer className="blockquote-footer">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+          </footer>
+        </blockquote>
+        <div className="container">
+          <h2 className="text-left">
+            <a href="/volunteers">Our Volunteers</a>
+          </h2>
+          <VolunteerList volunteers={users} />
+          <h2 className="text-left"><a href="/clinics">Events</a></h2>
+          <ClinicList clinic_summary={data.clinic_summary.slice(0,3)} />
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="container">
+      Something wrong!
+    </div>
+  )
 }

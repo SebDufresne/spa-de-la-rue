@@ -38,7 +38,7 @@ export default function Clinic(clinics: ClinicSummary) {
 
         {/* <Link to={pathToClinic}>Here</Link> */}
         <div className="text-left">
-          <h4 className="text-center">{name}</h4>
+          <h5 className="text-center">{name}</h5>
           <p>{description}</p>
           <div className="d-flex justify-content-between">
             <strong>
