@@ -68,7 +68,7 @@ export default function Home() {
           src="/images/assets/site_fontPage.png"
           alt="Spa de la Rue"
         />
-        <h1>Welcome to Spa de la rue!!</h1>
+        <h1 className="mt-5">Welcome to Spa de la rue!!</h1>
         <blockquote className="blockquote">
           <p className="mb-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
@@ -79,8 +79,9 @@ export default function Home() {
           </footer>
         </blockquote>
         <div className="container">
-          <h3 className="text-left mt-5"><a href="/clinics">Events</a></h3>
-          <ClinicList clinic_summary={data.clinic_summary.slice(0,3)} />
+          <div className="mt-5">
+            <ClinicList clinic_summary={data.clinic_summary.slice(0, 3)} />
+          </div>
           <h3 className="text-left mt-5">
             <a href="/volunteers">Our Volunteers</a>
           </h3>
@@ -89,9 +90,5 @@ export default function Home() {
       </div>
     );
   }
-  return (
-    <div className="container">
-      Something wrong!
-    </div>
-  )
+  return <div className="container">Something wrong!</div>;
 }

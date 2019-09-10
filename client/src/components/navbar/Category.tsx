@@ -15,18 +15,24 @@ export default function Category(props: propsInfo) {
 
   return (
     <div className="dropdown ">
-      <a className="btn btn-muted" data-toggle="dropdown" href="#">
+      <a
+        className={
+          "btn" + key.includes("Hello") ? " btn-success" : " btn-muted"
+        }
+        data-toggle="dropdown"
+        href="#"
+      >
         {key}
       </a>
       <div className="dropdown-menu">
         <ul>
-        {props[key].map((dropdownMenu, index) => {
-          return (
-            <li key={index} className="dropdown-item btn">
-              <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
-            </li>
-          );
-        })}
+          {props[key].map((dropdownMenu, index) => {
+            return (
+              <li key={index} className="dropdown-item btn">
+                <Link to={dropdownMenu.path}>{dropdownMenu.title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

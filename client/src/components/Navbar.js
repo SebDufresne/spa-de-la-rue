@@ -21,14 +21,14 @@ const GET_VOLUNTEER_PROFILE = gql`
 `;
 
 const volunteerCategory = {
-  "My profile": [
+  "Hello, Volunteer!": [
     { title: "Profile", path: "/volunteer/profile/" },
     { title: "Schedule", path: "/clinics" }
   ]
 };
 
 const adminCategory = {
-  "Admin control": [
+  "Hello, Admin!": [
     { title: "Volunteers", path: "/admin/volunteer/" },
     { title: "Events", path: "/" },
     { title: "Graphs", path: "/" },
@@ -66,7 +66,7 @@ export default function Navbar(props) {
 
   return (
     <React.Fragment>
-      <ul className="btn btn-success">Hello! {user && user.given_name}</ul>
+      {/* <ul className="btn btn-success">Hello! {user && user.given_name}</ul> */}
       {((isAuthenticated && data.user && !data.user.is_admin) ||
         !data.user) && (
         <li>
