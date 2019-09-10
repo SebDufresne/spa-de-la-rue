@@ -93,6 +93,7 @@ export default function ClinicInfo(props: any) {
           <div className="text-left col-md-6">
             
             <h2>{partner_name}</h2>
+            <p>{event_description}</p>
           </div>
         </div>
 

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="text-center">
       <img
-        className="appointment__error-close img-fluid"
+        className="appointment__error-close img-fluid home-image"
         src="/images/assets/site_fontPage.png"
         alt="Spa de la Rue"
       />
