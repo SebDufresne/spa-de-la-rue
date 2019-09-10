@@ -46,6 +46,16 @@ exports.seed = function(knex) {
           google_coords_X: 45.5391864,
           google_coords_Y: -73.5756277
         },
+        {
+          address1: '4373 Esplanade Ave',
+          address2: null,
+          city: 'Montréal',
+          state: 'Québec',
+          zip: 'H2W 1T2',
+          country: 'Canada',
+          google_coords_X: 45.5175487,
+          google_coords_Y: -73.5861956
+        },
       ]);
     }),
   ]);
