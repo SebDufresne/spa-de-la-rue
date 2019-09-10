@@ -70,9 +70,9 @@ export default function Application() {
 
   return (
     <div className="App">
-      {data.user && data.user.is_admin && <h1>Admin logged in</h1>}
+      {data.user && data.user.is_admin && <Redirect to="/" />}
       {data.user && data.user.contact_email && !data.user.is_admin && (
-        <h1>Logged in! </h1>
+        <Redirect to="/" />
       )}
       {!data.user && contact_email && <Redirect to="/volunteer/new/" />}
     </div>
