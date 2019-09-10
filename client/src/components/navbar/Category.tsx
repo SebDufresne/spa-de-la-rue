@@ -17,7 +17,7 @@ export default function Category(props: propsInfo) {
     <div className="dropdown ">
       <a
         className={
-          "btn" + key.includes("Hello") ? " btn-success" : " btn-muted"
+          key.includes("Hello") ? "btn btn-success" : "btn btn-muted"
         }
         data-toggle="dropdown"
         href="#"
