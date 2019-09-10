@@ -17,14 +17,12 @@ const menuItems = [
   },
   {
     News: [
-      { title: "Schedule", path: "/clinics" },
       { title: "Blogs", path: "/" },
       { title: "Events", path: "/clinics/" }
     ]
   },
   {
     "Our Team": [
-      { title: "Administrators", path: "/" },
       { title: "Volunteers", path: "/volunteers" },
       { title: "Partners", path: "/partners" },
       { title: "Sponsors", path: "/sponsors" }

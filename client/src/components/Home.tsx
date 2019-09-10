@@ -32,7 +32,7 @@ const users = [
   {
     first_name: "Gérard",
     last_name: "Piquemal",
-    picture_url: "/images/volunteers/artemis_papert.jpg"
+    picture_url: "/images/volunteers/gerard_piquemal.png"
   },
   {
     first_name: "Artémis",
@@ -79,12 +79,12 @@ export default function Home() {
           </footer>
         </blockquote>
         <div className="container">
+          <h3 className="text-left mt-5"><a href="/clinics">Events</a></h3>
+          <ClinicList clinic_summary={data.clinic_summary.slice(0,3)} />
           <h3 className="text-left mt-5">
             <a href="/volunteers">Our Volunteers</a>
           </h3>
           <VolunteerList volunteers={users} />
-          <h3 className="text-left mt-5"><a href="/clinics">Events</a></h3>
-          <ClinicList clinic_summary={data.clinic_summary.slice(0,3)} />
         </div>
       </div>
     );

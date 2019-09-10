@@ -21,7 +21,10 @@ const GET_VOLUNTEER_PROFILE = gql`
 `;
 
 const volunteerCategory = {
-  "My profile": [{ title: "Profile", path: "/volunteer/profile/" }]
+  "My profile": [
+    { title: "Profile", path: "/volunteer/profile/" },
+    { title: "Schedule", path: "/clinics" }
+  ]
 };
 
 const adminCategory = {
@@ -29,6 +32,7 @@ const adminCategory = {
     { title: "Volunteers", path: "/admin/volunteer/" },
     { title: "Events", path: "/" },
     { title: "Graphs", path: "/" },
+    { title: "Schedule", path: "/clinics" },
     { title: "Create Event", path: "/events/new/" }
   ]
 };
@@ -50,7 +54,7 @@ export default function Navbar(props) {
   const contact_email = (user && user.email) || "";
 
   const { loading, error, data } = useQuery(GET_VOLUNTEER_PROFILE, {
-    variables: { contact_email }, 
+    variables: { contact_email },
     pollInterval: 1000
   });
 
@@ -59,11 +63,12 @@ export default function Navbar(props) {
   }
 
   if (error) return <div>{error.message}</div>;
-  
+
   return (
     <React.Fragment>
       <ul className="btn btn-success">Hello! {user && user.given_name}</ul>
-      {(isAuthenticated && data.user&&!data.user.is_admin ||!data.user) && (
+      {((isAuthenticated && data.user && !data.user.is_admin) ||
+        !data.user) && (
         <li>
           <Category {...volunteerCategory} />
         </li>
