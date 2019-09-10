@@ -16,7 +16,7 @@ exports.seed = function(knex) {
           contact_phone:'15555555555',
           contact_prefered:'email',
           description: faker.lorem,
-          picture_url: '/images/volunteers/artemis_papert.jpg',
+          picture_url: '/images/volunteers/gerard_piquemal.png',
           total_hours: 80,
           status: 'active',
           is_admin: true,
