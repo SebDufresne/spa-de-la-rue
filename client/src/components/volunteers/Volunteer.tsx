@@ -15,7 +15,7 @@ export default function Volunteer(volunteer: VolunteerSummary) {
         alt={full_name}
       />
       <section className="">
-        <h2>{full_name}</h2>
+        <h4>{full_name}</h4>
       </section>
     </main>
   );
