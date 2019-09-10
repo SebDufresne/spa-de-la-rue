@@ -280,7 +280,7 @@ export default function CreateEventForm(this: any) {
                 }
               }}
             />
-            <div className={"my-auto btn " + state.color}>Color example</div>
+            <div className={"react-calendar__tile my-auto btn " + state.color}>Color example</div>
           </div>
 
           <div className="form-row">
