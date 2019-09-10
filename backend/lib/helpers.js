@@ -36,11 +36,11 @@ const generateDateList = (start_date, end_date, frequency, day_of_week) => {
   // console.log('evalDate', evalDate)
   console.log('startDate, endDate: ', startDate, endDate,increment, day_of_week);
   do {
-    console.log('evalDate.getDay', evalDate.getDay())
-    const timeZoneAjust =new Date('2019-09-09');
+    console.log('evalDate.getDay', evalDate.getDay());
+    const timeZoneAjust = new Date('2019-09-09');
     const offset = 1 - timeZoneAjust.getDay();
     console.log('offset: ', offset);
-    if (evalDate.getDay()=== day_of_week) {
+    if (evalDate.getDay() === day_of_week) {
       // console.log('in the if statement')
       dateList.push(formatDate(evalDate));
     }
