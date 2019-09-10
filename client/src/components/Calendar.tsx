@@ -2,6 +2,7 @@ import React from "react";
 import MonthView from "react-calendar";
 import moment from "moment";
 import './Calendar.scss';
+import "../index.scss";
 
 interface scheduleItem {
   dates: string[];

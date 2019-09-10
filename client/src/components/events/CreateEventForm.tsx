@@ -269,13 +269,13 @@ export default function CreateEventForm(this: any) {
               getValue={(e: { target: { value: string } }) => {
                 switch (e.target.value) {
                   case "red":
-                    setColor("bg-danger");
+                    setColor("clinic-color-pink-1");
                     break;
                   case "blue":
-                    setColor("bg-primary");
+                    setColor("clinic-color-blue-1");
                     break;
                   case "green":
-                    setColor("bg-success");
+                    setColor("clinic-color-green-1");
                     break;
                 }
               }}
