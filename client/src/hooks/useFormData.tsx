@@ -24,6 +24,7 @@ import {
 } from '../reducers/forms';
 
 export default function useFormData() {
+  const currentDay = new Date;
 
   // Manages the state
   // Interacts with the reducer
@@ -35,7 +36,7 @@ export default function useFormData() {
     description: '',
     start_date: moment(Date.now()).format('YYYY-MM-DD'),
     end_date: moment(Date.now()).format('YYYY-MM-DD'),
-    day_of_week: 0,
+    day_of_week: currentDay.getDay(),
     frequency: 'weekly',
     start_time: '10:00:00',
     end_time: '12:00:00',
