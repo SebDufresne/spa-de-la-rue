@@ -42,7 +42,7 @@ export default function useFormData() {
     end_time: '12:00:00',
     hours_of_work: 3,
     therapist_needed: 3,
-    color: 'bg-warning',
+    color: 'clinic-color-green-1',
     google_coords_X: null,
     google_coords_Y: null
   });
