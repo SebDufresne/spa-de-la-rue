@@ -1,0 +1,11 @@
+.social-media{
+  position: fixed;
+  margin-top: 15%;
+  margin-left: 5px;
+}
+
+@media(max-width: 768px){
+  .social-media{
+    visibility: hidden;
+  }
+}

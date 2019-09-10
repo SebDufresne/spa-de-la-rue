@@ -63,6 +63,16 @@ export default function Navbar(props) {
   }
 
   if (error) return <div>{error.message}</div>;
+  
+  if (user&&user.given_name) {
+    const dynamKey =  "Hello, "+user.given_name;
+    const volObj ={
+      [dynamKey]: [
+        { title: "Profile", path: "/volunteer/profile/" },
+        { title: "Schedule", path: "/clinics" }
+      ]
+    }
+  }
 
   return (
     <React.Fragment>
@@ -70,7 +80,14 @@ export default function Navbar(props) {
       {((isAuthenticated && data.user && !data.user.is_admin) ||
         !data.user) && (
         <li>
-          <Category {...volunteerCategory} />
+          <Category
+            {...{
+              "Hello, Volunteer!": [
+                { title: "Profile", path: "/volunteer/profile/" },
+                { title: "Schedule", path: "/clinics" }
+              ]
+            }}
+          />
         </li>
       )}
       {isAuthenticated && data && data.user && data.user.is_admin && (
