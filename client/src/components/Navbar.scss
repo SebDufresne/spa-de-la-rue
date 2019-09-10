@@ -11,12 +11,12 @@
     /*Without this, clicking will make it sticky*/
     pointer-events: none;
   }
-}
 
-.big-nav {
   position: fixed;
   width: 100%;
+  z-index: 9999;
 }
+
 
 // #root{
 //   display: flex;

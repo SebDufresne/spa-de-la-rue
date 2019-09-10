@@ -1,6 +1,6 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-import "./SocialMedia.scss";
+import "styles/socialMedia.scss";
 
 interface propsType {
   [key: string]: string[];

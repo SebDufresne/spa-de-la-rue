@@ -16,6 +16,7 @@ import DisplayVolunteers from "components/volunteers/DisplayVolunteers";
 import DisplayVolunteerProfile from "components/profile/DisplayVolunteerProfile";
 import ClinicInfo from "components/clinics/ClinicInfo";
 import VolunteerInfo from "components/volunteers/VolunteerInfo";
+import NavPlaceholder from "components/NavPlaceholder";
 
 import SocialMedia from "components/SocialMedia";
 import * as serviceWorker from "serviceWorker";
@@ -72,6 +73,7 @@ ReactDOM.render(
       >
         <Router>
           <NavParent />
+          <NavPlaceholder />
           <SocialMedia props={socialMediaUrl} />
           <Switch>
             <Route exact path="/" component={Home} />
