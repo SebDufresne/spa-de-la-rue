@@ -2,3 +2,9 @@
   position: fixed;
   margin-top: 25%;
 }
+
+@media(max-width: 768px){
+  .social-media{
+    visibility: hidden;
+  }
+}
