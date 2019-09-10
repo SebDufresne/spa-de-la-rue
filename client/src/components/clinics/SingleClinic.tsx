@@ -18,6 +18,7 @@ export default function Clinic(clinics: ClinicSummary) {
     end_time,
     free_spots,
     therapist_needed,
+    color,
     volunteers_registered
   } = clinics;
 
@@ -30,7 +31,7 @@ export default function Clinic(clinics: ClinicSummary) {
       <section className="">
         <a href={pathToClinic}>
           <img
-            className="appointment__error-close img-thumbnail"
+            className={"appointment__error-close img-thumbnail " + color}
             src={picture_url}
             alt={name}
           />
