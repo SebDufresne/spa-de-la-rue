@@ -58,7 +58,7 @@ exports.seed = function(knex) {
           contact_phone:'15555555555',
           contact_prefered:'phone',
           description: faker.lorem,
-          picture_url: '/images/volunteers/seb.png',
+          picture_url: '/images/volunteers/sebastien_dufresne.png',
           total_hours: 10,
           status: 'active',
           is_admin: false,
