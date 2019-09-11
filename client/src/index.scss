@@ -13,6 +13,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Alegreya Sans", sans-serif;
+  background-color: rgb(253, 255, 247) !important;
+}
+
+.img-thumbnail:hover {
+  box-shadow: 5px 5px 5px rgb(168, 168, 168);
 }
 
 code {
@@ -21,7 +27,7 @@ code {
 }
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 

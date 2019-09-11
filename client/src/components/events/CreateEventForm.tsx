@@ -9,6 +9,7 @@ import { ActiveVolunteer } from "../volunteers/types";
 import DatePicker from "react-datepicker";
 import { Modal, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
+import "styles/createEventForm.scss";
 
 import useHookData from "hooks/useFormData";
 import moment from "moment";
@@ -164,7 +165,7 @@ export default function CreateEventForm(this: any) {
     console.log(state);
     return (
       <div className="container">
-        <h3 className="text-center">Create an Event</h3>
+        <h3 className="text-center mt-5">Create an Event</h3>
         <form onSubmit={event => event.preventDefault()}>
           <div className="form-row">
             <div className="form-group col-md-12">
@@ -342,7 +343,7 @@ export default function CreateEventForm(this: any) {
                 Create Event
               </Button>
 
-              <Modal show={show} onHide={handleClose}>
+              <Modal className="confirm-modal" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>Create Event</Modal.Title>
                 </Modal.Header>
@@ -354,7 +355,6 @@ export default function CreateEventForm(this: any) {
                   <Button
                     variant="primary"
                     onClick={() => {
-                      console.log('confirm')
                       addEvent({ variables: state });
                       handleClose();
                       setToList(true);
