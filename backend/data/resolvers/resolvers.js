@@ -74,6 +74,7 @@ const resolvers = {
         .then(([event]) => insertClinics(event));
     },
     addUser: (root, args) => {
+      console.log("Creating user");
       return db
         .knex("users")
         .insert({
@@ -92,6 +93,7 @@ const resolvers = {
         })
         .returning("id")
         .then(id => {
+          console.log("I was created");
           let mailOptions = {
             from: "spiritxhx@gmail.com",
             to: process.env.ADMIN_EMAIL,
