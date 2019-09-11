@@ -1,6 +1,8 @@
 import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import { trimTime } from "helpers/helpers";
+import moment from "moment";
 
 import { MapComponent } from "components/GoogleMaps";
 
@@ -81,20 +83,35 @@ export default function ClinicInfo(props: any) {
       google_coords_X,
       google_coords_Y
     };
+    const formattedDate = new Date(parseInt(date));
     return (
       <div className="container text-center my-5 Volunteers">
         <h1>Clinic #{clinic_id}</h1>
         <div className="d-flex justify-content-between my-5">
           <img
-            className="appointment__error-close img-thumbnail col-md-6"
+            className="appointment__error-close col-md-6"
             src={picture_url}
             alt={partner_name}
           />
           <div className="text-left col-md-6">
-            
             <h2>{partner_name}</h2>
             <p>{event_description}</p>
-            <p>{address1}, {address2}, {city}, {state}, {zip}</p>
+
+            <div className="d-flex justify-content-between">
+              <strong>
+                <p className="text-left">
+                  {moment(formattedDate).format("MMMM D")}
+                </p>
+              </strong>
+              <strong>
+                <p className="text-right">
+                  {trimTime(start_time)} - {trimTime(end_time)}
+                </p>
+              </strong>
+            </div>
+            <p>
+              {address1}, {address2}, {city}, {state}, {zip}
+            </p>
           </div>
         </div>
 
