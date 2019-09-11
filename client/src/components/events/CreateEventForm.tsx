@@ -165,7 +165,7 @@ export default function CreateEventForm(this: any) {
     console.log(state);
     return (
       <div className="container">
-        <h3 className="text-center">Create an Event</h3>
+        <h3 className="text-center mt-5">Create an Event</h3>
         <form onSubmit={event => event.preventDefault()}>
           <div className="form-row">
             <div className="form-group col-md-12">
@@ -355,7 +355,6 @@ export default function CreateEventForm(this: any) {
                   <Button
                     variant="primary"
                     onClick={() => {
-                      console.log('confirm')
                       addEvent({ variables: state });
                       handleClose();
                       setToList(true);
