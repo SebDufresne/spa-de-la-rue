@@ -94,9 +94,9 @@ const resolvers = {
         .then(id => {
           let mailOptions = {
             from: "spiritxhx@gmail.com",
-            to: args.contact_email,
+            to: process.env.ADMIN_EMAIL,
             subject: "New Volunteer registered!",
-            text: `${args.first_name} ${args.last_name} has signed up for a volunteer! \n \nHis(Her) reason to apply: ${args.description}\nHe(She) prefers to be contacted by ${args.contact_prefered}. `
+            text: `${args.first_name} ${args.last_name} has signed up for a volunteer! \n \nHis(Her) reason to apply: ${args.description}\nHe(She) prefers to be contacted by ${args.contact_prefered}.\n Phone number: ${args.contact_phone} `
           };
           smtpTransport.sendMail(mailOptions, (err, res) => {
             if (err) {
