@@ -9,6 +9,7 @@ import { ActiveVolunteer } from "../volunteers/types";
 import DatePicker from "react-datepicker";
 import { Modal, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
+import "styles/createEventForm.scss";
 
 import useHookData from "hooks/useFormData";
 import moment from "moment";
@@ -342,7 +343,7 @@ export default function CreateEventForm(this: any) {
                 Create Event
               </Button>
 
-              <Modal show={show} onHide={handleClose}>
+              <Modal className="confirm-modal" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>Create Event</Modal.Title>
                 </Modal.Header>
