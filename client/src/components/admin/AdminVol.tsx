@@ -28,6 +28,7 @@ export default function AdminVolunteer() {
 
   return (
     <div className="container">
+      <h2 className="my-3">Volunteer List</h2>
       <Table striped bordered hover>
         <thead>
           <tr>

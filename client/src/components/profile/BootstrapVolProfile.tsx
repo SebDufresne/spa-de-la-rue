@@ -97,6 +97,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
         </React.Fragment>
       ) : (
         <React.Fragment>
+          <h2 className="text-center my-5">My profile</h2>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Row>
               <Form.Group as={Col} md="6" controlId="validation1">
