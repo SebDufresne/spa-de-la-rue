@@ -92,10 +92,10 @@ export default function BootstrapVolProfile(props: profileInfo) {
       {data.user.status === "new" ? (
         <React.Fragment>
           <h3 className="text-center mt-5">
-            Your application is in process...
+            Nous sommes à réviser votre dossier...
           </h3>
           <h3 className="text-center mt-3">
-            Please wait our administrator to contact you
+            Une personne responsable du recrutement vous contactera sous peu.
           </h3>
         </React.Fragment>
       ) : (
@@ -104,7 +104,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Row>
               <Form.Group as={Col} md="6" controlId="validation1">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label>Prénom</Form.Label>
                 <Form.Control
                   required
                   type="text"
@@ -119,11 +119,11 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   }}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Please provide a valid first name
+                  Veuillez entrer un prénom valide
                 </Form.Control.Feedback>
               </Form.Group>
               <Form.Group as={Col} md="6" controlId="validation2">
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label>Nom de famille</Form.Label>
                 <Form.Control
                   required
                   type="text"
@@ -138,13 +138,13 @@ export default function BootstrapVolProfile(props: profileInfo) {
                   }}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Please provide a valid last name
+                  Veuillez entrer un nom de famille valide
                 </Form.Control.Feedback>
               </Form.Group>
             </Form.Row>
             <Form.Row>
               <Form.Group as={Col} md="12" controlId="validation3">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Courriel</Form.Label>
                 <Form.Control
                   readOnly
                   type="text"
@@ -156,7 +156,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
             </Form.Row>
             <Form.Row>
               <Form.Group as={Col} md="6" controlId="validation4">
-                <Form.Label>Phone number</Form.Label>
+                <Form.Label>Numéro de téléphone</Form.Label>
                 <Form.Control
                   required
                   type="text"
@@ -170,7 +170,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
                     setDisable(false);
                   }}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback>Merci!</Form.Control.Feedback>
               </Form.Group>
             </Form.Row>
             <Form.Row>
@@ -191,7 +191,7 @@ export default function BootstrapVolProfile(props: profileInfo) {
               </Form.Group>
             </Form.Row>
             <Button disabled={disable} type="submit">
-              Save Change
+              Sauvegarder les informations
             </Button>
           </Form>
         </React.Fragment>

@@ -51,16 +51,16 @@ export default function DisplayClinics() {
     console.log(datesByCalss);
     return (
       <div className="container text-center my-5 Partners">
-        <h2>Calendar</h2>
+        <h2>Calendrier</h2>
         <Calendar schedule={datesByCalss} />
-        <h3 className="mb-5">Upcoming events</h3>
+        <h3 className="mb-5">Cliniques à venir</h3>
         <ClinicList clinic_summary={data.clinic_summary} />
       </div>
     );
   }
   return (
     <section>
-      <p>We don't have any partners at the moment</p>
+      <p>La liste de cliniques est vide, pour le moment</p>
     </section>
   );
 }

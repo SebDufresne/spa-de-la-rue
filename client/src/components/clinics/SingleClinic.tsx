@@ -55,7 +55,7 @@ export default function Clinic(clinics: ClinicSummary) {
           </div>
           <div className="d-flex justify-content-between">
             <p className="text-left">Total: {therapist_needed}</p>
-            <p className="text-right">Left: {free_spots}</p>
+            <p className="text-right">Places disponibles: {free_spots}</p>
           </div>
         </div>
       </section>

@@ -169,7 +169,7 @@ export default function CreateEventForm(this: any) {
         <form onSubmit={event => event.preventDefault()}>
           <div className="form-row">
             <div className="form-group col-md-12">
-              <label>Partner Name: </label>
+              <label>Nom du partenaire: </label>
               <select
                 value={state.partner_id}
                 className="form-control"
@@ -188,7 +188,7 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <div className="form-group col-md-12">
-              <label>Event Name: </label>
+              <label>Nom de l'évènement: </label>
               <input
                 name="name"
                 className="form-control "
@@ -225,7 +225,7 @@ export default function CreateEventForm(this: any) {
               }}
             />
             <div className="form-group col-md-6">
-              <label>Administrator Name: </label>
+              <label>Nom du gestionnaire: </label>
               <select
                 value={state.administrator_id}
                 onChange={e => {
@@ -243,7 +243,7 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row mt-3">
             <div className="form-group col-md-6">
-              <label>Hours Of Volunteering: </label>
+              <label>Heures reconnues: </label>
               <input
                 type="number"
                 name="hours_of_work"
@@ -253,7 +253,7 @@ export default function CreateEventForm(this: any) {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>Numbers of Therapist: </label>
+              <label>Nombre de thérapeutes: </label>
               <input
                 type="number"
                 name="therapist_needed"
@@ -265,23 +265,23 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <ChooseRadio
-              legend="choose a color for the event: "
-              options={["red", "blue", "green"]}
+              legend="Choisissez une couleur: "
+              options={["rouge", "bleu", "vert"]}
               getValue={(e: { target: { value: string } }) => {
                 switch (e.target.value) {
-                  case "red":
+                  case "rouge":
                     setColor("clinic-color-pink-1");
                     break;
-                  case "blue":
+                  case "bleu":
                     setColor("clinic-color-blue-1");
                     break;
-                  case "green":
+                  case "vert":
                     setColor("clinic-color-green-1");
                     break;
                 }
               }}
             />
-            <div className={"react-calendar__tile my-auto btn " + state.color}>Color example</div>
+            <div className={"react-calendar__tile my-auto btn " + state.color}>Exemple de couleur</div>
           </div>
 
           <div className="form-row">
@@ -297,7 +297,7 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Start Date: </label>
+              <label>Date de début: </label>
               <DatePicker
                 inline
                 selected={dateFix(state.start_date)}
@@ -310,7 +310,7 @@ export default function CreateEventForm(this: any) {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>End Date: </label>
+              <label>Date de fin: </label>
               <DatePicker
                 inline
                 selected={dateFix(state.end_date)}
@@ -324,15 +324,15 @@ export default function CreateEventForm(this: any) {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Frequency?</label>
+              <label>Fréquence?</label>
               <select
                 value={state.frequency}
                 onChange={e => setFrequency(e.target.value)}
               >
-                <option value="once">once</option>
-                <option value="weekly">weekly</option>
-                <option value="bi-weekly">bi-weekly</option>
-                <option value="monthly">monthly</option>
+                <option value="once">unique</option>
+                <option value="weekly">hebdomadaire</option>
+                <option value="bi-weekly">deux semaines</option>
+                <option value="monthly">mensuel</option>
               </select>
             </div>
             <div className="form-group col-md-6">
@@ -340,17 +340,17 @@ export default function CreateEventForm(this: any) {
                 Create Event
               </button> */}
               <Button variant="primary" onClick={handleShow}>
-                Create Event
+                Créer un Évènement
               </Button>
 
               <Modal className="confirm-modal" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>Create Event</Modal.Title>
+                  <Modal.Title>Créer un Évènement</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Are you sure to create this event?</Modal.Body>
+                <Modal.Body>Êtes-vous certain de vouloir créer cet évènement?</Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
-                    Close
+                    Fermer
                   </Button>
                   <Button
                     variant="primary"
@@ -360,7 +360,7 @@ export default function CreateEventForm(this: any) {
                       setToList(true);
                     }}
                   >
-                    Confirm
+                    Confirmer
                   </Button>
                 </Modal.Footer>
               </Modal>

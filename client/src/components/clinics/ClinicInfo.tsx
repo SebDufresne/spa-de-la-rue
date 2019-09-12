@@ -86,7 +86,7 @@ export default function ClinicInfo(props: any) {
     const formattedDate = new Date(parseInt(date));
     return (
       <div className="container text-center my-5 Volunteers">
-        <h1>Clinic #{clinic_id}</h1>
+        <h1>Clinique #{clinic_id}</h1>
         <div className="d-flex justify-content-between my-5">
           <img
             className="appointment__error-close col-md-6"
@@ -121,7 +121,7 @@ export default function ClinicInfo(props: any) {
   }
   return (
     <section>
-      <p>We don't have any volunteers at the moment</p>
+      <p>La liste de cliniques est vide, pour le moment</p>
     </section>
   );
 }

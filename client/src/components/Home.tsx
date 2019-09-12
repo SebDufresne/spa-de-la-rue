@@ -68,14 +68,13 @@ export default function Home() {
           src="/images/assets/site_fontPage.png"
           alt="Spa de la Rue"
         />
-        <h1 className="mt-5">Welcome to Spa de la rue!!</h1>
+        <h1 className="mt-5">Bienvenue au Spa de la Rue...</h1>
         <blockquote className="blockquote">
           <p className="mb-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            posuere erat a ante.
+            Le Spa de la Rue m'a donné un sens de dignité qui m’est trop souvent enlevé dans mes interactions quotidiennes.
           </p>
           <footer className="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
+            Un client de <cite title="Source Title">L'Accueil Bonneau</cite>
           </footer>
         </blockquote>
         <div className="container">
@@ -83,12 +82,12 @@ export default function Home() {
             <ClinicList clinic_summary={data.clinic_summary.slice(0, 3)} />
           </div>
           <h3 className="text-left mt-5">
-            <a href="/volunteers">Our Volunteers</a>
+            <a href="/volunteers">Nos volontaires</a>
           </h3>
           <VolunteerList volunteers={users} />
         </div>
       </div>
     );
   }
-  return <div className="container">Something wrong!</div>;
+  return <div className="container">Une erreur est survenue</div>;
 }

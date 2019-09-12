@@ -35,7 +35,7 @@ export default function DisplayPartners() {
   if (data) {
     return (
       <div className="container text-center my-5 Partners">
-      <h1>Partners</h1>
+      <h1>Partenaires</h1>
         { 
           <PartnerList partners = {data.partners} />
         }
@@ -44,7 +44,7 @@ export default function DisplayPartners() {
   }
   return (
     <section>
-      <p>We don't have any partners at the moment</p>
+      <p>La liste de partenaires est vide, pour le moment</p>
     </section>
   );
 }

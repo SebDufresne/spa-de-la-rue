@@ -35,7 +35,7 @@ export default function DisplayVolunteers() {
   if (data) {
     return (
       <div className="container text-center my-5 Volunteers">
-        <h1>Volunteers</h1>
+        <h1>Volontaires</h1>
         <div className="row">
           <VolunteerList volunteers={data.users} />
         </div>
@@ -44,7 +44,7 @@ export default function DisplayVolunteers() {
   }
   return (
     <section>
-      <p>We don't have any volunteers at the moment</p>
+      <p>La liste des volontaires est vide, pour le moment</p>
     </section>
   );
 }

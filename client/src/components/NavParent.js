@@ -8,7 +8,7 @@ const logo_url = "/images/assets/logo_fr.png";
 
 const menuItems = [
   {
-    "About Us": [
+    "À Propos": [
       { title: "Vision, Mission, Valeurs", path: "/" },
       { title: "Mot du Président, Directeur Général", path: "/" },
       { title: "Membres du CA", path: "/" },
@@ -16,30 +16,30 @@ const menuItems = [
     ]
   },
   {
-    News: [
+    "Nouvelles": [
       { title: "Blogs", path: "/" },
-      { title: "Events", path: "/clinics/" }
+      { title: "Évènements", path: "/clinics/" }
     ]
   },
   {
-    "Our Team": [
-      { title: "Volunteers", path: "/volunteers" },
-      { title: "Partners", path: "/partners" },
-      { title: "Sponsors", path: "/sponsors" }
+    "Notre Équipe": [
+      { title: "Volontaires", path: "/volunteers" },
+      { title: "Partenaires", path: "/partners" },
+      { title: "Commanditaires", path: "/sponsors" }
     ]
   },
   {
-    Press: [
-      { title: "Pictures", path: "/" },
-      { title: "Videos", path: "/" },
-      { title: "Meet Us", path: "/" }
+    "Presse": [
+      { title: "Photos", path: "/" },
+      { title: "Vidéos", path: "/" },
+      { title: "Rencontrez-nous", path: "/" }
     ]
   },
   {
-    "Support Us": [
-      { title: "Donate", path: "/" },
-      { title: "Become a Partner", path: "/" },
-      { title: "Become a Sponsor", path: "/sponsor/new/" }
+    "Contribuez": [
+      { title: "Donation", path: "/" },
+      { title: "Futur partenaire", path: "/" },
+      { title: "Futur commanditaire", path: "/sponsor/new/" }
     ]
   }
 ];
