@@ -5,12 +5,11 @@ import { withInfo } from '@storybook/addon-info';
 
 function loadStories() {
   require('../stories/volunteerForm');
-  require('../stories/button.tsx');
   require('../stories/profile');
 
   require('../stories/partner');
   require('../stories/sponsor');
-  require('../stories/volunteer');
+  // require('../stories/volunteer');
   require('../stories/clinic');
 
   require('../stories/schedule');
