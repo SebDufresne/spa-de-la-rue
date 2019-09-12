@@ -27,7 +27,7 @@ export default function Clinic(clinics: ClinicSummary) {
   const pathToClinic = `/clinic/${id}`;
 
   return (
-    <main className="appointment__card appointment__card--error col-10 mx-auto col-md-6 col-lg-4 my3">
+    <main className="appointment__card appointment__card--error col-sm-10 col-md-6 col-lg-4 my3">
       <section className="">
         <a href={pathToClinic}>
           <img
@@ -40,7 +40,7 @@ export default function Clinic(clinics: ClinicSummary) {
         {/* <Link to={pathToClinic}>Here</Link> */}
         <div className="text-left">
           <h5 className="text-center">{name}</h5>
-          <p>{description}</p>
+          <p className="test-left">{description}</p>
           <div className="d-flex justify-content-between">
             <strong>
               <p className="text-left">
