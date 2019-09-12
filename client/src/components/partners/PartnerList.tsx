@@ -31,8 +31,8 @@ export default function PartnerList({partners}: PropTypes) {
   }
   return (
     <section>
-      <h4>Partners</h4>
-      <p>We don't have any partners at the moment</p>
+      <h4>Partenaires</h4>
+      <p>La liste de partenaires est vide, pour le moment</p>
     </section>
   );
 }

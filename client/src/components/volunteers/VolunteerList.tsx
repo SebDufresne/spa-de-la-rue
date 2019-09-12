@@ -31,7 +31,7 @@ export default function VolunteerList({volunteers}: propsType) {
   }
   return (
     <section>
-      <p>We don't have any volunteers at the moment</p>
+      <p>La liste des volontaires est vide, pour le moment</p>
     </section>
   );
 }

@@ -17,7 +17,7 @@ export default function Sponsor(sponsors: SponsorSummary) {
           rel="noopener noreferrer"
           className="btn btn-primary"
         >
-          Follow them
+          Visitez leur site
         </a>
       </section>
     </main>

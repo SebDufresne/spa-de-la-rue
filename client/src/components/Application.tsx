@@ -65,7 +65,7 @@ export default function Application() {
   }
 
   if (error) {
-    return <p>Please wait</p>;
+    return <p>Veuilliez patienter</p>;
   }
 
   return (

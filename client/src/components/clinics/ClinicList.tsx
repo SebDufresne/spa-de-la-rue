@@ -51,7 +51,7 @@ export default function ClinicList({ clinic_summary }: PropTypes) {
   }
   return (
     <section>
-      <p>We don't have any clinics at the moment</p>
+      <p>La liste de cliniques est vide, pour le moment</p>
     </section>
   );
 }

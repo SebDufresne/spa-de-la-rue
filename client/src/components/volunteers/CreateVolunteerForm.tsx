@@ -83,7 +83,7 @@ export default function CreateVolunteerForm() {
   if (loadingAuth || !user) {
     return (
       <div className="container">
-        <div>Waiting for the authentication...</div>
+        <div>Veuillez vous authentifier...</div>
       </div>
     );
   }
@@ -94,7 +94,7 @@ export default function CreateVolunteerForm() {
   return (
     <div className="container">
       <h3 className="text-center mt-3">
-        We need some extra information for your sign up.
+        Davantage d'informations sont requises pour compléter l'enregistrement
       </h3>
       <form onSubmit={handleSubmit}>
         <div className="form-row">

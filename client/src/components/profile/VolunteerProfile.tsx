@@ -75,5 +75,5 @@ export default function VolunteerProfile(props: profileInfo) {
       </React.Fragment>
     );
   }
-  return <h1>Something's wrong!</h1>
+  return <h1>Erreur inattendue</h1>
 }

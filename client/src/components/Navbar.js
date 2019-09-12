@@ -21,19 +21,18 @@ const GET_VOLUNTEER_PROFILE = gql`
 `;
 
 const volunteerCategory = {
-  "Hello, Volunteer!": [
-    { title: "Profile", path: "/volunteer/profile/" },
-    { title: "Schedule", path: "/clinics" }
+  "Bonjour, Volontaire!": [
+    { title: "Profil", path: "/volunteer/profile/" },
+    { title: "Horaire", path: "/clinics" }
   ]
 };
 
 const adminCategory = {
-  "Hello, Admin!": [
-    { title: "Volunteers", path: "/admin/volunteer/" },
-    { title: "Events", path: "/" },
-    { title: "Graphs", path: "/" },
-    { title: "Schedule", path: "/clinics" },
-    { title: "Create Event", path: "/events/new/" }
+  "Bonjour, Administrateur!": [
+    { title: "Bénévoles", path: "/admin/volunteer/" },
+    { title: "Statistiques", path: "/" },
+    { title: "Calendrier", path: "/clinics" },
+    { title: "Créer un évènement", path: "/events/new/" }
   ]
 };
 
@@ -68,8 +67,8 @@ export default function Navbar(props) {
     const dynamKey =  "Hello, "+user.given_name;
     const volObj ={
       [dynamKey]: [
-        { title: "Profile", path: "/volunteer/profile/" },
-        { title: "Schedule", path: "/clinics" }
+        { title: "Profil", path: "/volunteer/profile/" },
+        { title: "Calendrier", path: "/clinics" }
       ]
     }
   }
@@ -82,9 +81,9 @@ export default function Navbar(props) {
         <li>
           <Category
             {...{
-              "Hello, Volunteer!": [
-                { title: "Profile", path: "/volunteer/profile/" },
-                { title: "Schedule", path: "/clinics" }
+              "Bonjour, Volontaire!": [
+                { title: "Profil", path: "/volunteer/profile/" },
+                { title: "Calendrier", path: "/clinics" }
               ]
             }}
           />

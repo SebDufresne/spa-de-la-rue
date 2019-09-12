@@ -46,7 +46,7 @@ export default function DisplaySponsors() {
   }
   return (
     <section>
-      <p>We don't have any sponsors at the moment</p>
+      <p>La liste des commanditaires est vide, pour le moment</p>
     </section>
   );
 }
