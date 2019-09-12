@@ -37,13 +37,4 @@ storiesOf("Profile", module)
       value="By email"
       getValue={action("choosed box")}
     />
-  ))
-  .add("total profile", () => (
-    <VolunteerProfile
-      first_name="bob"
-      last_name="chicken"
-      gender="M"
-      email="bob@me"
-      phone="15555555555"
-    />
   ));
