@@ -93,7 +93,7 @@ export default function CreateVolunteerForm() {
 
   return (
     <div className="container">
-      <h3 className="text-center">
+      <h3 className="text-center mt-3">
         We need some extra information for your sign up.
       </h3>
       <form onSubmit={handleSubmit}>
